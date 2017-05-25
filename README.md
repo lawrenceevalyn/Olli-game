@@ -3,17 +3,27 @@ shh, this game is a surprise!
 
 ## To Do
 
-* figure out how the game will be played
+* figure out how the game will be played online
+* get game engine running
+* write tests for game engine
 * write tests for map
 * get basic map running
 * write tests for inventory
-* implement inventory system
+* get inventory running
 * make it impossible to talk to the robot
 * implement a "good end" and a "bad end"
 * improve the parser (can I kidnap somebody else's code for this?)
 * write fun responses for extra things I think Olli will try
 
 ## Development Log
+
+### May 25 2017
+
+Implemented supply closet with teddy bear in it. I also started implementing the inventory, I think, but I need to figure out the game engine will work before I can be sure that my code as-is is going to be ok.
+
+I copied all my "reference" code into one place for that to be the "real" game, and I am feeling a little intimidated about hacking it all together.
+
+To keep the bedtime story in it, could try to implement it so that the robot still accepts/needs the bedtime story, but can't read it without the teddy bear.
 
 ### May 16 2017
 

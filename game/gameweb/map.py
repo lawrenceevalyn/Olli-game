@@ -23,6 +23,7 @@ exit = Room("Exit", "You have left the library! Congratulations!")
 stacks = Room("Stacks", "You are in the stacks, near the children's literature.")
 lab = Room("ComputerLab", "You are in the computer lab.")
 bathroom = Room("Bathroom", "You are in the bathroom.")
+closet = Room("Supply Closet", "You are in a small supply closet.")
     
 
 # add all the paths between the rooms
@@ -31,8 +32,9 @@ bathroom = Room("Bathroom", "You are in the bathroom.")
 entrance.add_paths({'north': exit, 'south': stacks, 'east': lab, 'west': bathroom})
 exit.add_paths({'south': entrance})
 stacks.add_paths({'north': entrance})
-lab.add_paths({'west': entrance})
+lab.add_paths({'west': entrance, 'north':closet})
 bathroom.add_paths({'east': entrance})
+closet.add_paths({'south':lab})
 
 
 
