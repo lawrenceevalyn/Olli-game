@@ -3,8 +3,7 @@ shh, this game is a surprise!
 
 ## To Do
 
-* figure out how the game will be played online
-* get game engine running
+* get basic game engine running
 * write tests for game engine
 * write tests for map
 * get basic map running
@@ -14,8 +13,19 @@ shh, this game is a surprise!
 * implement a "good end" and a "bad end"
 * improve the parser (can I kidnap somebody else's code for this?)
 * write fun responses for extra things I think Olli will try
+* add lengthier room descriptions for the first time a room is entered
 
 ## Development Log
+
+### May 28 2017
+
+Upsides of running the game in trinket.io: extremely easy; keeps my troubleshhooting focus on writing code instead of making code play nicely with the internet
+
+Downsides of running the game in trinket.io: makes the code as visible as the game (which can be an upside if I put cute comments in it); may not let me use libraries that I need, limiting the game itself
+
+Decision: host the game on trinket.io! only reconsider if there's a library I need and really can't figure out how to work around.
+
+Workflow: get the whole game working in TextWrangler, terminal, etc like usual, then move it to trinket.io at the end.
 
 ### May 25 2017
 
