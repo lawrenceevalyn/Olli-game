@@ -3,7 +3,6 @@ shh, this game is a surprise!
 
 ## To Do
 
-* get basic game engine running
 * write tests for game engine
 * write tests for map
 * get basic map running
@@ -16,6 +15,12 @@ shh, this game is a surprise!
 * add lengthier room descriptions for the first time a room is entered
 
 ## Development Log
+
+### May 29 2017
+
+Deciding not to run the game in the browser made it WAY SUPER EASY to get the game engine running the current version of the game! :D
+
+I am intimidated by not really feeling like I know how to write good tests, but I **want** to get in the habit of writing test-based code (especially since doing so would have saved me **hours** of work on typesToTags.py...) so my next priority is to tackle figuring out how to write tests.
 
 ### May 28 2017
 

@@ -1,7 +1,9 @@
-import map
-import lexicon
-import parser
-import inventory
+# import all the other code I wrote
+
+from map import *
+from parser import *
+from lexicon import *
+from inventory import *
 
 
 # this is what will run the game
