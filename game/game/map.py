@@ -4,9 +4,9 @@ from sys import exit
 
 class Room(object):
 
-    def __init__(self, name, description):
+    def __init__(self, name, shortdesc, longdesc):
         self.name = name
-        self.description = description
+        self.shortdesc = shortdesc
         self.paths = {}
 
     def go(self, direction):

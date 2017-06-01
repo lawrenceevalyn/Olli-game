@@ -15,7 +15,7 @@ class GameEngine(object):
     
     def play(self):
         while self.current_room != exit:
-            print self.current_room.description
+            print self.current_room.shortdesc
         
             player_input = raw_input("> ")
             
@@ -31,7 +31,7 @@ class GameEngine(object):
                     print self.next_room.name
                     self.current_room = self.next_room
         
-        print self.current_room.description
+        print self.current_room.shortdesc
 
 
 # let's run the game now!

@@ -20,6 +20,7 @@ descriptions = {
     'lint' : "There is lint.",
     'library card' : "There is a library card with a studious photograph of yourself.",
     'teddy bear' : "There is a small toy, kind of like a bear."
+    'closet door' : "There is a door to a small supply closet."
     }
 
     
