@@ -16,6 +16,10 @@ shh, this game is a surprise!
 
 ## Development Log
 
+### June 16 2017
+
+Are there any extra features I want to implement just to learn new Python skills? I've gotten better at writing programs to do basic file management so this has started to feel less urgent for skill-building. I suppose the answer is "rigorous testing", really...
+
 ### May 29 2017
 
 Deciding not to run the game in the browser made it WAY SUPER EASY to get the game engine running the current version of the game! :D
