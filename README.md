@@ -3,6 +3,7 @@ shh, this game is a surprise!
 
 ## To Do
 
+* write comments explaining game engine
 * write tests for game engine
 * write tests for map
 * get basic map running
@@ -15,6 +16,10 @@ shh, this game is a surprise!
 * add lengthier room descriptions for the first time a room is entered
 
 ## Development Log
+
+### June 17 2017
+
+CAN I actually write tests for the game engine, if it doesn't "return" anything???? I don't feel like I understand how it works, and I think maybe I should refactor it until I do...
 
 ### June 16 2017
 
