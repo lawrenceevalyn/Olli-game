@@ -3,8 +3,6 @@ shh, this game is a surprise!
 
 ## To Do
 
-* write comments explaining game engine
-* write tests for game engine
 * write tests for map
 * get basic map running
 * write tests for inventory

@@ -27,7 +27,7 @@ class GameEngine(object):
                 print "Goodbye"
                 self.current_room = exit
             
-            #player can go to different rooms
+            # player can go to different rooms
             elif player_input == 'north' or 'south' or 'east' or 'west' :
                 if self.current_room.go(player_input) == None:
                     print "You can't go that way."
@@ -35,11 +35,10 @@ class GameEngine(object):
                     self.next_room = self.current_room.go(player_input)
                     print self.next_room.name
                     self.current_room = self.next_room
+                    
+            # player can look at things in the room
             
             # player can pick up / put down items
-        
-        print self.current_room.shortdesc
-
 
 # let's run the game now!
 

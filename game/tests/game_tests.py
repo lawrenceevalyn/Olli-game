@@ -4,6 +4,7 @@ from gameweb import lexicon
 
 def test_engine():
 # test that N, S, E, W correctly move the player to the next room
+assert_equal( , )
 # test that if there's no room it says "You can't go that way."
 
 def text_inputs():
