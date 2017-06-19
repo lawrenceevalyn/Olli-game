@@ -17,6 +17,12 @@ shh, this game is a surprise!
 
 ## Development Log
 
+### June 18 2017
+
+Commented game engine code -- couldn't think of a way to refactor it to be better.
+
+Should the game engine be calling functions that I define elsewhere, when it comes to the variety of actions that players can take within a given room?
+
 ### June 17 2017
 
 CAN I actually write tests for the game engine, if it doesn't "return" anything???? I don't feel like I understand how it works, and I think maybe I should refactor it until I do...
