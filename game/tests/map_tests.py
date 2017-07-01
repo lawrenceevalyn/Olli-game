@@ -3,25 +3,26 @@ from game.map import *
 
 
 def test_room():
-    gold = Room("GoldRoom",
-                """This room has gold in it you can grab. There's a
-                door to the north.""")
+    gold = Room("GoldRoom", "shortdesc",
+                "This room has gold in it you can grab.")
     assert_equal(gold.name, "GoldRoom")
+    assert_equal(gold.shortdesc, "shortdesc")
+    assert_equal(gold.longdesc, "This room has gold in it you can grab.")
     assert_equal(gold.paths, {})
 
 def test_room_paths():
-    center = Room("Center", "Test room in the center.")
-    north = Room("North", "Test room in the north.")
-    south = Room("South", "Test room in the south.")
+    center = Room("Center", "shortdesc", "Test room in the center.")
+    north = Room("North", "shortdesc", "Test room in the north.")
+    south = Room("South", "shortdesc", "Test room in the south.")
 
     center.add_paths({'north': north, 'south': south})
     assert_equal(center.go('north'), north)
     assert_equal(center.go('south'), south)
 
 def test_map():
-    start = Room("Start", "You can go west and down a hole.")
-    west = Room("Trees", "There are trees here, you can go east.")
-    down = Room("Dungeon", "It's dark down here, you can go up.")
+    start = Room("Start", "shortdesc", "You can go west and down a hole.")
+    west = Room("Trees", "shortdesc", "There are trees here, you can go east.")
+    down = Room("Dungeon", "shortdesc", "It's dark down here, you can go up.")
 
     start.add_paths({'west': west, 'down': down})
     west.add_paths({'east': start})
@@ -31,7 +32,7 @@ def test_map():
     assert_equal(start.go('west').go('east'), start)
     assert_equal(start.go('down').go('up'), start)
 
-def test_library_game_map():
+def test_game_paths():
     assert_equal(entrance.go('north'), exit)
     assert_equal(entrance.go('south'), stacks)
     assert_equal(entrance.go('east'), lab)

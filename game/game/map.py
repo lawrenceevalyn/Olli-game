@@ -4,9 +4,10 @@ from sys import exit
 
 class Room(object):
 
-    def __init__(self, name, shortdesc): # later implement longdesc
-        self.name = name                 # for first room entry?
+    def __init__(self, name, shortdesc, longdesc):
+        self.name = name
         self.shortdesc = shortdesc
+        self.longdesc = longdesc
         self.paths = {}
 
     def go(self, direction):
@@ -18,12 +19,12 @@ class Room(object):
 
 # create all the rooms
 
-entrance = Room("Entrance", "You are at the front desk.")
-exit = Room("Exit", "You have left the library! Congratulations!")
-stacks = Room("Stacks", "You are in the stacks, near the children's literature.")
-lab = Room("ComputerLab", "You are in the computer lab.")
-bathroom = Room("Bathroom", "You are in the bathroom.")
-closet = Room("Supply Closet", "You are in a small supply closet.")
+entrance = Room("Entrance", "You are at the front desk.", "Longer description appears on when you've just entered the room.")
+exit = Room("Exit", "You have left the library!", "Congratulations!")
+stacks = Room("Stacks", "You are in the stacks, near the children's literature.", "Longer description appears on when you've just entered the room.")
+lab = Room("ComputerLab", "You are in the computer lab.", "Longer description appears on when you've just entered the room.")
+bathroom = Room("Bathroom", "You are in the bathroom.", "Longer description appears on when you've just entered the room.")
+closet = Room("Supply Closet", "You are in a small supply closet.", "Longer description appears on when you've just entered the room.")
     
 
 # add all the paths between the rooms
