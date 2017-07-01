@@ -3,10 +3,9 @@ shh, this game is a surprise!
 
 ## To Do
 
-* write tests for map
-* get basic map running
+* make sure map passes tests
 * write tests for inventory
-* get inventory running
+* make sure inventory passes tests
 * make it impossible to talk to the robot
 * implement a "good end" and a "bad end"
 * improve the parser (can I kidnap somebody else's code for this?)
@@ -14,6 +13,10 @@ shh, this game is a surprise!
 * add lengthier room descriptions for the first time a room is entered
 
 ## Development Log
+
+### July 1 2017
+
+Confirmed that map tests account for current map
 
 ### June 18 2017
 

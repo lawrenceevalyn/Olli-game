@@ -40,6 +40,7 @@ def test_library_game_map():
     assert_equal(entrance.paths, {'north': exit, 'south': stacks, 'east': lab, 'west': bathroom})
     
     assert_equal(exit.paths, {'south': entrance})
-    assert_equal(lab.paths, {'west': entrance})
+    assert_equal(lab.paths, {'west': entrance, 'north':closet})
     assert_equal(stacks.paths, {'north': entrance})
     assert_equal(bathroom.paths, {'east': entrance})
+    assert_equal(closet.paths, {'south':lab})
