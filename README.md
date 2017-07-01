@@ -3,8 +3,6 @@ shh, this game is a surprise!
 
 ## To Do
 
-* write tests for rooms to have longdescs
-* make sure room longdescs pass tests
 * make game engine display longdesc on first entry to room
 * write tests for inventory
 * make sure inventory passes tests
@@ -19,6 +17,8 @@ shh, this game is a surprise!
 ### July 1 2017
 
 Confirmed that map tests account for current map. The map passes all the tests!
+
+Added functionality for rooms to have longer descriptions (intended for first entering/re-entering a room) -- and I actually wrote it test-first, which was very useful for when I, e.g., forgot to actually give the longdesc to the Room as an attribute! A successful test of test-first coding! :D
 
 ### June 18 2017
 
