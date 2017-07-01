@@ -18,7 +18,9 @@ shh, this game is a surprise!
 
 Confirmed that map tests account for current map. The map passes all the tests!
 
-Added functionality for rooms to have longer descriptions (intended for first entering/re-entering a room) -- and I actually wrote it test-first, which was very useful for when I, e.g., forgot to actually give the longdesc to the Room as an attribute! A successful test of test-first coding! :D
+Added functionality for rooms to have longer descriptions -- and I actually wrote it test-first, which was very useful for when I, e.g., forgot to actually give the longdesc to the Room as an attribute! A successful test of test-first coding! :D
+
+At first I thought I'd use the longer descriptions for when the player first enters a room, because I didn't like the way the room descriptions repeated so much and definitely didn't want to put a lot of detail into something shown so often -- but then I found a better way to implement room descriptions in the game engine! So instead, the long descriptions can be for when the player looks at the room!
 
 ### June 18 2017
 

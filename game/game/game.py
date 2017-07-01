@@ -18,8 +18,7 @@ class GameEngine(object):
     def play(self):
         while self.current_room != exit:
             # the basic premise is that the player is always in a room
-            # and always sees the description of that room plus a prompt
-            print self.current_room.shortdesc
+            # and always sees a prompt
             player_input = raw_input("> ")
             
             # the player has a couple options of actions within a room!
@@ -34,15 +33,16 @@ class GameEngine(object):
                 else:
                     self.next_room = self.current_room.go(player_input)
                     print self.next_room.name
+                    print self.next_room.shortdesc
                     self.current_room = self.next_room
-                    # maybe print the room longdesc here?
-                    # since the player just entered?
                     
             # player can look at things in the room
             
             # player can pick up / put down items
 
+a_game = GameEngine(entrance)
+
 # let's run the game now!
 
-a_game = GameEngine(entrance)
+print "Welcome to the game!"
 a_game.play()
