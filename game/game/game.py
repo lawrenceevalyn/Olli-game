@@ -21,11 +21,21 @@ class GameEngine(object):
             # and always sees a prompt
             player_input = raw_input("> ")
             
+            # essentially, this is where I want to pass off the player's input
+            # to the parser; everything after this really belongs in the parser.
+            # parse(player_input)
+            # parser does NOT have to make sure to return anything in particular
+            # because as long as the room is not the exit, the prompt will
+            # always appear for a new input!! :D
+            
             # the player has a couple options of actions within a room!
             if player_input == "Q":
                 print "Goodbye"
                 self.current_room = exit
             
+            elif player_input == "look":
+                print self.current_room.longdesc
+                
             # player can go to different rooms
             elif player_input == 'north' or 'south' or 'east' or 'west' :
                 if self.current_room.go(player_input) == None:

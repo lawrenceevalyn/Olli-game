@@ -3,12 +3,15 @@ shh, this game is a surprise!
 
 ## To Do
 
-* make game engine display longdesc on first entry to room
+* write tests for parser to do simplest commands
+* make sure parser passes tests
+* make game engine "pass" player input to parser
 * write tests for inventory
 * make sure inventory passes tests
 * make it impossible to talk to the robot
 * implement a "good end" and a "bad end"
-* improve the parser (can I kidnap somebody else's code for this?)
+* write tests for parser to do sentences??
+* make sure parser passes new tests??
 * write fun responses for extra things I think Olli will try
 * add lengthier room descriptions for the first time a room is entered
 
@@ -21,6 +24,10 @@ Confirmed that map tests account for current map. The map passes all the tests!
 Added functionality for rooms to have longer descriptions -- and I actually wrote it test-first, which was very useful for when I, e.g., forgot to actually give the longdesc to the Room as an attribute! A successful test of test-first coding! :D
 
 At first I thought I'd use the longer descriptions for when the player first enters a room, because I didn't like the way the room descriptions repeated so much and definitely didn't want to put a lot of detail into something shown so often -- but then I found a better way to implement room descriptions in the game engine! So instead, the long descriptions can be for when the player looks at the room!
+
+This room-looking has been implemented!!
+
+The game engine is getting needlessly bulked up with parsing input, though -- I need to make a very rough parser that will just handle directions and "look" commands, and have the engine pass the player input to that parser. Should be doable!
 
 ### June 18 2017
 
