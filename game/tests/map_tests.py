@@ -1,5 +1,5 @@
 from nose.tools import *
-from gameweb.map import *
+from game.map import *
 
 
 def test_room():
@@ -32,10 +32,10 @@ def test_map():
     assert_equal(start.go('down').go('up'), start)
 
 def test_library_game_map():
-    assert_equal(START.go('north'), exit)
-    assert_equal(START.go('south'), stacks)
-    assert_equal(START.go('east'), lab)
-    assert_equal(START.go('west'), bathroom)
+    assert_equal(entrance.go('north'), exit)
+    assert_equal(entrance.go('south'), stacks)
+    assert_equal(entrance.go('east'), lab)
+    assert_equal(entrance.go('west'), bathroom)
     
     assert_equal(entrance.paths, {'north': exit, 'south': stacks, 'east': lab, 'west': bathroom})
     

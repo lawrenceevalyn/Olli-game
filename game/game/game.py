@@ -35,6 +35,8 @@ class GameEngine(object):
                     self.next_room = self.current_room.go(player_input)
                     print self.next_room.name
                     self.current_room = self.next_room
+                    # maybe print the room longdesc here?
+                    # since the player just entered?
                     
             # player can look at things in the room
             

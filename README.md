@@ -3,7 +3,9 @@ shh, this game is a surprise!
 
 ## To Do
 
-* make sure map passes tests
+* write tests for rooms to have longdescs
+* make sure room longdescs pass tests
+* make game engine display longdesc on first entry to room
 * write tests for inventory
 * make sure inventory passes tests
 * make it impossible to talk to the robot
@@ -16,7 +18,7 @@ shh, this game is a surprise!
 
 ### July 1 2017
 
-Confirmed that map tests account for current map
+Confirmed that map tests account for current map. The map passes all the tests!
 
 ### June 18 2017
 

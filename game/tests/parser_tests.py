@@ -1,5 +1,5 @@
 from nose.tools import *
-from ex48 import parser
+from game import parser
 
 def test_sentence_parser():
     result = parser.parse_sentence([('verb','run'), ('direction','north')])

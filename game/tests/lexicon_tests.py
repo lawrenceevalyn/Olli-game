@@ -1,5 +1,5 @@
 from nose.tools import *
-from gameweb import lexicon
+from game import lexicon
 
 
 def test_directions():

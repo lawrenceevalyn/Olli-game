@@ -4,8 +4,8 @@ from sys import exit
 
 class Room(object):
 
-    def __init__(self, name, shortdesc, longdesc):
-        self.name = name
+    def __init__(self, name, shortdesc): # later implement longdesc
+        self.name = name                 # for first room entry?
         self.shortdesc = shortdesc
         self.paths = {}
 
