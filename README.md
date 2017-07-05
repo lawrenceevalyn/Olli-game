@@ -17,6 +17,15 @@ shh, this game is a surprise!
 
 ## Development Log
 
+### July 4 2017
+
+What would be some good easter eggs for OLLI?
+* giving various game items to the robot, especially the dunb items like the water
+* intangibles: love, friendship, happiness, support
+    * I bet I could parse a bunch of these with the parser to use a standard response for similar ones!
+* gestures: hug, high-five, kiss
+* verbs to try? fix things, find things? take a nap? text for help?
+
 ### July 1 2017
 
 Confirmed that map tests account for current map. The map passes all the tests!
