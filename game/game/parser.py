@@ -11,7 +11,7 @@ class Sentence(object):
 
     def __init__(self, subj, verb, obj):
         # remember we take ('noun', 'robot') tuples and convert them
-        self.subject = subj[1]
+        self.subject = subj[1] # i.e., the subject will be 'robot'
         self.verb = verb[1]
         self.object = obj[1]
 
@@ -77,12 +77,14 @@ def parse_sentence(word_list):
 # After all of that sentence business, now we can parse the intended action!!
 
 def parse_input(input):
-    # take in the player input
-    parse_sentence(input)
+    # take in the player input somehow
     
-    if input.verb == ('verb', 'go'):
+    inputSentence = parse_sentence(input)
+    
+    if inputSentence.verb == ('go'):
         # make the player go where they wanna go!
         output = "make player go north now"
+        return output
     
     # if they're trying to take something,
         # put that thing in their inventory!
@@ -102,3 +104,5 @@ def parse_input(input):
     
     # if they're trying to look around,
         # print the room's long description and its inventory
+
+parse_input([('verb','go'), ('direction','north')])
