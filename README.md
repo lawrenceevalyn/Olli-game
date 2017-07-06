@@ -3,8 +3,11 @@ shh, this game is a surprise!
 
 ## To Do
 
-* write tests for parser to do simplest commands
-* make sure parser passes tests
+* make sure parser passes tests for simple commands
+* write tests to make sure parser uses lexicon to understand directions
+* make sure parser passes direction-lexicon tests
+* generalise parser-lexicon tests for the rest of the lexicon
+* make sure parser passes all lexicon tests
 * make game engine "pass" player input to parser
 * write tests for inventory
 * make sure inventory passes tests
@@ -16,6 +19,12 @@ shh, this game is a surprise!
 * add lengthier room descriptions for the first time a room is entered
 
 ## Development Log
+
+### July 6 2017
+
+I think have the parser almost ready to work! For now I will just return text strings describing what I want to happen after the parser has determined what the player is trying to do.
+
+My parser clearly isn't calling the lexicon at any point, though...? (I don't think it is, anyway??) How..... do I do that?
 
 ### July 4 2017
 

@@ -1,5 +1,5 @@
-class ParserError(Exception):
-    pass
+class ParserError(Exception): # I guess this is here so that if there are errors
+    pass                      # later, they display the error messages I wrote?
 
 # First there are a lot of functions that have to do with turning the input
 # into sentences
@@ -10,7 +10,7 @@ class ParserError(Exception):
 class Sentence(object):
 
     def __init__(self, subj, verb, obj):
-        # remember we take ('noun', 'robot') tuples and convert them
+        #  we take ('noun', 'robot') tuples and get just the second word
         self.subject = subj[1] # i.e., the subject will be 'robot'
         self.verb = verb[1]
         self.object = obj[1]
@@ -104,5 +104,3 @@ def parse_input(input):
     
     # if they're trying to look around,
         # print the room's long description and its inventory
-
-parse_input([('verb','go'), ('direction','north')])
