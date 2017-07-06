@@ -8,9 +8,22 @@ def test_directions():
     assert_equal(lexicon.scan("East"), [('direction', 'east')])
     assert_equal(lexicon.scan("West"), [('direction', 'west')])
     
-    result = lexicon.scan("north south east")
+    result = lexicon.scan("north south west east")
     assert_equal(result, [('direction', 'north'),
                           ('direction', 'south'),
+                          ('direction', 'west'),
+                          ('direction', 'east')])
+    
+    result = lexicon.scan("n e s w")
+    assert_equal(result, [('direction', 'north'),
+                          ('direction', 'east'),
+                          ('direction', 'south'),
+                          ('direction', 'west')])
+    
+    result = lexicon.scan("North South West East")
+    assert_equal(result, [('direction', 'north'),
+                          ('direction', 'south'),
+                          ('direction', 'west'),
                           ('direction', 'east')])
 
 def test_verbs():

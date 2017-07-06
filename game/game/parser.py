@@ -1,6 +1,10 @@
 class ParserError(Exception):
     pass
 
+# First there are a lot of functions that have to do with turning the input
+# into sentences
+# (why doesn't this use the lexicon???)
+
 # Sentences have the attributes subject, verb, object
 # (NOT subj, verb, obj!)
 class Sentence(object):
@@ -69,3 +73,32 @@ def parse_sentence(word_list):
     obj = parse_object(word_list)
     
     return Sentence(subj, verb, obj)
+
+# After all of that sentence business, now we can parse the intended action!!
+
+def parse_input(input):
+    # take in the player input
+    parse_sentence(input)
+    
+    if input.verb == ('verb', 'go'):
+        # make the player go where they wanna go!
+        output = "make player go north now"
+    
+    # if they're trying to take something,
+        # put that thing in their inventory!
+        # if it's not takable, print an error
+    
+    # if they're trying to give something,
+        # take it out of their inventory and give it to the robot!
+        # if it's not in their inventory,
+            # check if it's a cute easter egg; if so,
+                # return the easter egg result
+            # else,
+                # return the error: "You can't give what you don't have!"
+    
+    # if they're trying to drop something,
+        # take it out of their inventory and add it to the room inventory
+        # if it's not in their inventory, print an error
+    
+    # if they're trying to look around,
+        # print the room's long description and its inventory

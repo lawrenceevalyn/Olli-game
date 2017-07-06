@@ -27,19 +27,21 @@ def parse(word):
 # parse the directions
     elif word in ["north", "North", "N", "n"]:
         return ('direction', 'north')
-    elif word in ["south", "South", "S", "n"]:
+    elif word in ["south", "South", "S", "s"]:
         return ('direction', 'south')
     elif word in ["east", "East", "E", "e"]:
         return ('direction', 'east')
     elif word in ["west", "West", "W", "w"]:
         return ('direction', 'west')
 # parse the verbs
-    elif word in ["go", "Go"]:
+    elif word in ["go", "Go", "run", "Run"]:
         return ('verb', 'go')
     elif word in ["give", "Give"]:
         return ('verb', 'give')
     elif word in ["take", "Take"]:
         return ('verb', 'take')
+    elif word in ["drop", "Drop", "put down", "Put down"]:
+        return ('verb', 'drop')
 # parse the nouns
     elif word in ["robot", "Robot", "bot", "librarian", "Librarian"]:
         return ('noun', 'robot')
