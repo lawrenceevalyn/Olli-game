@@ -79,21 +79,31 @@ def parse_sentence(word_list):
 # After all of that sentence business, now we can parse the intended action!!
 
 def parse_input(input):
-    # take in the player input somehow
+    # take in the player input, e.g. "go north"
     print "input: " + input
     
-    input_wordlist = input.split()
+    # use lexicon.py's "scan" function to get a list of pairs
+    # e.g. [('verb', 'go'), ('direction', 'north')]
+    parsed_wordlist = scan(input)
+    print "parsed_wordlist: "
+    print parsed_wordlist
     
-    input_words = parse_words(input)
-    print "input_words: "
-    print input_words
+    parsed_sentence = parse_sentence(parsed_wordlist) # parses parts of speech
+    # now the sentence is a complicated Sentence object of some kind
+    # but it has subject, verb, and object properties which are useful
+    print "parsed_sentence: "
+    print parsed_sentence
     
-    inputSentence = parse_sentence(input_words)
-    print "inputSentence: " + inputSentence
-    
-    if inputSentence.verb == ('go'):
+    if parsed_sentence.verb == ('go'):
         # make the player go where they wanna go!
-        output = "make player go north now"
+        print "The player wants to travel!"
+        if parsed_sentence.object == ('north'):
+            print "They specified the direction north!"
+            output = "make player go north now"
+        else:
+            print "That's not somewhere they can go."
+            output = "Can't go there"
+        
         print "output: " + output
         return output
     

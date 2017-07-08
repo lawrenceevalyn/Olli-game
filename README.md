@@ -3,10 +3,7 @@ shh, this game is a surprise!
 
 ## To Do
 
-* write tests to make sure parser uses lexicon to understand verbs
-* make sure parser passes verb-lexicon tests
-* generalise parser-lexicon tests for the rest of the lexicon
-* make sure parser passes all lexicon tests
+* make sure parser passes tests for all directions
 * make sure parser passes tests for simple commands
 * make game engine "pass" player input to parser
 * write tests for inventory

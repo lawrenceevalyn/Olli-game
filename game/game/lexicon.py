@@ -6,7 +6,7 @@ def scan(sentence):
     words = sentence.split()
     
     for word in words:
-        bucket.append(parse(word))
+        bucket.append(parse_word(word))
     
     return bucket
 
