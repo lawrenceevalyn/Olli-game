@@ -3,11 +3,11 @@ shh, this game is a surprise!
 
 ## To Do
 
-* make sure parser passes tests for simple commands
-* write tests to make sure parser uses lexicon to understand directions
-* make sure parser passes direction-lexicon tests
+* write tests to make sure parser uses lexicon to understand verbs
+* make sure parser passes verb-lexicon tests
 * generalise parser-lexicon tests for the rest of the lexicon
 * make sure parser passes all lexicon tests
+* make sure parser passes tests for simple commands
 * make game engine "pass" player input to parser
 * write tests for inventory
 * make sure inventory passes tests
@@ -19,6 +19,10 @@ shh, this game is a surprise!
 * add lengthier room descriptions for the first time a room is entered
 
 ## Development Log
+
+### July 8, 2017
+
+Today is an experiment in seeing how well I can get my parser and my lexicon to work together when I only MOSTLY understand how either one works...
 
 ### July 6 2017
 

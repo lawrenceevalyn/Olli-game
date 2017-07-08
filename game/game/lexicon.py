@@ -20,7 +20,7 @@ def convert_number(word):
         return ('error', word)
 
 # this function compares a word against the lexicon
-def parse(word):
+def parse_word(word):
 # check that there's actually a word
     if word == None:
         return ('error', word)

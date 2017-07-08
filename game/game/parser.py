@@ -1,3 +1,5 @@
+from lexicon import *
+
 class ParserError(Exception): # I guess this is here so that if there are errors
     pass                      # later, they display the error messages I wrote?
 
@@ -22,7 +24,7 @@ def peek(word_list):
     else:
         return None
 
-def match(word_list, expecting):
+def match(word_list, expecting): # I have no idea what this does
     if word_list:
         word = word_list.pop(0)
         
@@ -78,12 +80,21 @@ def parse_sentence(word_list):
 
 def parse_input(input):
     # take in the player input somehow
+    print "input: " + input
     
-    inputSentence = parse_sentence(input)
+    input_wordlist = input.split()
+    
+    input_words = parse_words(input)
+    print "input_words: "
+    print input_words
+    
+    inputSentence = parse_sentence(input_words)
+    print "inputSentence: " + inputSentence
     
     if inputSentence.verb == ('go'):
         # make the player go where they wanna go!
         output = "make player go north now"
+        print "output: " + output
         return output
     
     # if they're trying to take something,
@@ -104,3 +115,5 @@ def parse_input(input):
     
     # if they're trying to look around,
         # print the room's long description and its inventory
+
+parse_input("go north")
