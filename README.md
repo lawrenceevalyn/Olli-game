@@ -4,7 +4,8 @@ shh, this game is a surprise!
 ## To Do
 
 * make sure parser passes tests for all directions
-* make sure parser passes tests for simple commands
+* write tests for looking around
+* make sure parser passes tests for looking
 * make game engine "pass" player input to parser
 * write tests for inventory
 * make sure inventory passes tests
@@ -20,6 +21,8 @@ shh, this game is a surprise!
 ### July 8, 2017
 
 Today is an experiment in seeing how well I can get my parser and my lexicon to work together when I only MOSTLY understand how either one works...
+
+But it seems to have been a successful one! The parser now uses the lexicon to understand phrases like "go north" and "Run North," and it can EVEN handle one-letter shortcuts! (Or, well, it handles those shortcuts by saying "shortcut" but I can add in the actual desired response to each shortcut later.)
 
 ### July 6 2017
 
