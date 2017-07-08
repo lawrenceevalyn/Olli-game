@@ -43,9 +43,9 @@ def parse_verb(word_list):
     skip(word_list, 'stop')
     
     if peek(word_list) == 'verb':
-        return match(word_list, 'verb')
-    else:
-        raise ParserError("Expected a verb next.")
+        return match(word_list, 'verb') # aha! this is where the match function
+    else:                               # gets used! it makes sure each word
+        raise ParserError("Expected a verb next.") # only gets parsed once
 
 def parse_object(word_list):
     skip(word_list, 'stop')
@@ -76,54 +76,68 @@ def parse_sentence(word_list):
     
     return Sentence(subj, verb, obj)
 
-# After all of that sentence business, now we can parse the intended action!!
+# this list defines the "shortcut" commands that can skip the parsing process
+shortcuts_list = ('n', 'e', 's', 'w', 'l', 'x', 'i', 'N', 'E', 'S', 'W', 'L', 'X', 'I')
 
+
+# After all of that sentence business, now we can parse the intended action!!
 def parse_input(input):
     # take in the player input, e.g. "go north"
     print "input: " + input
     
-    # use lexicon.py's "scan" function to get a list of pairs
-    # e.g. [('verb', 'go'), ('direction', 'north')]
-    parsed_wordlist = scan(input)
-    print "parsed_wordlist: "
-    print parsed_wordlist
+    # compare the input to a list of shortcuts; skip parsing if it's there
+    if input in shortcuts_list:
+        print "This is a shortcut!"
+        output = "shortcut"
     
-    parsed_sentence = parse_sentence(parsed_wordlist) # parses parts of speech
-    # now the sentence is a complicated Sentence object of some kind
-    # but it has subject, verb, and object properties which are useful
-    print "parsed_sentence: "
-    print parsed_sentence
+    else: # if it's not a shortcut, gotta actually parse it
     
-    if parsed_sentence.verb == ('go'):
-        # make the player go where they wanna go!
-        print "The player wants to travel!"
-        if parsed_sentence.object == ('north'):
-            print "They specified the direction north!"
-            output = "make player go north now"
-        else:
-            print "That's not somewhere they can go."
-            output = "Can't go there"
+        # use lexicon.py's "scan" function to get a list of pairs
+        # e.g. [('verb', 'go'), ('direction', 'north')]
+        parsed_wordlist = scan(input)
+        print "parsed_wordlist: "
+        print parsed_wordlist
         
-        print "output: " + output
-        return output
-    
-    # if they're trying to take something,
-        # put that thing in their inventory!
-        # if it's not takable, print an error
-    
-    # if they're trying to give something,
-        # take it out of their inventory and give it to the robot!
-        # if it's not in their inventory,
-            # check if it's a cute easter egg; if so,
-                # return the easter egg result
-            # else,
-                # return the error: "You can't give what you don't have!"
-    
-    # if they're trying to drop something,
-        # take it out of their inventory and add it to the room inventory
-        # if it's not in their inventory, print an error
-    
-    # if they're trying to look around,
-        # print the room's long description and its inventory
+        parsed_sentence = parse_sentence(parsed_wordlist) # parse that sucker!
+        # now the wordlist is a complicated Sentence object of some kind
+        # but it has subject, verb, and object properties which are useful
+        print "parsed_sentence: "
+        print parsed_sentence
+        
+        if parsed_sentence.verb == ('go'):
+            # make the player go where they wanna go!
+            print "The player wants to travel!"
+            if parsed_sentence.object == ('north'):
+                print "They specified the direction north!"
+                output = "make player go north now"
+            else:
+                print "That's not somewhere they can go."
+                output = "Can't go there"
+        
+        # if they're trying to take something,
+            # put that thing in their inventory!
+            # if it's not takable, print an error
+        
+        # if they're trying to give something,
+            # take it out of their inventory and give it to the robot!
+            # if it's not in their inventory,
+                # check if it's a cute easter egg; if so,
+                    # return the easter egg result
+                # else,
+                    # return the error: "You can't give what you don't have!"
+        
+        # if they're trying to drop something,
+            # take it out of their inventory and add it to the room inventory
+            # if it's not in their inventory, print an error
+        
+        # if they're trying to look around,
+            # print the room's long description and its inventory
+        
+        # if they're trying to check their inventory,
+            # print their inventory
+        
+    print "output: " + output
+    return output
+
 
 parse_input("go north")

@@ -16,7 +16,7 @@ def test_input_parser():
     assert_equal(result, "make player go north now")
     
     result = parser.parse_input("n")
-    assert_equal(result, "make player go north now")
+    assert_equal(result, "shortcut")
     
     # test parsing other directions
     

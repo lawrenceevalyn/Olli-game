@@ -19,6 +19,9 @@ def convert_number(word):
     except ValueError:
         return ('error', word)
 
+# this list defines the "shortcut" commands that can skip the parsing process
+shortcuts = ('n', 'e', 's', 'w', 'l', 'x', 'i')
+
 # this function compares a word against the lexicon
 def parse_word(word):
 # check that there's actually a word
