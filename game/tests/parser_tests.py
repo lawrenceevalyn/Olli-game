@@ -8,12 +8,17 @@ def test_sentence_parser():
     assert_equal(result.object, "north")
 
 def test_input_parser():
-    # test movement
+    # test multiple ways to express "go north"
     result = parser.parse_input("go north")
     assert_equal(result, "make player go north now")
     
     result = parser.parse_input("run north")
     assert_equal(result, "make player go north now")
+    
+    result = parser.parse_input("n")
+    assert_equal(result, "make player go north now")
+    
+    # test parsing other directions
     
 #    result = parser.parse_input([('verb','go'), ('direction','south')])
 #    assert_equal(result, "make player go south now")
