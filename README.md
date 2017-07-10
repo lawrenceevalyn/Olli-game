@@ -3,7 +3,6 @@ shh, this game is a surprise!
 
 ## To Do
 
-* make sure parser passes tests for all directions
 * write tests for looking around
 * make sure parser passes tests for looking
 * make game engine "pass" player input to parser

@@ -110,6 +110,15 @@ def parse_input(input):
             if parsed_sentence.object == ('north'):
                 print "They specified the direction north!"
                 output = "make player go north now"
+            elif parsed_sentence.object == ('east'):
+                print "They specified the direction east!"
+                output = "make player go east now"
+            elif parsed_sentence.object == ('south'):
+                print "They specified the direction south!"
+                output = "make player go south now"
+            elif parsed_sentence.object == ('west'):
+                print "They specified the direction west!"
+                output = "make player go west now"
             else:
                 print "That's not somewhere they can go."
                 output = "Can't go there"
