@@ -5,9 +5,11 @@ shh, this game is a surprise!
 
 * write tests for looking around
 * make sure parser passes tests for looking
+* add looking to parse_shortcuts
 * make game engine "pass" player input to parser
 * write tests for inventory
 * make sure inventory passes tests
+* add inventory to parse_shortcuts
 * make it impossible to talk to the robot
 * implement a "good end" and a "bad end"
 * write tests for parser to do sentences??

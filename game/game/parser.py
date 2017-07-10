@@ -79,16 +79,28 @@ def parse_sentence(word_list):
 # this list defines the "shortcut" commands that can skip the parsing process
 shortcuts_list = ('n', 'e', 's', 'w', 'l', 'x', 'i', 'N', 'E', 'S', 'W', 'L', 'X', 'I')
 
+def parse_shortcuts(shortcut):
+    if shortcut in ["N", "n"]:
+        output = "make player go north now"
+    if shortcut in ["E", "e"]:
+        output = "make player go east now"
+    if shortcut in ["S", "s"]:
+        output = "make player go south now"
+    if shortcut in ["W", "w"]:
+        output = "make player go west now"
+    
+    print "output: " + output
+    return output
+
 
 # After all of that sentence business, now we can parse the intended action!!
 def parse_input(input):
     # take in the player input, e.g. "go north"
     print "input: " + input
     
-    # compare the input to a list of shortcuts; skip parsing if it's there
+    # compare the input to a list of shortcuts; use shortcut parser if relevant
     if input in shortcuts_list:
-        print "This is a shortcut!"
-        output = "shortcut"
+        output = parse_shortcuts(input)
     
     else: # if it's not a shortcut, gotta actually parse it
     
@@ -104,6 +116,7 @@ def parse_input(input):
         print "parsed_sentence: "
         print parsed_sentence
         
+        # parse player movement commands
         if parsed_sentence.verb == ('go'):
             # make the player go where they wanna go!
             print "The player wants to travel!"
@@ -123,6 +136,9 @@ def parse_input(input):
                 print "That's not somewhere they can go."
                 output = "Can't go there"
         
+        # parse player look commands
+            # print the room's long description and its inventory
+        
         # if they're trying to take something,
             # put that thing in their inventory!
             # if it's not takable, print an error
@@ -138,9 +154,6 @@ def parse_input(input):
         # if they're trying to drop something,
             # take it out of their inventory and add it to the room inventory
             # if it's not in their inventory, print an error
-        
-        # if they're trying to look around,
-            # print the room's long description and its inventory
         
         # if they're trying to check their inventory,
             # print their inventory
