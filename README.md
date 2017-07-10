@@ -3,10 +3,12 @@ shh, this game is a surprise!
 
 ## To Do
 
+* make game engine "pass" player input to parser
+* update movement tests based on parser actually moving player
+* make sure engine runs, parser passes new movement tests
 * write tests for looking around
 * make sure parser passes tests for looking
 * add looking to parse_shortcuts
-* make game engine "pass" player input to parser
 * write tests for inventory
 * make sure inventory passes tests
 * add inventory to parse_shortcuts
@@ -18,6 +20,10 @@ shh, this game is a surprise!
 * add lengthier room descriptions for the first time a room is entered
 
 ## Development Log
+
+### July 10, 2017
+
+Got shortcuts working for directions! Starting to get worried about how to use the results of all this parsing in the game itself... moving "make game engine 'pass' player input to parser" to the top of the to-do list as the next thing to figure out.
 
 ### July 8, 2017
 
