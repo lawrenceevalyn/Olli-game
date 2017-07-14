@@ -1,4 +1,5 @@
 from lexicon import *
+from map import *
 
 class ParserError(Exception): # I guess this is here so that if there are errors
     pass                      # later, they display the error messages I wrote?
@@ -88,13 +89,19 @@ def parse_shortcuts(shortcut):
         output = "make player go south now"
     if shortcut in ["W", "w"]:
         output = "make player go west now"
+    if shortcut in ["l", "L", "x", "X"]:
+        output = current_room.longdesc
     
-    print "output: " + output
+    
     return output
 
 
 # After all of that sentence business, now we can parse the intended action!!
 def parse_input(input):
+    
+    #def __init__(self, current_room):
+    #    self.current_room = current_room
+    
     # take in the player input, e.g. "go north"
     print "input: " + input
     
@@ -113,8 +120,6 @@ def parse_input(input):
         parsed_sentence = parse_sentence(parsed_wordlist) # parse that sucker!
         # now the wordlist is a complicated Sentence object of some kind
         # but it has subject, verb, and object properties which are useful
-        print "parsed_sentence: "
-        print parsed_sentence
         
         # parse player movement commands
         if parsed_sentence.verb == ('go'):
@@ -160,6 +165,3 @@ def parse_input(input):
         
     print "output: " + output
     return output
-
-
-parse_input("go north")
