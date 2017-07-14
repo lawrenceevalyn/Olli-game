@@ -3,11 +3,11 @@ shh, this game is a surprise!
 
 ## To Do
 
-* make game engine "pass" player input to parser
-* update movement tests based on parser actually moving player
-* make sure engine runs, parser passes new movement tests
+* make game engine print longdesc when player looks
 * write tests for looking around
 * make sure parser passes tests for looking
+* update movement tests based on parser actually moving player
+* make sure engine runs, parser passes new movement tests
 * add looking to parse_shortcuts
 * write tests for inventory
 * make sure inventory passes tests
@@ -20,6 +20,14 @@ shh, this game is a surprise!
 * add lengthier room descriptions for the first time a room is entered
 
 ## Development Log
+
+### July 14, 2017
+
+It looks like the parser can't make changes to the "game state" in the game engine -- I can't figure out how to make the parser know about the current_room Room variable -- but I'm not sure what it makes sense to do instead.
+
+Like, I COULD get it working by just using the parser to translate player input into a pre-set list of acceptable commands that I then hard-code into the game engine, but that seems like a waste of a parser -- I want to make the give/take commands WAY more flexible than that.
+
+Do I need to put the parser and the game engine in the same module? do I need to pass more variables from play() into the parser? I think I must be somehow conceptualizing this entirely wrong -- how can I get it sorted out???
 
 ### July 10, 2017
 

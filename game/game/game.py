@@ -25,12 +25,12 @@ class GameEngine(object):
             player_input = raw_input("> ")
             
             # need an easy out to end the game
-            if player_input == "Q":
+            if player_input in ["Q", "q"]:
                 print "Goodbye"
                 self.current_room = exit
             else:
-                parse_input(player_input)
-                print output
+                parse_input(player_input) # don't print, bc parser prints
+                                          # (output won't get returned to here)
             
             # parser does NOT have to make sure to return anything in particular
             # because as long as the room is not the exit, the prompt will
@@ -49,10 +49,6 @@ class GameEngine(object):
             #        print self.next_room.name
             #        print self.next_room.shortdesc
             #        self.current_room = self.next_room
-                    
-            # player can look at things in the room
-            
-            # player can pick up / put down items
 
 a_game = GameEngine(entrance) # I am not sure why I need to do this?
 
