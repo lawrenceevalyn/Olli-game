@@ -23,9 +23,11 @@ shh, this game is a surprise!
 
 ### July 15, 2017
 
-In a fit of enthusiasm I took out the GameEngine class to just have the play() function exist directly as a function -- I can't see any need for it to have been a class, since there will only be one???? -- but I THINK my real problem was that, when using a function from a differnt module, I had to indicate when I called the function that I was calling it from that other function, e.g., needed to say "parser.parse_input(player_input)", not just "parse_input(player_input)". Also I needed to import by saying "import parser" instead of "from parser import *", for some reason.
+In a fit of enthusiasm I took out the GameEngine class to just have the play() function exist directly as a function -- I can't see any need for it to have been a class, since there will only be one???? -- but I THINK my real problem was that, when using a function from a differnt module, I had to indicate when I called the function that I was calling it from that other function, e.g., needed to say "parser.parse_input(player_input)", not just "parse_input(player_input)".
 
 If I don't want to say "parser.parse_input()" I can also SPECIFICALLY import the function by name ("from parser import parse_input") at the beginning of the program (or inside the specified function) and then it will know how to use parse_inut without mentioning the source module.
+
+Also I needed to import by saying "import parser" instead of "from parser import *", for some reason. ... Except that if I do this, I DON'T import all the variables/objects/whatevers I've created elsewhere.
 
 ### July 14, 2017
 

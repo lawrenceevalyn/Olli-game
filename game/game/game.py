@@ -1,9 +1,10 @@
 # import all the other code I wrote
 
-import map
-import parser
-import lexicon
-import inventory
+from map import *
+from parser import *
+from parser import parse_input # still feels weird that I have to say this one
+from lexicon import *          # by name seperately, but c'est la vie
+from inventory import *
 
 
 # this is what will run the game
@@ -22,7 +23,7 @@ def play(first_room):
             print "Goodbye"
             current_room = exit
         else:
-            parser.parse_input(player_input) # don't print, bc parser prints
+            parse_input(player_input) # don't print, bc parser prints
                                        # (output won't get returned to here)
             
             # parser does NOT have to make sure to return anything in particular

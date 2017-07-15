@@ -90,7 +90,7 @@ def parse_shortcuts(shortcut):
     if shortcut in ["W", "w"]:
         output = "make player go west now"
     if shortcut in ["l", "L", "x", "X"]:
-        output = "look at room"
+        output = current_room.longdesc
     
     return output # don't need to print output here, since this function only
                   # runs when parse_input calls it, and parse_input will print
