@@ -57,6 +57,7 @@ def parse_object(word_list):
     elif next_word == 'direction':
         return match(word_list, 'direction')
     else:
+        # can do a check here to allow verbs that have implied objects?
         raise ParserError("Expected a noun or direction next.")
 
 def parse_subject(word_list):
