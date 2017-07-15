@@ -56,6 +56,8 @@ def parse_word(word):
         return ('stop', 'of')
     elif word in ["at", "At"]:
         return ('stop', 'at')
+    elif word in ['around', 'Around']:
+        return ('stop', 'around')
 # check if it's a number, and if not, give up
     else:
        return convert_number(word)
