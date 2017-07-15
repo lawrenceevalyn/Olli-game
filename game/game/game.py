@@ -1,36 +1,29 @@
 # import all the other code I wrote
 
-from map import *
-from parser import *
-from lexicon import *
-from inventory import *
+import map
+import parser
+import lexicon
+import inventory
 
 
 # this is what will run the game
-
-class GameEngine(object):
-
-    # set up the things the game engine will need
-    def __init__(self, current_room):
-        self.current_room = current_room
     
-    # define what the game engine does once a game begins
-    def play(self, room):
-        current_room = room
-        
-        while self.current_room != exit:
-            # the basic premise is that the player is always in a room
-            # and always sees a prompt
-            print current_room.shortdesc
-            player_input = raw_input("> ")
+def play(first_room):
+      current_room = first_room
+      
+      while current_room != exit:
+        # the basic premise is that the player is always in a room
+        # and always sees a prompt for their next action
+        print current_room.shortdesc
+        player_input = raw_input("> ")
             
-            # need an easy out to end the game
-            if player_input in ["Q", "q"]:
-                print "Goodbye"
-                self.current_room = exit
-            else:
-                parse_input(player_input) # don't print, bc parser prints
-                                          # (output won't get returned to here)
+        # need an easy out to end the game
+        if player_input in ["Q", "q"]:
+            print "Goodbye"
+            current_room = exit
+        else:
+            parser.parse_input(player_input) # don't print, bc parser prints
+                                       # (output won't get returned to here)
             
             # parser does NOT have to make sure to return anything in particular
             # because as long as the room is not the exit, the prompt will
@@ -50,9 +43,7 @@ class GameEngine(object):
             #        print self.next_room.shortdesc
             #        self.current_room = self.next_room
 
-a_game = GameEngine(entrance) # I am not sure why I need to do this?
-
 # let's run the game now!
 
 print "Welcome to the game!"
-a_game.play(entrance)
+play(entrance)
