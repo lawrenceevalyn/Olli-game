@@ -141,7 +141,10 @@ def parse_input(input, room):
                 output = "Can't go there"
         
         # parse player look commands
-            # print the room's long description and its inventory
+        if parsed_sentence.verb == ('look'):
+            output = room.longdesc # right now this just assumed they look at
+            # the room, but could just as easily be looking at inventory or an
+            # individual object -- implement with parser if-clauses!
         
         # if they're trying to take something,
             # put that thing in their inventory!

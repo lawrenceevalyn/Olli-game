@@ -42,11 +42,11 @@ def parse_word(word):
         return ('verb', 'take')
     elif word in ["drop", "Drop", "put down", "Put down"]:
         return ('verb', 'drop')
+    elif word in ["look", "Look", "examine", "Examine"]:
+        return ('verb', 'look')
 # parse the nouns
-    elif word in ["robot", "Robot", "bot", "librarian", "Librarian"]:
-        return ('noun', 'robot')
-    elif word in ["book", "Book", "stories", "Stories"]:
-        return ('noun', 'book')
+    elif word in ["room", "Room"]:
+        return ('noun', 'room')
 # parse the stopwords
     elif word in ["the", "The"]:
         return ('stop', 'the')
@@ -54,6 +54,8 @@ def parse_word(word):
         return ('stop', 'in')
     elif word in ["of", "Of"]:
         return ('stop', 'of')
+    elif word in ["at", "At"]:
+        return ('stop', 'at')
 # check if it's a number, and if not, give up
     else:
        return convert_number(word)
