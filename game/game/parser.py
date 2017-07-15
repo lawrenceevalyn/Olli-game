@@ -80,7 +80,7 @@ def parse_sentence(word_list):
 # this list defines the "shortcut" commands that can skip the parsing process
 shortcuts_list = ('n', 'e', 's', 'w', 'l', 'x', 'i', 'N', 'E', 'S', 'W', 'L', 'X', 'I')
 
-def parse_shortcuts(shortcut):
+def parse_shortcuts(shortcut, room):
     if shortcut in ["N", "n"]:
         output = "make player go north now"
     if shortcut in ["E", "e"]:
@@ -90,24 +90,23 @@ def parse_shortcuts(shortcut):
     if shortcut in ["W", "w"]:
         output = "make player go west now"
     if shortcut in ["l", "L", "x", "X"]:
-        output = current_room.longdesc
+        output = room.longdesc
     
     return output # don't need to print output here, since this function only
                   # runs when parse_input calls it, and parse_input will print
 
 
 # After all of that sentence business, now we can parse the intended action!!
-def parse_input(input):
+def parse_input(input, room):
     
-    def __init__(self, current_room):
-        self.current_room = current_room
+    room = room # apparently I have to say this so that anything works later
     
     # take in the player input, e.g. "go north"
     print "input: " + input
     
     # compare the input to a list of shortcuts; use shortcut parser if relevant
     if input in shortcuts_list:
-        output = parse_shortcuts(input)
+        output = parse_shortcuts(input, room)
     
     else: # if it's not a shortcut, gotta actually parse it
     

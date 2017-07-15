@@ -23,7 +23,7 @@ def play(first_room):
             print "Goodbye"
             current_room = exit
         else:
-            parse_input(player_input) # don't print, bc parser prints
+            parse_input(player_input, current_room) # don't print, bc parser prints
                                        # (output won't get returned to here)
             
             # parser does NOT have to make sure to return anything in particular

@@ -3,7 +3,6 @@ shh, this game is a surprise!
 
 ## To Do
 
-* make game engine print longdesc when player looks
 * write tests for looking around
 * make sure parser passes tests for looking
 * update movement tests based on parser actually moving player
@@ -28,6 +27,10 @@ In a fit of enthusiasm I took out the GameEngine class to just have the play() f
 If I don't want to say "parser.parse_input()" I can also SPECIFICALLY import the function by name ("from parser import parse_input") at the beginning of the program (or inside the specified function) and then it will know how to use parse_inut without mentioning the source module.
 
 Also I needed to import by saying "import parser" instead of "from parser import *", for some reason. ... Except that if I do this, I DON'T import all the variables/objects/whatevers I've created elsewhere.
+
+I think because all the class nonsense has been resolved, NOW it totally works to just pass a room variable into all the parser functions, and the "L" shortcut can print the room's longdesc!!! VICTORY!!!!!!!
+
+For future fleshing out of the parser: the output will be the last thing printed for the player to see, before the prompt, but I can do different actions and print different lines before that output if I want to do something more complicated based on the action they're trying to take.
 
 ### July 14, 2017
 
