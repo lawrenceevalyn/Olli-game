@@ -1,6 +1,6 @@
 from nose.tools import *
 from game import parser
-from game import map
+from game.map import entrance
 
 def test_sentence_parser():
     result = parser.parse_sentence([('verb','go'), ('direction','north')])
@@ -13,44 +13,44 @@ def test_input_parser():
     result = parser.parse_input("go north", entrance)
     assert_equal(result, "make player go north now")
     
-    result = parser.parse_input("Go North")
+    result = parser.parse_input("Go North", entrance)
     assert_equal(result, "make player go north now")
     
-    result = parser.parse_input("run north")
+    result = parser.parse_input("run north", entrance)
     assert_equal(result, "make player go north now")
     
-    result = parser.parse_input("n")
+    result = parser.parse_input("n", entrance)
     assert_equal(result, "make player go north now")
     
     # test parsing the other directions
     
-    result = parser.parse_input("go south")
-    assert_equal(result, "make player go south now")
+    result = parser.parse_input("go south", entrance)
+    assert_equal(result, "make player go south now", entrance)
     
-    result = parser.parse_input("go east")
-    assert_equal(result, "make player go east now")
+    result = parser.parse_input("go east", entrance)
+    assert_equal(result, "make player go east now", entrance)
     
-    result = parser.parse_input("go west")
-    assert_equal(result, "make player go west now")
+    result = parser.parse_input("go west", entrance)
+    assert_equal(result, "make player go west now", entrance)
     
-    # test looking
-    result = parser.parse_input("look at room")
-    assert_equal(result, room.longdesc)
+    # test looking at the room
+    result = parser.parse_input("look at room", entrance)
+    assert_equal(result, entrance.longdesc)
     
-    result = parser.parse_input("L")
-    assert_equal(result, room.longdesc)
+    result = parser.parse_input("L", entrance)
+    assert_equal(result, entrance.longdesc)
     
-    result = parser.parse_input("look")
-    assert_equal(result, room.longdesc)
+    result = parser.parse_input("look", entrance)
+    assert_equal(result, entrance.longdesc)
     
-    result = parser.parse_input("look around")
-    assert_equal(result, room.longdesc)
+    result = parser.parse_input("look around", entrance)
+    assert_equal(result, entrance.longdesc)
     
-    result = parser.parse_input("look at stacks")
-    assert_equal(result, room.longdesc)
+    result = parser.parse_input("look at stacks", entrance)
+    assert_equal(result, entrance.longdesc)
     
-    result = parser.parse_input("examine room")
-    assert_equal(result, room.longdesc)
+    result = parser.parse_input("examine room", entrance)
+    assert_equal(result, entrance.longdesc)
     
     # test taking
 #    result = parser.parse_input([('verb','take'), ('noun','book')])

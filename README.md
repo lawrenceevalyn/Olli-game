@@ -3,11 +3,8 @@ shh, this game is a surprise!
 
 ## To Do
 
-* write tests for looking around
-* make sure parser passes tests for looking
-* update movement tests based on parser actually moving player
-* make sure engine runs, parser passes new movement tests
-* add looking to parse_shortcuts
+* update movement tests based on parser actually moving player (i.e., hard-code rooms and destinations into the tests)
+* implement real outputs for parsing of movement commands, so parser passes new movement tests
 * write tests for inventory
 * make sure inventory passes tests
 * add inventory to parse_shortcuts
@@ -19,6 +16,10 @@ shh, this game is a surprise!
 * add lengthier room descriptions for the first time a room is entered
 
 ## Development Log
+
+### July 17, 2017
+
+I can tell this project is working as intended, because every time I try to do something simple like "let the player look at the room", I end up in StackExchange learning about how to import functions, variables, etc from modules, and other kinds of Python coding concepts and best practices. So helpful!
 
 ### July 15, 2017
 
