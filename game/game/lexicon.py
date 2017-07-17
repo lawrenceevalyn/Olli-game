@@ -34,7 +34,7 @@ def parse_word(word):
     elif word in ["west", "West", "W", "w"]:
         return ('direction', 'west')
 # parse the verbs
-    elif word in ["go", "Go", "run", "Run"]:
+    elif word in ["go", "Go", "run", "Run", "walk", "Walk", "move", "Move"]:
         return ('verb', 'go')
     elif word in ["give", "Give"]:
         return ('verb', 'give')

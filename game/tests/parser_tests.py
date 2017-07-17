@@ -33,8 +33,11 @@ def test_input_parser():
     assert_equal(result, "make player go west now")
     
     # test looking
-#    result = parser.parse_input([('verb','look')])
-#    assert_equal(result, "look around the room")
+    result = parser.parse_input("look at room")
+    assert_equal(result, room.longdesc)
+    
+    result = parser.parse_input("L")
+    assert_equal(result, room.longdesc)
     
     # test taking
 #    result = parser.parse_input([('verb','take'), ('noun','book')])
