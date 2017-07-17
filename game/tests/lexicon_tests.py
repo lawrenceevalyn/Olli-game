@@ -63,7 +63,7 @@ def test_numbers():
 def test_errors():
     assert_equal(lexicon.scan("ASDFADFASDF"), [('error', 'ASDFADFASDF')])
     
-    result = lexicon.scan("give IAS robot")
+    result = lexicon.scan("give IAS room")
     assert_equal(result, [('verb', 'give'),
                           ('error', 'IAS'),
-                          ('noun', 'robot')])
+                          ('noun', 'room')])

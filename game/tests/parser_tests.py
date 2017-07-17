@@ -1,5 +1,6 @@
 from nose.tools import *
 from game import parser
+from game import map
 
 def test_sentence_parser():
     result = parser.parse_sentence([('verb','go'), ('direction','north')])
@@ -9,7 +10,7 @@ def test_sentence_parser():
 
 def test_input_parser():
     # test multiple ways to express "go north"
-    result = parser.parse_input("go north")
+    result = parser.parse_input("go north", entrance)
     assert_equal(result, "make player go north now")
     
     result = parser.parse_input("Go North")
@@ -37,6 +38,18 @@ def test_input_parser():
     assert_equal(result, room.longdesc)
     
     result = parser.parse_input("L")
+    assert_equal(result, room.longdesc)
+    
+    result = parser.parse_input("look")
+    assert_equal(result, room.longdesc)
+    
+    result = parser.parse_input("look around")
+    assert_equal(result, room.longdesc)
+    
+    result = parser.parse_input("look at stacks")
+    assert_equal(result, room.longdesc)
+    
+    result = parser.parse_input("examine room")
     assert_equal(result, room.longdesc)
     
     # test taking
