@@ -82,18 +82,17 @@ shortcuts_list = ('n', 'e', 's', 'w', 'l', 'x', 'i', 'N', 'E', 'S', 'W', 'L', 'X
 
 def parse_shortcuts(shortcut, room):
     if shortcut in ["N", "n"]:
-        output = "make player go north now"
+        room = room.go('north')
+        output = room
     if shortcut in ["E", "e"]:
-        output = "make player go east now"
+        room = room.go('east')
+        output = room
     if shortcut in ["S", "s"]:
-        next_room = room.go('south')
-        print "next room will be: " + next_room.name
-        room = next_room
-        print "now in room: " + room.name
-        print room.shortdesc
+        room = room.go('south')
         output = room
     if shortcut in ["W", "w"]:
-        output = "make player go west now"
+        room = room.go('west')
+        output = room
     if shortcut in ["l", "L", "x", "X"]:
         print room.longdesc
         output = room
@@ -132,25 +131,31 @@ def parse_input(input, room):
             print "The player wants to travel!"
             if parsed_sentence.object == ('north'):
                 print "They specified the direction north!"
-                output = "make player go north now"
+                room = room.go('north')
+                output = room
             elif parsed_sentence.object == ('east'):
                 print "They specified the direction east!"
-                output = "make player go east now"
+                room = room.go('east')
+                output = room
             elif parsed_sentence.object == ('south'):
                 print "They specified the direction south!"
-                output = "make player go south now"
+                room = room.go('south')
+                output = room
             elif parsed_sentence.object == ('west'):
                 print "They specified the direction west!"
-                output = "make player go west now"
+                room = room.go('west')
+                output = room
             else:
                 print "That's not somewhere they can go."
-                output = "Can't go there"
+                room = room
+                output = room
         
         # parse player look commands
         if parsed_sentence.verb == ('look'):
-            output = room.longdesc # right now this just assumed they look at
+            print room.longdesc # right now this just assumed they look at
             # the room, but could just as easily be looking at inventory or an
             # individual object -- implement with parser if-clauses!
+            output = room
         
         # if they're trying to take something,
             # put that thing in their inventory!

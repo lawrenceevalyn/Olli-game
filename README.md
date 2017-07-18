@@ -3,7 +3,8 @@ shh, this game is a surprise!
 
 ## To Do
 
-* implement real outputs for parsing of movement commands, so parser passes new movement tests
+* write tests to handle it properly when player tries to go somewhere without paths
+* make sure parser / map pass you-can't-go-there tests
 * write tests for inventory
 * make sure inventory passes tests
 * add inventory to parse_shortcuts
@@ -19,6 +20,10 @@ shh, this game is a surprise!
 ###
 
 Where does the output of parse_input go? What does "returning" it mean? I want all my parsing to end by returning the room the player is currently in, with all the other stuff happening before that. (This seems much more sensible than trying to code it so that output is just "the last thing that gets printed before the player is prompted for a new action".) But how??
+
+AHA, it is by setting something EQUAL to the running of a function -- "next_room = parse_input(player_input, current_room)", not just "parse_input(player_input, current_room)"!
+
+It works! THE PLAYER CAN MOVE AROUND NOW!!! As long as they only move places that actually exist. But man! I think the game engine actually completely works and makes sense now!! I thought that might never happen??? It's like half the length it used to be, too, which makes me feel good that it's actually put together somewhat sensibly.
 
 ### July 17, 2017
 
