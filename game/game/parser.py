@@ -86,11 +86,17 @@ def parse_shortcuts(shortcut, room):
     if shortcut in ["E", "e"]:
         output = "make player go east now"
     if shortcut in ["S", "s"]:
-        output = "make player go south now"
+        next_room = room.go('south')
+        print "next room will be: " + next_room.name
+        room = next_room
+        print "now in room: " + room.name
+        print room.shortdesc
+        output = room
     if shortcut in ["W", "w"]:
         output = "make player go west now"
     if shortcut in ["l", "L", "x", "X"]:
-        output = room.longdesc
+        print room.longdesc
+        output = room
     
     return output # don't need to print output here, since this function only
                   # runs when parse_input calls it, and parse_input will print
@@ -165,5 +171,6 @@ def parse_input(input, room):
         # if they're trying to check their inventory,
             # print their inventory
         
-    print "output: " + output
+    print "output: "
+    print output
     return output

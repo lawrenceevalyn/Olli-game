@@ -3,7 +3,6 @@ shh, this game is a surprise!
 
 ## To Do
 
-* update movement tests based on parser actually moving player (i.e., hard-code rooms and destinations into the tests)
 * implement real outputs for parsing of movement commands, so parser passes new movement tests
 * write tests for inventory
 * make sure inventory passes tests
@@ -16,6 +15,10 @@ shh, this game is a surprise!
 * add lengthier room descriptions for the first time a room is entered
 
 ## Development Log
+
+###
+
+Where does the output of parse_input go? What does "returning" it mean? I want all my parsing to end by returning the room the player is currently in, with all the other stuff happening before that. (This seems much more sensible than trying to code it so that output is just "the last thing that gets printed before the player is prompted for a new action".) But how??
 
 ### July 17, 2017
 
