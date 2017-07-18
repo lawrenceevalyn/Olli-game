@@ -9,31 +9,38 @@ def test_sentence_parser():
     assert_equal(result.object, "north")
 
 def test_input_parser():
-    # test multiple ways to express "go north"
-    result = parser.parse_input("go north", entrance)
-    assert_equal(result, "make player go north now")
     
-    result = parser.parse_input("Go North", entrance)
-    assert_equal(result, "make player go north now")
+    # test multiple ways to express "go south"
+    # don't have to test the whole map, because map_tests will do that;
+    # but do have to test many ways of saying the same action
     
-    result = parser.parse_input("run north", entrance)
-    assert_equal(result, "make player go north now")
+    result = parser.parse_input("go south", entrance)
+    assert_equal(result, stacks.longdesc)
     
-    result = parser.parse_input("n", entrance)
-    assert_equal(result, "make player go north now")
+    result = parser.parse_input("Go South", entrance)
+    assert_equal(result, stacks.longdesc)
+    
+    result = parser.parse_input("run south", entrance)
+    assert_equal(result, stacks.longdesc)
+    
+    result = parser.parse_input("s", entrance)
+    assert_equal(result, stacks.longdesc)
+    
     
     # test parsing the other directions
     
-    result = parser.parse_input("go south", entrance)
-    assert_equal(result, "make player go south now", entrance)
+    result = parser.parse_input("go north", entrance)
+    assert_equal(result, exit.longdesc) # this one might be weird?
     
     result = parser.parse_input("go east", entrance)
-    assert_equal(result, "make player go east now", entrance)
+    assert_equal(result, lab.longdesc)
     
     result = parser.parse_input("go west", entrance)
-    assert_equal(result, "make player go west now", entrance)
+    assert_equal(result, bathroom.longdesc)
+    
     
     # test looking at the room
+    
     result = parser.parse_input("look at room", entrance)
     assert_equal(result, entrance.longdesc)
     
@@ -51,6 +58,7 @@ def test_input_parser():
     
     result = parser.parse_input("examine room", entrance)
     assert_equal(result, entrance.longdesc)
+    
     
     # test taking
 #    result = parser.parse_input([('verb','take'), ('noun','book')])
