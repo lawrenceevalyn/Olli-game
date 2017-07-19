@@ -82,14 +82,16 @@ shortcuts_list = ('n', 'e', 's', 'w', 'l', 'x', 'i', 'N', 'E', 'S', 'W', 'L', 'X
 
 def parse_shortcuts(shortcut, room):
     if shortcut in ["N", "n"]:
-        print "the room is: " + name.room
+        print "the room is: " + room.name
         next_room = room.go('north')
-        print "the next room is: " + name.next_room
         if next_room == "invalid path":
+            print "Next room: " + next_room
             print "You can't go that way"
         else:
+            print "The next room is: " + next_room.name
             room = next_room
-            print "the room is now: " + name.room
+            print "the room is now: " + room.name
+        print "outside the if statement, the room is: " + room.name
         output = room
     if shortcut in ["E", "e"]:
         next_room = room.go('east')
@@ -130,7 +132,9 @@ def parse_input(input, room):
     
     # compare the input to a list of shortcuts; use shortcut parser if relevant
     if input in shortcuts_list:
-        output = parse_shortcuts(input, room)
+        room = parse_shortcuts(input, room)
+        output = room
+        print "the output of the shortcut function in parse_input is: " + output.name
     
     else: # if it's not a shortcut, gotta actually parse it
     
@@ -210,7 +214,7 @@ def parse_input(input, room):
         
         # if they're trying to check their inventory,
             # print their inventory
-        
-    print "output: "
-    print output
+   
+    print "the room in the parse_input function is: " + room.name
+    print "output: " + output.name
     return output

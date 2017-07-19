@@ -3,8 +3,7 @@ shh, this game is a surprise!
 
 ## To Do
 
-* write tests to handle it properly when player tries to go somewhere without paths
-* make sure parser / map pass you-can't-go-there tests
+* fix it so player actually moves places??
 * write tests for inventory
 * make sure inventory passes tests
 * add inventory to parse_shortcuts
@@ -17,7 +16,11 @@ shh, this game is a surprise!
 
 ## Development Log
 
-###
+### July 19, 2017
+
+Why is the player eternally trapped at the front desk. Why.
+
+### July 18, 2017
 
 Where does the output of parse_input go? What does "returning" it mean? I want all my parsing to end by returning the room the player is currently in, with all the other stuff happening before that. (This seems much more sensible than trying to code it so that output is just "the last thing that gets printed before the player is prompted for a new action".) But how??
 
