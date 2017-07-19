@@ -77,3 +77,21 @@ def test_input_parser():
 
 def test_errors():
     assert_raises(parser.ParserError, parser.parse_verb, ('noun','robot'))
+    
+    
+    # don't move the player if they try to go down invalid path
+    
+    result = parser.parse_input("s", lab) 
+    assert_equal(result, lab)
+    
+    result = parser.parse_input("go south", lab)
+    assert_equal(result, lab)
+    
+    result = parser.parse_input("go east", lab)
+    assert_equal(result, lab)
+    
+    result = parser.parse_input("go north", bathroom)
+    assert_equal(result, bathroom)
+    
+    result = parser.parse_input("go west", bathroom)
+    assert_equal(result, bathroom)

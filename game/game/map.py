@@ -11,7 +11,9 @@ class Room(object):
         self.paths = {}
 
     def go(self, direction):
-        return self.paths.get(direction, None)
+        return self.paths.get(direction, "invalid path")
+        # get() is a standard python method, returns a value for the given key
+        # the second thing specified is what it returns if there's nothing there
 
     def add_paths(self, paths):
         self.paths.update(paths)

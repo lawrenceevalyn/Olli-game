@@ -82,16 +82,35 @@ shortcuts_list = ('n', 'e', 's', 'w', 'l', 'x', 'i', 'N', 'E', 'S', 'W', 'L', 'X
 
 def parse_shortcuts(shortcut, room):
     if shortcut in ["N", "n"]:
-        room = room.go('north')
+        print "the room is: " + name.room
+        next_room = room.go('north')
+        print "the next room is: " + name.next_room
+        if next_room == "invalid path":
+            print "You can't go that way"
+        else:
+            room = next_room
+            print "the room is now: " + name.room
         output = room
     if shortcut in ["E", "e"]:
-        room = room.go('east')
+        next_room = room.go('east')
+        if next_room == "invalid path":
+            print "You can't go that way"
+        else:
+            room = next_room
         output = room
     if shortcut in ["S", "s"]:
-        room = room.go('south')
+        next_room = room.go('south')
+        if next_room == "invalid path":
+            print "You can't go that way"
+        else:
+            room = next_room
         output = room
     if shortcut in ["W", "w"]:
-        room = room.go('west')
+        next_room = room.go('west')
+        if next_room == "invalid path":
+            print "You can't go that way"
+        else:
+            room = next_room
         output = room
     if shortcut in ["l", "L", "x", "X"]:
         print room.longdesc
@@ -131,19 +150,35 @@ def parse_input(input, room):
             print "The player wants to travel!"
             if parsed_sentence.object == ('north'):
                 print "They specified the direction north!"
-                room = room.go('north')
+                next_room = room.go('north')
+                if next_room == "invalid path":    # I feel like there should be
+                    print "You can't go that way"  # a way not to just repeat
+                else:                              # this code eight times, but
+                    room = next_room               # *shrug emoji*
                 output = room
             elif parsed_sentence.object == ('east'):
                 print "They specified the direction east!"
-                room = room.go('east')
+                next_room = room.go('east')
+                if next_room == "invalid path":
+                    print "You can't go that way"
+                else:
+                    room = next_room
                 output = room
             elif parsed_sentence.object == ('south'):
                 print "They specified the direction south!"
-                room = room.go('south')
+                next_room = room.go('south')
+                if next_room == "invalid path":
+                    print "You can't go that way"
+                else:
+                    room = next_room
                 output = room
             elif parsed_sentence.object == ('west'):
                 print "They specified the direction west!"
-                room = room.go('west')
+                next_room = room.go('west')
+                if next_room == "invalid path":
+                    print "You can't go that way"
+                else:
+                    room = next_room
                 output = room
             else:
                 print "That's not somewhere they can go."
