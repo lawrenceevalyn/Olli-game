@@ -3,21 +3,28 @@ shh, this game is a surprise!
 
 ## To Do
 
-* add inventory to parser
-* write tests for parser inventory actions?
-* make sure parser passes inventory tests?
+* implement "drop" commands
+* figure out a plan for indirect objects?
+* implement "give" commands
+* implement "use" commands
 * add all items from inventory to lexicon
 * make it impossible to talk to the robot
 * implement a "good end" and a "bad end"
+* implement a "help" command to list available commands
 * make parser handle shortcuts gracefully?
 * write fun responses for extra things I think Olli will try
 * add lengthier room descriptions for the first time a room is entered
 
 ## Development Log
 
+
 ### July 20, 2017
 
 Aha!! The player is un-stuck!! For some reason, I couldn't just set current_room = parse_input(player_input, current_room) -- maybe because it calls current_room, so it would be recursively weird? -- but it totally worked to set next room = the parsed input, and THEN set current_room = next_room! Move function is restored. Now it's like I never even broke it...
+
+Got the "take" commands working too, and see a clear path toward "drop" -- Pretty soon I will have this program ALMOST as function as the first draft of the game that I showed to Olli! With only ten days before ver birthday! But I don't know how I'm going to do the give and use commands, and I *do* want Olli to be able to use the paper towels to clean up the water... and of course I want ver to be able to give things to the robot.
+
+Maybe, if the parser encounters a noun, and the sentence already has an object, just assume the next noun is an indirect object? Or maybe code in a way of understanding "to" for give, and "on"/"with" for use?
 
 ### July 19, 2017
 

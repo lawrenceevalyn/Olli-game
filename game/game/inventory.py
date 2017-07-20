@@ -5,7 +5,7 @@ descriptions = {
     'door' : "You can see the door to the exit. If only you could go through it. ",
     'pencils' : "a jar of tiny pencils",
     'scanner' : "a barcode scanner",
-    'bedtime story' : "a copy of Goodnight, Moon",
+    'bedtime story' : "a copy of your favourite bedtime story, Goodnight, Moon",
     'fairytales' : "a heavy volume of scary fairytales",
     'rhymes' : "a brightly-coloured book of children's rhymes",
     'encyclopedia' : "a seven-volume encyclopedia of dinosaurs",

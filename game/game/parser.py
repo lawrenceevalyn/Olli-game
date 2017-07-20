@@ -214,27 +214,37 @@ def parse_input(input, room):
             print "taking " + obj_taking + " from " + inv_from
             
             # make sure that is a thing they can take
+            if obj_taking not in items[inv_from]:
                 # if it's not takable, print an error
+                print "You can't take that."
                 
-            # put that thing in their inventory!
-            move(items, obj_taking, inv_from, 'player_inv')
-            print "Player inventory now contains: "
-            for i in items['player_inv']:
-                print descriptions[i]
-
+            else: # if it's all good, put that thing in their inventory!
+                move(items, obj_taking, inv_from, 'player_inv')
+                print "Player inventory now contains: "
+                for i in items['player_inv']:
+                    print descriptions[i]
+            
             output = room
             
+        # if they're trying to drop something,
+            # take it out of their inventory and add it to the room inventory
+            # if it's not in their inventory, print an error
+        
+        # if they're trying to use something,
+            # what do I do?? maybe a function for trying to use items?
+            # that checks if the item has a use within the room they're in?
+            # or maybe it needs an indirect object?
+        
         # if they're trying to give something,
+            # make sure there is someone to give it to
+                # (do I need to implement indirect objects for this??)
             # take it out of their inventory and give it to the robot!
+                # should have a separate function for robot responses
             # if it's not in their inventory,
                 # check if it's a cute easter egg; if so,
                     # return the easter egg result
                 # else,
                     # return the error: "You can't give what you don't have!"
-        
-        # if they're trying to drop something,
-            # take it out of their inventory and add it to the room inventory
-            # if it's not in their inventory, print an error
         
         # if they're trying to check their inventory,
             # print their inventory
