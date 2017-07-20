@@ -10,6 +10,7 @@ shh, this game is a surprise!
 * implement a "good end" and a "bad end"
 * write tests for parser to do sentences??
 * make sure parser passes new tests??
+* make parser handle shortcuts gracefully??
 * write fun responses for extra things I think Olli will try
 * add lengthier room descriptions for the first time a room is entered
 

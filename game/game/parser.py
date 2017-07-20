@@ -4,9 +4,9 @@ from map import *
 class ParserError(Exception): # I guess this is here so that if there are errors
     pass                      # later, they display the error messages I wrote?
 
-# First there are a lot of functions that have to do with turning the input
-# into sentences
-# (why doesn't this use the lexicon???)
+# First there are a lot of functions that turn the input into sentences
+# (Doesn't have to call the lexicon directly, because the lexicon was already
+# used to give each word its part-of-speech buddy)
 
 # Sentences have the attributes subject, verb, object
 # (NOT subj, verb, obj!)
@@ -94,14 +94,14 @@ def parse_shortcuts(shortcut, room):
         print "outside the if statement, the room is: " + room.name
         output = room
     if shortcut in ["E", "e"]:
-        next_room = room.go('east')
-        if next_room == "invalid path":
-            print "You can't go that way"
-        else:
-            room = next_room
-        output = room
-    if shortcut in ["S", "s"]:
-        next_room = room.go('south')
+        next_room = room.go('east')       # Man, these shortcuts really don't
+        if next_room == "invalid path":   # make MY work shorter, since I have
+            print "You can't go that way" # to type everything twice... and they
+        else:                             # don't make the program run faster...
+            room = next_room              # I guess what they "shortcut" around
+        output = room                     # is me figuring out how to make the
+    if shortcut in ["S", "s"]:            # parser gracefully understand inputs
+        next_room = room.go('south')      # of only a single letter.
         if next_room == "invalid path":
             print "You can't go that way"
         else:
@@ -156,7 +156,7 @@ def parse_input(input, room):
                 print "They specified the direction north!"
                 next_room = room.go('north')
                 if next_room == "invalid path":    # I feel like there should be
-                    print "You can't go that way"  # a way not to just repeat
+                    print "You can't go that way"  # a way NOT to just repeat
                 else:                              # this code eight times, but
                     room = next_room               # *shrug emoji*
                 output = room
@@ -218,3 +218,38 @@ def parse_input(input, room):
     print "the room in the parse_input function is: " + room.name
     print "output: " + output.name
     return output
+    
+# code from inventory.py that belongs here:
+
+# This is how I "ran" the inventory within each room before
+# How can I 'centralize' this code here?
+#
+#        elif action == "inv":
+#            print "You look at your inventory. "
+#            for i in items['player_inv']:
+#                print "You see" + descriptions[i] # prints the description of
+#            return 'front_desk'                   # the item named 'i'
+#        elif action == "take":
+#            print "What do you want to take?"
+#            item_to_take = raw_input("> ")
+#            if item_to_take in items['front_desk_inv']:
+#                move(item_to_take,'front_desk_inv','player_inv')
+#                return 'front_desk'
+#            else:
+#                print "You can't take that."
+#                return 'front_desk'
+#        elif action == "give":
+#            print "What do you want to give to the robot?"
+#            item_to_give = raw_input("> ")
+#            if item_to_give == 'bedtime story':
+#                print "The robot reads the bedtime story and falls peacefully asleep."
+#                return 'exit'
+#            elif item_to_give == 'love':
+#                print "The power of love saves the day! You and the robot live happily ever after."
+#                return 'exit'
+#            if item_to_give in items['player_inv']:
+#                move(item_to_give,'player_inv', 'front_desk_inv')
+#                return 'front_desk'
+#            else:
+#                print "You can't give that."
+#                return 'front_desk'
