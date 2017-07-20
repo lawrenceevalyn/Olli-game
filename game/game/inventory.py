@@ -39,7 +39,7 @@ items = {
 
 # Functions to do stuff with the items
 
-def move(item, inv_from, inv_to):
+def move(dict, item, inv_from, inv_to):
     # will move the item between the lists in the items dict
-    items[inv_from].remove(item)
-    items[inv_to].append(item)
+    dict[inv_from].remove(item)
+    dict[inv_to].append(item)

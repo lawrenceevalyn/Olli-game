@@ -3,8 +3,7 @@ shh, this game is a surprise!
 
 ## To Do
 
-* write tests for inventory
-* make sure inventory passes tests
+* make sure inventory passes tests -- KeyError ??
 * add inventory to parser
 * write tests for parser inventory actions
 * make sure parser passes inventory tests

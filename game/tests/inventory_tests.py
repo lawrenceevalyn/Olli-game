@@ -25,17 +25,17 @@ def test_items():
 def test_move():
 
     # set up an inventory to test moving around
-    items = {
+    test_items = {
         'inv_from' : ['pencils', 'robot'],
         'inv_to' : ['broom']
         }
     
-    assert_equal(items['inv_from'], ['pencils', 'robot'])
-    assert_equal(items['inv_to'], ['broom'])
+    assert_equal(test_items['inv_from'], ['pencils', 'robot'])
+    assert_equal(test_items['inv_to'], ['broom'])
     
     # move stuff around!
     
-    move('pencils', 'inv_from', 'inv_to')
+    move(test_items, 'pencils', 'inv_from', 'inv_to')
     
-    assert_equal(items['inv_from'], ['robot'])
-    assert_equal(items['inv_to'], ['broom', 'robot'])
+    assert_equal(test_items['inv_from'], ['robot'])
+    assert_equal(test_items['inv_to'], ['broom', 'pencils'])
