@@ -8,8 +8,8 @@ class ParserError(Exception): # I guess this is here so that if there are errors
 # (Doesn't have to call the lexicon directly, because the lexicon was already
 # used to give each word its part-of-speech buddy)
 
-# Sentences have the attributes subject, verb, object
-# (NOT subj, verb, obj!)
+# Sentences have the attributes subject, verb, object    # do I need to add
+# (NOT subj, verb, obj!)                                 # indirect objects???
 class Sentence(object):
 
     def __init__(self, subj, verb, obj):
@@ -148,12 +148,14 @@ def parse_input(input, room):
         # now the wordlist is a complicated Sentence object of some kind
         # but it has subject, verb, and object properties which are useful
         
+        
         # parse player movement commands
+        
+        # if the player wants to go somewhere,
         if parsed_sentence.verb == ('go'):
+        
             # make the player go where they wanna go!
-            print "The player wants to travel!"
             if parsed_sentence.object == ('north'):
-                print "They specified the direction north!"
                 next_room = room.go('north')
                 if next_room == "invalid path":    # I feel like there should be
                     print "You can't go that way"  # a way NOT to just repeat
@@ -161,7 +163,6 @@ def parse_input(input, room):
                     room = next_room               # *shrug emoji*
                 output = room
             elif parsed_sentence.object == ('east'):
-                print "They specified the direction east!"
                 next_room = room.go('east')
                 if next_room == "invalid path":
                     print "You can't go that way"
@@ -169,7 +170,6 @@ def parse_input(input, room):
                     room = next_room
                 output = room
             elif parsed_sentence.object == ('south'):
-                print "They specified the direction south!"
                 next_room = room.go('south')
                 if next_room == "invalid path":
                     print "You can't go that way"
@@ -177,7 +177,6 @@ def parse_input(input, room):
                     room = next_room
                 output = room
             elif parsed_sentence.object == ('west'):
-                print "They specified the direction west!"
                 next_room = room.go('west')
                 if next_room == "invalid path":
                     print "You can't go that way"
@@ -189,17 +188,37 @@ def parse_input(input, room):
                 room = room
                 output = room
         
+        
         # parse player look commands
+        
+        # if the player wants to look at or examine something,
         if parsed_sentence.verb == ('look'):
-            print room.longdesc # right now this just assumed they look at
-            # the room, but could just as easily be looking at inventory or an
-            # individual object -- implement with parser if-clauses!
+        
+            # make them look at the room they're in!
+            print room.longdesc
             output = room
+            
+            # (later I need to add functionality so they can also look at items,
+            # possibly their own inventory, details in the room, etc)
         
-        # if they're trying to take something,
+        
+        # parse player give / take commands
+        
+        # if the player wants to take something,
+        if parsed_sentence.verb == ('take'):
+        
+            # figure out what they want to take!
+            obj_taking = parsed_sentence.object
+            inv_from = room.name + "_inv"
+            print "taking " + obj_taking + " from " + inv_from
+            
+            # make sure that is a thing they can take
+                # if it's not takable, print an error
+                
             # put that thing in their inventory!
-            # if it's not takable, print an error
-        
+            #move(items, obj_taking, INV_FROM, 'player_inv')
+            output = room
+            
         # if they're trying to give something,
             # take it out of their inventory and give it to the robot!
             # if it's not in their inventory,

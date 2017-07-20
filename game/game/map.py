@@ -21,12 +21,12 @@ class Room(object):
 
 # create all the rooms
 
-entrance = Room("Entrance", "You are at the front desk.", "Longer description appears when you look at the entrance.")
-exit = Room("Exit", "You have left the library!", "Congratulations!")
-stacks = Room("Stacks", "You are in the stacks, near the children's literature.", "Longer description appears when you look at the stacks.")
-lab = Room("ComputerLab", "You are in the computer lab.", "Longer description appears when you look at the lab.")
-bathroom = Room("Bathroom", "You are in the bathroom.", "Longer description appears when you look at the bathroom.")
-closet = Room("Supply Closet", "You are in a small supply closet.", "Longer description appears you look at the closet.")
+entrance = Room("entrance", "You are at the front desk.", "Longer description appears when you look at the entrance.")
+exit = Room("exit", "You have left the library!", "Congratulations!")
+stacks = Room("stacks", "You are in the stacks, near the children's literature.", "Longer description appears when you look at the stacks.")
+lab = Room("lab", "You are in the computer lab.", "Longer description appears when you look at the lab.")
+bathroom = Room("bathroom", "You are in the bathroom.", "Longer description appears when you look at the bathroom.")
+closet = Room("closet", "You are in a small supply closet.", "Longer description appears you look at the closet.")
     
 
 # add all the paths between the rooms

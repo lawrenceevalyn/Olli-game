@@ -34,6 +34,7 @@ items = {
     'player_inv' : ['lint', 'library card'],
     'closet_inv' : ['teddy bear', 'broom', 'paper towels'],
     'the_void' : [] # this is so I can make the water go away when player cleans
+    # also a place to store intangibles that the player can nonetheless give?
     }
 
 

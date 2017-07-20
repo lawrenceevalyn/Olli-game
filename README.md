@@ -3,10 +3,10 @@ shh, this game is a surprise!
 
 ## To Do
 
-* make sure inventory passes tests -- KeyError ??
 * add inventory to parser
-* write tests for parser inventory actions
-* make sure parser passes inventory tests
+* write tests for parser inventory actions?
+* make sure parser passes inventory tests?
+* add all items from inventory to lexicon
 * make it impossible to talk to the robot
 * implement a "good end" and a "bad end"
 * make parser handle shortcuts gracefully?
