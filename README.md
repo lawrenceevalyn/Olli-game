@@ -3,7 +3,6 @@ shh, this game is a surprise!
 
 ## To Do
 
-* fix it so player actually moves places??
 * write tests for inventory
 * make sure inventory passes tests
 * add inventory to parse_shortcuts
@@ -15,6 +14,10 @@ shh, this game is a surprise!
 * add lengthier room descriptions for the first time a room is entered
 
 ## Development Log
+
+### July 20, 2017
+
+Aha!! The player is un-stuck!! For some reason, I couldn't just set current_room = parse_input(player_input, current_room) -- maybe because it calls current_room, so it would be recursively weird? -- but it totally worked to set next room = the parsed input, and THEN set current_room = next_room! Move function is restored. Now it's like I never even broke it...
 
 ### July 19, 2017
 

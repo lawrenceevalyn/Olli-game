@@ -24,7 +24,8 @@ def play(first_room):
             print "Goodbye"
             current_room = exit
         else:
-            curent_room = parse_input(player_input, current_room)
+            next_room = parse_input(player_input, current_room)
+            current_room = next_room
             # don't have to print anything, bc parser prints
             # "output" of parse_input needs to be a room
             # (the player may not move rooms, based on the input, but the game
