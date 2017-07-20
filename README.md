@@ -5,12 +5,12 @@ shh, this game is a surprise!
 
 * write tests for inventory
 * make sure inventory passes tests
-* add inventory to parse_shortcuts
+* add inventory to parser
+* write tests for parser inventory actions
+* make sure parser passes inventory tests
 * make it impossible to talk to the robot
 * implement a "good end" and a "bad end"
-* write tests for parser to do sentences??
-* make sure parser passes new tests??
-* make parser handle shortcuts gracefully??
+* make parser handle shortcuts gracefully?
 * write fun responses for extra things I think Olli will try
 * add lengthier room descriptions for the first time a room is entered
 
