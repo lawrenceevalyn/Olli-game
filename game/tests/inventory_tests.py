@@ -23,5 +23,19 @@ def test_items():
     assert_equal(items['the_void'], [])
 
 def test_move():
-    pass
-    # test the move function
+
+    # set up an inventory to test moving around
+    items = {
+        'inv_from' : ['pencils', 'robot'],
+        'inv_to' : ['broom']
+        }
+    
+    assert_equal(items['inv_from'], ['pencils', 'robot'])
+    assert_equal(items['inv_to'], ['broom'])
+    
+    # move stuff around!
+    
+    move('pencils', 'inv_from', 'inv_to')
+    
+    assert_equal(items['inv_from'], ['robot'])
+    assert_equal(items['inv_to'], ['broom', 'robot'])
