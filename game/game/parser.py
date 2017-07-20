@@ -128,17 +128,14 @@ def parse_input(input, room):
     
     room = room # apparently I have to say this so that anything works later
     
-    # take in the player input, e.g. "go north"
-    print "input: " + input
-    
     # compare the input to a list of shortcuts; use shortcut parser if relevant
     if input in shortcuts_list:
         room = parse_shortcuts(input, room)
         output = room
-        print "the output of the shortcut function in parse_input is: " + output.name
     
     else: # if it's not a shortcut, gotta actually parse it
-    
+        
+        # input will begin as just a string, e.g., 'go north'
         # use lexicon.py's "scan" function to get a list of pairs
         # e.g. [('verb', 'go'), ('direction', 'north')]
         parsed_wordlist = scan(input)
@@ -185,7 +182,7 @@ def parse_input(input, room):
                     room = next_room
                 output = room
             else:
-                print "That's not somewhere they can go."
+                print "That's not somewhere you can go."
                 room = room
                 output = room
         
@@ -203,7 +200,7 @@ def parse_input(input, room):
             # possibly their own inventory, details in the room, etc)
         
         
-        # parse player give / take commands
+        # parse player take commands
         
         # if the player wants to take something,
         if parsed_sentence.verb == ('take'):
@@ -225,10 +222,28 @@ def parse_input(input, room):
                     print descriptions[i]
             
             output = room
-            
+        
+        
         # if they're trying to drop something,
-            # take it out of their inventory and add it to the room inventory
-            # if it's not in their inventory, print an error
+        if parsed_sentence.verb == ('drop'):
+            
+            # figure out what they want to drop!
+            obj_dropping = parsed_sentence.object
+            inv_to = room.name + "_inv"
+            print "dropping " + obj_dropping + " into " + inv_to
+            
+            # make sure that is a thing they can drop
+            if obj_dropping not in items['player_inv']:
+                # if it's not droppable, print an error
+                print "You have to have something before you can drop it."
+                
+            else: # if it's all good, put that thing in their inventory!
+                move(items, obj_dropping, 'player_inv', inv_to)
+                print "Player inventory now contains: "
+                for i in items['player_inv']:
+                    print descriptions[i]
+            
+            output = room
         
         # if they're trying to use something,
             # what do I do?? maybe a function for trying to use items?
@@ -248,8 +263,7 @@ def parse_input(input, room):
         
         # if they're trying to check their inventory,
             # print their inventory
-   
-    print "the room in the parse_input function is: " + room.name
+    
     print "output: " + output.name
     return output
     

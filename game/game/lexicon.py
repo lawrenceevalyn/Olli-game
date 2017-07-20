@@ -48,7 +48,9 @@ def parse_word(word):
     elif word in ["room", "Room"]:
         return ('noun', 'room')
     elif word in ["pencils", "Pencils", "pencil", "Pencil"]:
-        return ( 'noun', 'pencils')
+        return ('noun', 'pencils')
+    elif word in ["lint", "Lint"]:
+        return ('noun', 'lint')
 # parse the stopwords
     elif word in ["the", "The"]:
         return ('stop', 'the')
