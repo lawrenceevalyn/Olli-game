@@ -26,8 +26,8 @@ descriptions = {
     
 # Initial distribution of items in various inventories
 
-items = {
-    'front_desk_inv' : ['robot', 'door', 'pencils', 'scanner'],
+items = { # inv names need to be room name + _inv (see map for room names)
+    'entrance_inv' : ['robot', 'door', 'pencils', 'scanner'],
     'stacks_inv' : ['bedtime story', 'fairytales', 'rhymes', 'encyclopedia'],
     'lab_inv' : ['USB stick', 'cable', 'mousepads (36)', 'trash can'],
     'bathroom_inv' : ['water', 'lipstick'],

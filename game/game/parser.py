@@ -1,5 +1,6 @@
 from lexicon import *
 from map import *
+from inventory import *
 
 class ParserError(Exception): # I guess this is here so that if there are errors
     pass                      # later, they display the error messages I wrote?
@@ -216,7 +217,11 @@ def parse_input(input, room):
                 # if it's not takable, print an error
                 
             # put that thing in their inventory!
-            #move(items, obj_taking, INV_FROM, 'player_inv')
+            move(items, obj_taking, inv_from, 'player_inv')
+            print "Player inventory now contains: "
+            for i in items['player_inv']:
+                print descriptions[i]
+
             output = room
             
         # if they're trying to give something,
