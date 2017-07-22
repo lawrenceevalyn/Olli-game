@@ -51,6 +51,20 @@ def parse_word(word):
         return ('noun', 'pencils')
     elif word in ["lint", "Lint"]:
         return ('noun', 'lint')
+    elif word in ["robot", "Robot", "librarian", "Librarian"]:
+        return ('noun', 'robot')
+    elif word in ["door", "Door"]:
+        return ('noun', 'door')
+    elif word in ["scanner", "Scanner"]:
+        return ('noun', 'scanner')
+    elif word in ["story", "Story", "book", "Book", "encyclopedia", "Encyclopedia"]:
+        return ('noun', 'book') # I probably want to remove the book variety
+    elif word in ["usb", "USB"]: # just so player doesn't have to play "hunt
+        return ('noun', 'USB stick') # the adjective" to grab the right thing
+    elif word in ["cable", "Cable"]:
+        return ('noun', 'cable')
+    elif word in ["mousepad", "Mousepad"]:
+        return ('noun', 'mousepad')
 # parse the stopwords
     elif word in ["the", "The"]:
         return ('stop', 'the')
@@ -62,6 +76,8 @@ def parse_word(word):
         return ('stop', 'at')
     elif word in ['around', 'Around']:
         return ('stop', 'around')
+    elif word in ["barcode", "Barcode",]:
+        return ('stop', 'barcode')
 # check if it's a number, and if not, give up
     else:
        return convert_number(word)
