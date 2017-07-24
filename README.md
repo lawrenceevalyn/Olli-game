@@ -17,6 +17,10 @@ shh, this game is a surprise!
 ## Development Log
 
 
+### July 23, 2017
+
+I have missed Olli's actual birthday!! D: But I think the game will be still cool even late, so I will keep working on it... maybe I can finish by August 23?
+
 ### July 20, 2017
 
 Aha!! The player is un-stuck!! For some reason, I couldn't just set current_room = parse_input(player_input, current_room) -- maybe because it calls current_room, so it would be recursively weird? -- but it totally worked to set next room = the parsed input, and THEN set current_room = next_room! Move function is restored. Now it's like I never even broke it...
