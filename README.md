@@ -3,7 +3,6 @@ shh, this game is a surprise!
 
 ## To Do
 
-* add all items from inventory to lexicon
 * figure out a plan for indirect objects?
 * implement "give" commands
 * implement "use" commands
@@ -16,6 +15,10 @@ shh, this game is a surprise!
 
 ## Development Log
 
+
+### August 2, 2017
+
+Slowly picking this back up again... finished the "gimme" work of adding the inventory to the lexicon. Now need to come up with my plan for indirect objects, so I can do give/take commands
 
 ### July 23, 2017
 

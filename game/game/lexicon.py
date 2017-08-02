@@ -77,6 +77,12 @@ def parse_word(word):
         return ('noun', 'paper towels')
     elif word in ["card", "Card"]:
         return ('noun', 'library card')
+    elif word in ["broom", "Broom"]:
+        return ('noun', 'broom')
+    elif word in ["lipstick", "Lipstick"]:
+        return ('noun', 'lipstick')
+    elif word in ["door", "Door"]:
+        return ('noun', 'door')
     
 # parse the stopwords
     elif word in ["the", "The"]:
