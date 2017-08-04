@@ -88,7 +88,7 @@ def test_input_parser():
     assert_equal(items['closet_inv'], ['teddy bear', 'paper towels'])
     assert_equal(items['player_inv'], ['lint', 'library card', 'broom'])
     
-    parser.parse_input ("drop the broom", closet)
+    parser.parse_input ("put down the broom", closet)
     assert_equal(items['closet_inv'], ['teddy bear', 'paper towels', 'broom'])
     assert_equal(items['player_inv'], ['lint', 'library card'])
         # (these changes to the inventory persist past this test so it's

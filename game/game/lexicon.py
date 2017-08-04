@@ -43,7 +43,7 @@ def parse_word(word):
         return ('verb', 'give')
     elif word in ["take", "Take"]:
         return ('verb', 'take')
-    elif word in ["drop", "Drop", "put down", "Put down"]:
+    elif word in ["drop", "Drop", "put", "Put"]:
         return ('verb', 'drop')
     elif word in ["look", "Look", "examine", "Examine"]:
         return ('verb', 'look')
@@ -101,6 +101,10 @@ def parse_word(word):
         return ('stop', 'library')
     elif word in ["to", "To"]:
         return ('stop', 'to')
+    elif word in ["down", "Down"]:
+        return ('stop', 'down')
+    elif word in ["back", "Back"]:
+        return ('stop', 'back')
 
 # check if it's a number, and if not, give up
     else:

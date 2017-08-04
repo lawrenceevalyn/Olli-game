@@ -3,7 +3,6 @@ shh, this game is a surprise!
 
 ## To Do
 
-* write tests for take and drop commands: less fun than implementing "give" and "use" but more important!!
 * implement "give" commands
 * implement "use" commands
 * make it impossible to talk to the robot
