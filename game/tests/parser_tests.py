@@ -2,6 +2,7 @@ from nose.tools import *
 from game import parser
 from game.map import *
 from game.lexicon import scan
+from game.inventory import items
 
 def test_sentence_parser():
     result = parser.parse_sentence([('verb','go'), ('direction','north')])
@@ -72,9 +73,27 @@ def test_input_parser():
     result = parser.parse_input("examine room", entrance)
     assert_equal(result, entrance)
     
-    # test taking
-#    result = parser.parse_input([('verb','take'), ('noun','book')])
-#    assert_equal(result, "make player take the book")
+    
+    # test taking / dropping
+    
+    parser.parse_input ("take pencils", entrance)
+    assert_equal(items['entrance_inv'], ['robot', 'door', 'scanner'])
+    assert_equal(items['player_inv'], ['lint', 'library card', 'pencils'])
+    
+    parser.parse_input ("drop pencils", entrance)
+    assert_equal(items['entrance_inv'], ['robot', 'door', 'scanner', 'pencils'])
+    assert_equal(items['player_inv'], ['lint', 'library card'])
+    
+    parser.parse_input ("take the broom", closet)
+    assert_equal(items['closet_inv'], ['teddy bear', 'paper towels'])
+    assert_equal(items['player_inv'], ['lint', 'library card', 'broom'])
+    
+    parser.parse_input ("drop the broom", closet)
+    assert_equal(items['closet_inv'], ['teddy bear', 'paper towels', 'broom'])
+    assert_equal(items['player_inv'], ['lint', 'library card'])
+        # (these changes to the inventory persist past this test so it's
+        # important to drop items after I take them or it will confuse future
+        # tests. Maybe I should define tests individually? to prevent mixing?)
     
     
     # test giving
@@ -82,10 +101,8 @@ def test_input_parser():
 #    assert_equal(result, "make player give the book to the robot")
     
     
-    # test dropping
-#    result = parser.parse_input([('verb','drop'), ('noun','book')])
-#    assert_equal(result, "make player drop the book")
-    
+    # test using items
+
 
 def test_errors():
     assert_raises(parser.ParserError, parser.parse_verb, ('noun','robot'))

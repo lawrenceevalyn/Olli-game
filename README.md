@@ -3,8 +3,7 @@ shh, this game is a surprise!
 
 ## To Do
 
-* figure out a plan for indirect objects?
-* write tests for take and drop commands
+* write tests for take and drop commands: less fun than implementing "give" and "use" but more important!!
 * implement "give" commands
 * implement "use" commands
 * make it impossible to talk to the robot
@@ -20,6 +19,8 @@ shh, this game is a surprise!
 ### August 4, 2017
 
 Every time I actually run the tests (let alone write a new test!) I discover and fix like five things that were broken. This test-first workflow is CRUCIAL. It's so helpful! Why do I have such a hard time doing it??
+
+(Maybe it's because actually writing the code is the fun part? Or because it's hard to know how to write the test until I re-understand how the code works, by writing a bit?)
 
 ### August 2, 2017
 
