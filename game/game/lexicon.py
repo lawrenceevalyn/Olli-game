@@ -99,6 +99,8 @@ def parse_word(word):
         return ('stop', 'barcode')        # since I won't parse them
     elif word in ["library", "Library"]:
         return ('stop', 'library')
+    elif word in ["to", "To"]:
+        return ('stop', 'to')
 
 # check if it's a number, and if not, give up
     else:

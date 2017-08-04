@@ -13,22 +13,22 @@ class ParserError(Exception): # I guess this is here so that if there are errors
 # (NOT subj, verb, obj!)                                 # indirect objects???
 class Sentence(object):
 
-    def __init__(self, subj, verb, obj):
+    def __init__(self, subj, verb, obj, ind):
         #  we take ('noun', 'robot') tuples of subj etc & get  the second word
         self.subject = subj[1] # i.e., the subject will be 'robot'
         self.verb = verb[1]
         self.object = obj[1]
-        #self.indobject = ind[1]
+        self.indirectobj = ind[1]
 
-def peek(word_list):
+def peek(word_list): # I don't totally understand this function
     if word_list:
         word = word_list[0]
         return word[0]
     else:
         return None
 
-def match(word_list, expecting): # I have no idea what this does
-    if word_list:
+def match(word_list, expecting): # I almost understand this function?
+    if word_list: # this checks that the list isn't empty
         word = word_list.pop(0)  # I think because this "pops" it removes the
                                  # word after it's been parsed? so that as long
         if word[0] == expecting: # as parse_sentence parses subj before obj,
@@ -61,6 +61,18 @@ def parse_object(word_list):
     else:
         return ('noun', 'implied object')
 
+def parse_indobject(word_list):
+    skip(word_list, 'stop')
+    next_word = peek(word_list)
+    
+    print "next word is "
+    print next_word
+    
+    if next_word == 'noun':
+        return match(word_list, 'noun')
+    else:
+        return ('noun', 'implied indirect object')
+
 def parse_subject(word_list):
     skip(word_list, 'stop')
     next_word = peek(word_list)
@@ -76,9 +88,9 @@ def parse_sentence(word_list):
     subj = parse_subject(word_list)
     verb = parse_verb(word_list)
     obj = parse_object(word_list)
-    #ind = parse_object(word_list)
+    ind = parse_indobject(word_list)
     
-    return Sentence(subj, verb, obj)
+    return Sentence(subj, verb, obj, ind)
 
 # this list defines the "shortcut" commands that can skip the parsing process
 shortcuts_list = ('n', 'e', 's', 'w', 'l', 'x', 'i', 'N', 'E', 'S', 'W', 'L', 'X', 'I')

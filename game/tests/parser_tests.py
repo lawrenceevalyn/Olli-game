@@ -13,6 +13,13 @@ def test_sentence_parser():
     assert_equal(result.subject, "player")
     assert_equal(result.verb, "go")
     assert_equal(result.object, "north")
+    
+    result = parser.parse_sentence(scan("give book to robot"))
+    assert_equal(result.subject, "player")
+    assert_equal(result.verb, "give")
+    assert_equal(result.object, "book")
+    assert_equal(result.indirectobj, "robot")
+
 
 def test_input_parser():
     
