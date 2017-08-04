@@ -13,11 +13,12 @@ class ParserError(Exception): # I guess this is here so that if there are errors
 # (NOT subj, verb, obj!)                                 # indirect objects???
 class Sentence(object):
 
-    def __init__(self, subj, verb, obj):
-        #  we take ('noun', 'robot') tuples and get just the second word
+    def __init__(self, subj, verb, obj, ind):
+        #  we take ('noun', 'robot') tuples of subj etc & get  the second word
         self.subject = subj[1] # i.e., the subject will be 'robot'
         self.verb = verb[1]
         self.object = obj[1]
+        self.indobject = ind[1]
 
 def peek(word_list):
     if word_list:
@@ -28,10 +29,10 @@ def peek(word_list):
 
 def match(word_list, expecting): # I have no idea what this does
     if word_list:
-        word = word_list.pop(0)
-        
-        if word[0] == expecting:
-            return word
+        word = word_list.pop(0)  # I think because this "pops" it removes the
+                                 # word after it's been parsed? so that as long
+        if word[0] == expecting: # as parse_sentence parses subj before obj,
+            return word          # it is safe to just grab the next noun
         else:
             return None
     else:
@@ -75,6 +76,7 @@ def parse_sentence(word_list):
     subj = parse_subject(word_list)
     verb = parse_verb(word_list)
     obj = parse_object(word_list)
+    ind = parse_object(word_list)
     
     return Sentence(subj, verb, obj)
 
