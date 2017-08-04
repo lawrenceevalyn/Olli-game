@@ -8,7 +8,7 @@ def test_items():
     # (really this is a test of my ability to understand how that code works)
     
     # test that the items start out in the right rooms
-    assert_equal(items['front_desk_inv'], ['robot', 'door', 'pencils', 'scanner'])
+    assert_equal(items['entrance_inv'], ['robot', 'door', 'pencils', 'scanner'])
     
     assert_equal(items['stacks_inv'], ['bedtime story', 'fairytales', 'rhymes', 'encyclopedia'])
     

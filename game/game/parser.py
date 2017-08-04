@@ -13,12 +13,12 @@ class ParserError(Exception): # I guess this is here so that if there are errors
 # (NOT subj, verb, obj!)                                 # indirect objects???
 class Sentence(object):
 
-    def __init__(self, subj, verb, obj, ind):
+    def __init__(self, subj, verb, obj):
         #  we take ('noun', 'robot') tuples of subj etc & get  the second word
         self.subject = subj[1] # i.e., the subject will be 'robot'
         self.verb = verb[1]
         self.object = obj[1]
-        self.indobject = ind[1]
+        #self.indobject = ind[1]
 
 def peek(word_list):
     if word_list:
@@ -76,7 +76,7 @@ def parse_sentence(word_list):
     subj = parse_subject(word_list)
     verb = parse_verb(word_list)
     obj = parse_object(word_list)
-    ind = parse_object(word_list)
+    #ind = parse_object(word_list)
     
     return Sentence(subj, verb, obj)
 

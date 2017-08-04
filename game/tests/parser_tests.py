@@ -1,9 +1,15 @@
 from nose.tools import *
 from game import parser
 from game.map import *
+from game.lexicon import scan
 
 def test_sentence_parser():
     result = parser.parse_sentence([('verb','go'), ('direction','north')])
+    assert_equal(result.subject, "player")
+    assert_equal(result.verb, "go")
+    assert_equal(result.object, "north")
+    
+    result = parser.parse_sentence(scan("go north"))
     assert_equal(result.subject, "player")
     assert_equal(result.verb, "go")
     assert_equal(result.object, "north")
@@ -58,7 +64,6 @@ def test_input_parser():
     
     result = parser.parse_input("examine room", entrance)
     assert_equal(result, entrance)
-    
     
     # test taking
 #    result = parser.parse_input([('verb','take'), ('noun','book')])

@@ -68,9 +68,9 @@ def parse_word(word):
     elif word in ["cable", "Cable"]:
         return ('noun', 'cable')
     elif word in ["mousepad", "Mousepad"]:
-        return ('noun', 'mousepad
+        return ('noun', 'mousepad')
     elif word in ["trash", "Trash"]:
-        return ('noun', 'trash can')')
+        return ('noun', 'trash can')
     elif word in ["water", "Water", "spill", "Spill", "puddle", "Puddle"]:
         return ('noun', 'water')
     elif word in ["paper", "Paper", "towel", "Towel", "towels", "Towels", "roll", "roll"]:
