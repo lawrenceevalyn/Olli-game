@@ -266,7 +266,8 @@ def parse_input(input, room):
         
         # if they're trying to give something,
             # make sure there is someone to give it to
-                # (do I need to implement indirect objects for this??)
+                # (even if parser thinks robot is indirect object, assume it's robot)
+                # (maybe just check that they're in the entrance?)
             # take it out of their inventory and give it to the robot!
                 # should have a separate function for robot responses
             # if it's not in their inventory,

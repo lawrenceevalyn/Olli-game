@@ -3,6 +3,7 @@ shh, this game is a surprise!
 
 ## To Do
 
+* write tests for give/use commands
 * implement "give" commands
 * implement "use" commands
 * make it impossible to talk to the robot
@@ -13,6 +14,8 @@ shh, this game is a surprise!
 * add lengthier room descriptions for the first time a room is entered
 
 ## Development Log
+
+### August 7, 2017
 
 
 ### August 4, 2017

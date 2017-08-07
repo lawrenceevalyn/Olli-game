@@ -76,19 +76,19 @@ def test_input_parser():
     
     # test taking / dropping
     
-    parser.parse_input ("take pencils", entrance)
+    parser.parse_input("take pencils", entrance)
     assert_equal(items['entrance_inv'], ['robot', 'door', 'scanner'])
     assert_equal(items['player_inv'], ['lint', 'library card', 'pencils'])
     
-    parser.parse_input ("drop pencils", entrance)
+    parser.parse_input("drop pencils", entrance)
     assert_equal(items['entrance_inv'], ['robot', 'door', 'scanner', 'pencils'])
     assert_equal(items['player_inv'], ['lint', 'library card'])
     
-    parser.parse_input ("take the broom", closet)
+    parser.parse_input("take the broom", closet)
     assert_equal(items['closet_inv'], ['teddy bear', 'paper towels'])
     assert_equal(items['player_inv'], ['lint', 'library card', 'broom'])
     
-    parser.parse_input ("put down the broom", closet)
+    parser.parse_input("put down the broom", closet)
     assert_equal(items['closet_inv'], ['teddy bear', 'paper towels', 'broom'])
     assert_equal(items['player_inv'], ['lint', 'library card'])
         # (these changes to the inventory persist past this test so it's
@@ -97,9 +97,14 @@ def test_input_parser():
     
     
     # test giving
-#    result = parser.parse_input([('verb','give'), ('noun','book')])
-#    assert_equal(result, "make player give the book to the robot")
+    result = parser.parse_input("give teddy bear to robot")
+    assert_equal(result, exit)
     
+    result = parser.parse_input("give the robot the teddy bear")
+    assert_equal(result, exit)
+    
+    result = parser.parse_input("give robot bear")
+    assert_equal(result, exit)
     
     # test using items
 

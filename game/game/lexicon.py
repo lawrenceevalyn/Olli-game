@@ -83,6 +83,8 @@ def parse_word(word):
         return ('noun', 'lipstick')
     elif word in ["door", "Door"]:
         return ('noun', 'door')
+    elif word in ["teddy", "Teddy", "bear", "Bear"]:
+        return ('noun', 'teddy bear')
     
 # parse the stopwords
     elif word in ["the", "The"]:
