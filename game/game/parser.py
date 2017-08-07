@@ -270,6 +270,7 @@ def parse_input(input, room):
                 # (maybe just check that they're in the entrance?)
             # take it out of their inventory and give it to the robot!
                 # should have a separate function for robot responses
+                # (most of the time the robot will ignore/reject items?)
             # if it's not in their inventory,
                 # check if it's a cute easter egg; if so,
                     # return the easter egg result

@@ -77,36 +77,47 @@ def test_input_parser():
     # test taking / dropping
     
     parser.parse_input("take pencils", entrance)
-    assert_equal(items['entrance_inv'], ['robot', 'door', 'scanner'])
-    assert_equal(items['player_inv'], ['lint', 'library card', 'pencils'])
+    assert 'pencils' in items['player_inv']
+    assert 'pencils' not in items['entrance_inv']
     
     parser.parse_input("drop pencils", entrance)
-    assert_equal(items['entrance_inv'], ['robot', 'door', 'scanner', 'pencils'])
-    assert_equal(items['player_inv'], ['lint', 'library card'])
+    assert 'pencils' in items['entrance_inv']
+    assert 'pencils' not in items['player_inv']
     
     parser.parse_input("take the broom", closet)
-    assert_equal(items['closet_inv'], ['teddy bear', 'paper towels'])
-    assert_equal(items['player_inv'], ['lint', 'library card', 'broom'])
+    assert 'broom' in items['player_inv']
+    assert 'broom' not in items['closet_inv']
     
     parser.parse_input("put down the broom", closet)
-    assert_equal(items['closet_inv'], ['teddy bear', 'paper towels', 'broom'])
-    assert_equal(items['player_inv'], ['lint', 'library card'])
+    assert 'broom' in items['closet_inv']
+    assert 'broom' not in items['player_inv']
         # (these changes to the inventory persist past this test so it's
         # important to drop items after I take them or it will confuse future
         # tests. Maybe I should define tests individually? to prevent mixing?)
     
     
     # test giving
-    result = parser.parse_input("give teddy bear to robot")
+    result = parser.parse_input("give teddy bear to robot", entrance)
     assert_equal(result, exit)
     
-    result = parser.parse_input("give the robot the teddy bear")
+    result = parser.parse_input("give the robot the teddy bear", entrance)
     assert_equal(result, exit)
     
-    result = parser.parse_input("give robot bear")
+    result = parser.parse_input("give robot bear", entrance)
     assert_equal(result, exit)
     
-    # test using items
+    # test cleaning the bathroom
+    # (need to add tests so these only work if the player actually has towels)
+    
+    parser.parse_input("take paper towels", closet)
+    
+    parser.parse_input("use paper towels", entrance)
+    assert 'water' in items['bathroom_inv']
+    
+    
+    parser.parse_input("use paper towels", bathroom)
+    assert 'paper towels' not in items['player_inv']
+    assert 'water' not in items['bathroom_inv']
 
 
 def test_errors():
