@@ -4,6 +4,7 @@ shh, this game is a surprise!
 ## To Do
 
 * write tests for give/use commands
+* use setup/teardown functions to improve take/drop tests
 * implement "give" commands
 * implement "use" commands
 * make it impossible to talk to the robot
@@ -17,6 +18,9 @@ shh, this game is a surprise!
 
 ### August 7, 2017
 
+Info on nosetools setup/teardown functions: http://nose.readthedocs.io/en/latest/writing_tests.html
+
+Oooh, could I also write a test that goes through all the things in a list?
 
 ### August 4, 2017
 
