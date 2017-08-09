@@ -3,7 +3,6 @@ shh, this game is a surprise!
 
 ## To Do
 
-* write tests for give/use commands
 * use setup/teardown functions to improve take/drop tests
 * implement "give" commands
 * implement "use" commands

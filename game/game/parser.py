@@ -260,9 +260,21 @@ def parse_input(input, room):
             output = room
         
         # if they're trying to use something,
-            # what do I do?? maybe a function for trying to use items?
-            # that checks if the item has a use within the room they're in?
-            # or maybe it needs an indirect object?
+        if parsed_sentence.verb == ('use'):
+        
+            # figure out what they want to use!
+            obj_using = parsed_sentence.obj
+            
+            # the only usable item is the paper towel, so this is simple;
+            # if they're not trying to use towel, call the whole thing off
+            if obj_using != 'paper towels':
+                print "You don't have a use for " + obj_using
+            
+            # if they are using towels, make sure there's water around to use on
+            else:
+                print "Using paper towels..."
+                # um... do I just check that they're in the bathroom?
+                # or should I make it possible to clean water in inventory?
         
         # if they're trying to give something,
             # make sure there is someone to give it to
