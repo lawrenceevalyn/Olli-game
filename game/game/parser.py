@@ -280,7 +280,12 @@ def parse_input(input, room):
                         print "The bathroom is already clean!"
                     
                     else: # if it's all good, do some cleaning!
-                        print "Using paper towels..."
+                        print "Using paper towels in the bathroom..."
+                        # move water and paper towels to the void
+                        move(items, 'water', 'bathroom_inv', 'the_void')
+                        print "The bathroom is clean!"
+                        move(items, 'paper towels', 'player_inv', 'the_void')
+                        print "You throw away the soggy paper towels."
             
             output = room
         
