@@ -3,9 +3,9 @@ shh, this game is a surprise!
 
 ## To Do
 
+* test "use" commands
 * use setup/teardown functions to improve take/drop tests
 * implement "give" commands
-* implement "use" commands
 * make it impossible to talk to the robot
 * implement a "good end" and a "bad end"
 * implement a "help" command to list available commands
@@ -14,6 +14,10 @@ shh, this game is a surprise!
 * add lengthier room descriptions for the first time a room is entered
 
 ## Development Log
+
+### August 10, 2017
+
+I think it is now possible for the player to clean the bathroom!! Just gotta test it :)
 
 ### August 7, 2017
 
