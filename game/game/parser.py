@@ -272,9 +272,17 @@ def parse_input(input, room):
             
             # if they are using towels, make sure there's water around to use on
             else:
-                print "Using paper towels..."
-                # um... do I just check that they're in the bathroom?
-                # or should I make it possible to clean water in inventory?
+                if room != bathroom: # make sure they're in the bathroom
+                    print "There's no use for paper towels in this room."
+                
+                else: # then make sure the bathroom is wet
+                    if 'water' not in items['bathroom_inv']:
+                        print "The bathroom is already clean!"
+                    
+                    else: # if it's all good, do some cleaning!
+                        print "Using paper towels..."
+            
+            output = room
         
         # if they're trying to give something,
             # make sure there is someone to give it to
