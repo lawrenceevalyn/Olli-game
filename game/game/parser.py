@@ -13,10 +13,10 @@ class ParserError(Exception): # I guess this is here so that if there are errors
 # (NOT subj, verb, obj!)                                 # indirect objects???
 class Sentence(object):
 
-    def __init__(self, subj, verb, obj, ind):
+    def __init__(self, verb, obj, ind): #subj
         #  we take ('noun', 'robot') tuples of subj etc & get  the second word
-        self.subject = subj[1] # i.e., the subject will be 'robot'
-        self.verb = verb[1]
+#        self.subject = subj[1] # i.e., the subject will be 'robot'
+        self.verb = verb[1]    # (except it won't because subj is always player)
         self.object = obj[1]
         self.indirectobj = ind[1]
 
@@ -73,24 +73,24 @@ def parse_indobject(word_list):
     else:
         return ('noun', 'implied indirect object')
 
-def parse_subject(word_list):
-    skip(word_list, 'stop')
-    next_word = peek(word_list)
-    
-    if next_word == 'noun':
-        return match(word_list, 'noun')
-    elif next_word == 'verb':
-        return ('noun', 'player')
-    else:
-        return ParserError("Expected a verb next.")
+#def parse_subject(word_list):          # why would the subject ever be anything
+#    skip(word_list, 'stop')            # but the player?
+#    next_word = peek(word_list)        # why did I implement this???
+#    
+#    if next_word == 'noun':
+#        return match(word_list, 'noun')
+#    elif next_word == 'verb':
+#        return ('noun', 'player')
+#    else:
+#        return ParserError("Expected a verb next.")
 
 def parse_sentence(word_list):
-    subj = parse_subject(word_list)
+#    subj = parse_subject(word_list)
     verb = parse_verb(word_list)
     obj = parse_object(word_list)
     ind = parse_indobject(word_list)
     
-    return Sentence(subj, verb, obj, ind)
+    return Sentence(verb, obj, ind) #subj
 
 # this list defines the "shortcut" commands that can skip the parsing process
 shortcuts_list = ('n', 'e', 's', 'w', 'l', 'x', 'i', 'N', 'E', 'S', 'W', 'L', 'X', 'I')

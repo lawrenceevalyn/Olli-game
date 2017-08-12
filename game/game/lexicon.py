@@ -47,6 +47,8 @@ def parse_word(word):
         return ('verb', 'drop')
     elif word in ["look", "Look", "examine", "Examine"]:
         return ('verb', 'look')
+    elif word in ["use", "Use"]:
+        return ('verb', 'use')
 
 # parse the nouns
     elif word in ["room", "Room"]:

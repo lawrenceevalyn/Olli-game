@@ -15,6 +15,14 @@ shh, this game is a surprise!
 
 ## Development Log
 
+### August 11, 2017
+
+bathroom-cleaning is a rat's nest
+
+why did I ever implement parsing a subject?? the subject is always the implied player????
+
+taking this out is a nightmare, but for some reason "use paper towels" didn't work and this seems related (I think it parsed paper towels as the subject??)
+
 ### August 10, 2017
 
 I think it is now possible for the player to clean the bathroom!! Just gotta test it :)
