@@ -208,6 +208,10 @@ def parse_input(input, room):
         
             # make them look at the room they're in!
             print room.longdesc
+            room_inventory = room.name + "_inv"
+            print "In the room you see: "
+            for i in items[room_inventory]:
+                    print descriptions[i]
             output = room
             
             # (later I need to add functionality so they can also look at items,
