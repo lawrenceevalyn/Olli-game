@@ -3,8 +3,9 @@ shh, this game is a surprise!
 
 ## To Do
 
-* test "use" commands
+* generally improve tests
 * use setup/teardown functions to improve take/drop tests
+* get "use" commands passing tests
 * implement "give" commands
 * make it impossible to talk to the robot
 * implement a "good end" and a "bad end"
@@ -14,6 +15,12 @@ shh, this game is a surprise!
 * add lengthier room descriptions for the first time a room is entered
 
 ## Development Log
+
+### August 12, 2017
+
+writing tests is a rat's nest! I should split up my parser tests, to, e.g., test that "look at room" and "examine room" both get parsed correctly as ('verb','look'), and LATER test that ('verb','look') does the thing I want it to.
+
+it seems like my parser kind of has the game engine inside of it? I'm not sure what happened, or what is a better way to do that.
 
 ### August 11, 2017
 
