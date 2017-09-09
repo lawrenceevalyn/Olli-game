@@ -5,6 +5,21 @@ from game.lexicon import scan
 from game.inventory import items
 
 
+def setup_func(): # I THINK setup this will run before every test and restore
+    items = {     # the inventory to this default state
+    'entrance_inv' : ['robot', 'door', 'pencils', 'scanner'],
+    'stacks_inv' : ['bedtime story', 'fairytales', 'rhymes', 'encyclopedia'],
+    'lab_inv' : ['USB stick', 'cable', 'mousepads (36)', 'trash can'],
+    'bathroom_inv' : ['water', 'lipstick'],
+    'player_inv' : ['lint', 'library card'],
+    'closet_inv' : ['teddy bear', 'broom', 'paper towels'],
+    'the_void' : []
+    }
+
+def teardown_func():
+    pass
+
+
 def test_sentence_parser():
     result = parser.parse_sentence([('verb','go'), ('direction','north')])
     assert_equal(result.verb, "go")
@@ -73,12 +88,6 @@ def test_looking():
     # looking at the room. I probably need more distinct tests?
     
 # test taking / dropping
-
-def setup_func():
-    parser.parse_input("L", entrance) # just a dummy set-up
-
-def teardown_func():
-    parser.parse_input("Q", entrance) # trying to make sure it has to run each time
 
 @with_setup(setup_func, teardown_func)
 def test_take():
