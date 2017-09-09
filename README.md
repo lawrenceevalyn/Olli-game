@@ -3,8 +3,8 @@ shh, this game is a surprise!
 
 ## To Do
 
-* generally improve tests
 * use setup/teardown functions to improve take/drop tests
+* generally improve tests
 * get "use" commands passing tests
 * implement "give" commands
 * make it impossible to talk to the robot
@@ -15,6 +15,10 @@ shh, this game is a surprise!
 * add lengthier room descriptions for the first time a room is entered
 
 ## Development Log
+
+### September 9, 2017
+
+Well, this has been sitting for a while. I hope I can still read my code.
 
 ### August 12, 2017
 

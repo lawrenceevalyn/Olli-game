@@ -14,7 +14,7 @@ class ParserError(Exception): # I guess this is here so that if there are errors
 class Sentence(object):
 
     def __init__(self, verb, obj, ind): #subj
-        #  we take ('noun', 'robot') tuples of subj etc & get  the second word
+        #  we take ('noun', 'robot') tuples of subj etc & get the second word
 #        self.subject = subj[1] # i.e., the subject will be 'robot'
         self.verb = verb[1]    # (except it won't because subj is always player)
         self.object = obj[1]
