@@ -20,7 +20,8 @@ descriptions = {
     'lint' : "lint.",
     'library card' : "a library card with a studious photograph of yourself",
     'teddy bear' : "a small toy, kind of like a bear",
-    'closet door' : "a door to a small supply closet"
+    'closet door' : "a door to a small supply closet",
+    'testobject' : "This is a drill. Please remain calm. In a real emergency, you will be notified."
     }
 
     

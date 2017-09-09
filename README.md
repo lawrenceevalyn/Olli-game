@@ -18,7 +18,27 @@ shh, this game is a surprise!
 
 ### September 9, 2017
 
-Well, this has been sitting for a while. I hope I can still read my code.
+Okay. "The setUp() and tearDown() methods allow you to define instructions that will be executed before and after each test method."
+
+So what I want to do before each test is begin a new "instance" of the game?
+
+OR, before the "take" test I want to set up dummy inventories..?
+
+"Tests can be numerous, and their set-up can be repetitive. Luckily, we can factor out set-up code by implementing a method called setUp(), which the testing framework will automatically call for every single test we run"
+
+"Similarly, we can provide a tearDown() method that tidies up after the test method has been run"
+
+...I think I want to use setUp and tearDown to simply restore inventories etc to their baselines. Probably in the tearDown phase? ...Does it matter?
+
+How to actually do that given that I'm using nosetests is mysterious to me:
+
+"nose supports fixtures (setup and teardown methods) at the package, module, class, and test level."
+
+That seems like I should be able to do the inventory setup/teardown just for take/drop tests. If I can figure out how. Though, this is a pretty universal thing, yeah?
+
+I definitely don't want to do setup/teardown at package level.
+
+.... Okay!! The syntax I had before was just fine, the problem was that my attempted code to run during the setup/teardown didn't work the way I thought it did! Once I put in some actually-functioning code, I was able to get my the retake test to run successfully!!! I think I understand setup and teardown now! :D
 
 ### August 12, 2017
 
