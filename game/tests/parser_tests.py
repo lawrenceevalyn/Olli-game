@@ -71,8 +71,8 @@ def test_looking():
     assert_equal(result, entrance)
     # basically these tests just confirm that the player doesn't move after
     # looking at the room. I probably need more distinct tests?
-    
-# test taking / dropping
+
+# test taking
 
 def setup_take(): # these will run before and after the tests that call them,
     items["entrance_inv"].append("testobject") # because otherwise the changes
@@ -94,21 +94,25 @@ def test_retake():                     # are actually running independently!
     parser.parse_input("take testobject", entrance)
     assert 'testobject' in items['player_inv']
     assert 'testobject' not in items['entrance_inv']
-    
-#def test_takedrop():
-#    parser.parse_input("take the broom", closet)
-#    assert 'broom' in items['player_inv']
-#    assert 'broom' not in items['closet_inv']
-    
-#    parser.parse_input("put down the broom", closet)
-#    assert 'broom' in items['closet_inv']
-#    assert 'broom' not in items['player_inv']
-        # (changes to the inventory persist after this test so it's important
-        #  to drop items after taking. because something is terribly wrong.)
 
 # need a LOT more tests to make sure player can't take untakable things!!
-# also I should separate out 'testing that it parses the thing they want' from
-# 'testing that it then does the thing it should do' (?)
+
+
+# test dropping
+
+def setup_drop():                              # don't have to test dropping in
+    items["player_inv"].append("testobject")   # conjunction with taking because
+def teardown_drop():                           # setup/teardown makes them
+    items["entrance_inv"].remove("testobject") # independent now!! :D
+
+@with_setup(setup_drop, teardown_drop)
+def test_drop():
+    assert 'testobject' in items['player_inv']
+    assert 'testobject' not in items['entrance_inv']
+    parser.parse_input("drop testobject", entrance)
+    assert 'testobject' in items['entrance_inv']
+    assert 'testobject' not in items['player_inv']
+
     
     # test giving
 #    result = parser.parse_input("give teddy bear to robot", entrance)
