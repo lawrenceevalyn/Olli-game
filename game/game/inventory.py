@@ -23,6 +23,8 @@ descriptions = {
     'closet door' : "a door to a small supply closet",
     'testobject' : "This is a drill. Please remain calm. In a real emergency, you will be notified."
     }
+    # Because I'm using dicts, these descriptions stick with the items no matter
+    # that inventory they're in at the time!
 
     
 # Initial distribution of items in various inventories

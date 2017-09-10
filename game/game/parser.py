@@ -48,7 +48,7 @@ def parse_verb(word_list):
     if peek(word_list) == 'verb':
         return match(word_list, 'verb') # aha! this is where the match function
     else:                               # gets used! it makes sure each word
-        raise ParserError("Expected a verb next.") # only gets parsed once
+        raise ParserError("Expected a verb next.")   # only gets parsed once
 
 def parse_object(word_list):
     skip(word_list, 'stop')
@@ -167,28 +167,30 @@ def parse_input(input, room):
         if parsed_sentence.verb == ('go'):
         
             # make the player go where they wanna go!
-            if parsed_sentence.object == ('north'):
+            destination = parsed_sentence.object
+            
+            if destination == ('north'):
                 next_room = room.go('north')
                 if next_room == "invalid path":    # I feel like there should be
                     print "You can't go that way"  # a way NOT to just repeat
                 else:                              # this code eight times, but
                     room = next_room               # *shrug emoji*
                 output = room
-            elif parsed_sentence.object == ('east'):
-                next_room = room.go('east')
-                if next_room == "invalid path":
-                    print "You can't go that way"
+            elif destination == ('east'):             # I could at least move
+                next_room = room.go('east')           # all this to a funct in
+                if next_room == "invalid path":       # map.py, called "travel"
+                    print "You can't go that way"     # travel(destination)
                 else:
                     room = next_room
                 output = room
-            elif parsed_sentence.object == ('south'):
+            elif destination == ('south'):
                 next_room = room.go('south')
                 if next_room == "invalid path":
                     print "You can't go that way"
                 else:
                     room = next_room
                 output = room
-            elif parsed_sentence.object == ('west'):
+            elif destination == ('west'):
                 next_room = room.go('west')
                 if next_room == "invalid path":
                     print "You can't go that way"
@@ -268,6 +270,9 @@ def parse_input(input, room):
         
             # figure out what they want to use!
             obj_using = parsed_sentence.obj
+            
+            # this is where I could move the details below inside another
+            # funcion, something like use(obj_using) -- write it in inventory
             
             # the only usable item is the paper towel, so this is simple;
             # if they're not trying to use towel, call the whole thing off

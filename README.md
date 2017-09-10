@@ -3,8 +3,9 @@ shh, this game is a surprise!
 
 ## To Do
 
-* use setup/teardown functions to improve take/drop tests
-* generally improve tests
+* generally improve tests - make sure player can't take untakable items?
+* refactor: travel(destination)
+* refactor: use(object_using)
 * get "use" commands passing tests
 * implement "give" commands
 * make it impossible to talk to the robot
@@ -15,6 +16,12 @@ shh, this game is a surprise!
 * add lengthier room descriptions for the first time a room is entered
 
 ## Development Log
+
+### September 10, 2017
+
+It was TOTALLY worth figuring out setup/teardown, because now I can write non-insane tests for dropping! It's completely independent from taking! It does look like I'll have to write a lot of individual setup/teardown functions, but that seems... fine?
+
+I wish I could write a "reset everything to default", but I'm weirdly struggling to figure out how to just overwrite the whole items dict.
 
 ### September 9, 2017
 
