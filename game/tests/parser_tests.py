@@ -138,7 +138,7 @@ def test_drop():
 #    assert 'water' not in items['bathroom_inv']
 
 
-def test_errors():
+def test_parsererrors():
     assert_raises(parser.ParserError, parser.parse_verb, ('noun','robot'))
     
     

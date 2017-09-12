@@ -3,11 +3,12 @@ shh, this game is a surprise!
 
 ## To Do
 
-* generally improve tests - make sure player can't take untakable items?
+* generally improve tests
 * refactor: travel(destination)
 * refactor: use(object_using)
 * get "use" commands passing tests
 * implement "give" commands
+* implement untakable items (make a dict, add an if-check)
 * make it impossible to talk to the robot
 * implement a "good end" and a "bad end"
 * implement a "help" command to list available commands

@@ -46,5 +46,5 @@ def test_game_paths():
     assert_equal(bathroom.paths, {'east': entrance})
     assert_equal(closet.paths, {'south':lab})
 
-def test_errors():
+def test_maperrors():
     assert_equal(lab.go('south'), "invalid path")

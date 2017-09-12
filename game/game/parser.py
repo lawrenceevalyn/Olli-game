@@ -96,41 +96,27 @@ def parse_sentence(word_list):
 shortcuts_list = ('n', 'e', 's', 'w', 'l', 'x', 'i', 'N', 'E', 'S', 'W', 'L', 'X', 'I')
 
 def parse_shortcuts(shortcut, room):
-    if shortcut in ["N", "n"]:
-        print "the room is: " + room.name
-        next_room = room.go('north')
-        if next_room == "invalid path":
-            print "Next room: " + next_room
-            print "You can't go that way"
-        else:
-            print "The next room is: " + next_room.name
-            room = next_room
-            print "the room is now: " + room.name
-        print "outside the if statement, the room is: " + room.name
-        output = room
-    if shortcut in ["E", "e"]:
-        next_room = room.go('east')       # Man, these shortcuts really don't
-        if next_room == "invalid path":   # make MY work shorter, since I have
-            print "You can't go that way" # to type everything twice... and they
-        else:                             # don't make the program run faster...
-            room = next_room              # I guess what they "shortcut" around
-        output = room                     # is me figuring out how to make the
-    if shortcut in ["S", "s"]:            # parser gracefully understand inputs
-        next_room = room.go('south')      # of only a single letter.
-        if next_room == "invalid path":
-            print "You can't go that way"
-        else:
-            room = next_room
-        output = room
-    if shortcut in ["W", "w"]:
-        next_room = room.go('west')
-        if next_room == "invalid path":
-            print "You can't go that way"
-        else:
-            room = next_room
-        output = room
+
+    # parse looking shortcuts
     if shortcut in ["l", "L", "x", "X"]:
         print room.longdesc
+        output = room
+
+    # parse direction shortcuts
+    else:
+        print "finding shortcut destination..."
+        if shortcut in ["N", "n"]:
+            destination = 'north'
+        if shortcut in ["E", "e"]:
+            destination = 'east'
+        if shortcut in ["S", "s"]:
+            destination = 'south'
+        if shortcut in ["W", "w"]:
+            destination = 'west'
+        print "destination is: " + destination
+        
+        room = travelto(room, destination)
+        print room
         output = room
     
     return output # don't need to print output here, since this function only
@@ -169,38 +155,11 @@ def parse_input(input, room):
             # make the player go where they wanna go!
             destination = parsed_sentence.object
             
-            if destination == ('north'):
-                next_room = room.go('north')
-                if next_room == "invalid path":    # I feel like there should be
-                    print "You can't go that way"  # a way NOT to just repeat
-                else:                              # this code eight times, but
-                    room = next_room               # *shrug emoji*
-                output = room
-            elif destination == ('east'):             # I could at least move
-                next_room = room.go('east')           # all this to a funct in
-                if next_room == "invalid path":       # map.py, called "travel"
-                    print "You can't go that way"     # travel(destination)
-                else:
-                    room = next_room
-                output = room
-            elif destination == ('south'):
-                next_room = room.go('south')
-                if next_room == "invalid path":
-                    print "You can't go that way"
-                else:
-                    room = next_room
-                output = room
-            elif destination == ('west'):
-                next_room = room.go('west')
-                if next_room == "invalid path":
-                    print "You can't go that way"
-                else:
-                    room = next_room
-                output = room
-            else:
-                print "That's not somewhere you can go."
-                room = room
-                output = room
+            room = travelto(room, destination)
+            
+            print "travelto executed."
+            print "output is: " + output
+            output = room
         
         
         # parse player look commands

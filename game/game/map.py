@@ -27,7 +27,7 @@ stacks = Room("stacks", "You are in the stacks, near the children's literature."
 lab = Room("lab", "You are in the computer lab.", "Longer description appears when you look at the lab.")
 bathroom = Room("bathroom", "You are in the bathroom.", "Longer description appears when you look at the bathroom.")
 closet = Room("closet", "You are in a small supply closet.", "Longer description appears you look at the closet.")
-    
+
 
 # add all the paths between the rooms
 # (make sure paths are reciprocated if they are meant to go both ways)
@@ -38,3 +38,22 @@ stacks.add_paths({'north': entrance})
 lab.add_paths({'west': entrance, 'north':closet})
 bathroom.add_paths({'east': entrance})
 closet.add_paths({'south':lab})
+
+
+# let the player move between rooms
+
+def travelto(room, destination):
+        print "running travelto..."
+        next_room = room.go(destination)
+        
+        if next_room == "invalid path":
+            print "You can't go that way"
+            print "Room is still " + room.name
+            room = room
+            print "room in travelto is: " + room.name
+        else:
+            print "next_room is: " + next_room.name
+            room = next_room
+            print "room in travelto is: " + room.name
+        
+        return room
