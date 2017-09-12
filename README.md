@@ -4,8 +4,8 @@ shh, this game is a surprise!
 ## To Do
 
 * generally improve tests
-* refactor: travel(destination)
 * refactor: use(object_using)
+* refactor take and drop too?
 * get "use" commands passing tests
 * implement "give" commands
 * implement untakable items (make a dict, add an if-check)
@@ -17,6 +17,10 @@ shh, this game is a surprise!
 * add lengthier room descriptions for the first time a room is entered
 
 ## Development Log
+
+### September 11, 2017
+
+Refactoring is fun!! I can just FEEL the code being better. Also pleased that my previous instincts were right -- with the directions,  I wrote comments saying "there must be an easier way to do this???? this seems dumb??????" and indeed I am now accomplishing that same task with much fewer lines and no duplication!
 
 ### September 10, 2017
 

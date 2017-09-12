@@ -104,19 +104,16 @@ def parse_shortcuts(shortcut, room):
 
     # parse direction shortcuts
     else:
-        print "finding shortcut destination..."
-        if shortcut in ["N", "n"]:
-            destination = 'north'
-        if shortcut in ["E", "e"]:
-            destination = 'east'
+        if shortcut in ["N", "n"]:   # instead of trying to parse implied "go"
+            destination = 'north'    # verbs and make these directions the
+        if shortcut in ["E", "e"]:   # objects of sentences, just skip straight
+            destination = 'east'     # to parsing them as move commands
         if shortcut in ["S", "s"]:
             destination = 'south'
         if shortcut in ["W", "w"]:
             destination = 'west'
-        print "destination is: " + destination
         
-        room = travelto(room, destination)
-        print room
+        room = travelto(room, destination) # travelto is defined in map.py
         output = room
     
     return output # don't need to print output here, since this function only
@@ -139,7 +136,6 @@ def parse_input(input, room):
         # use lexicon.py's "scan" function to get a list of pairs
         # e.g. [('verb', 'go'), ('direction', 'north')]
         parsed_wordlist = scan(input)
-        print "parsed_wordlist: "
         print parsed_wordlist
         
         parsed_sentence = parse_sentence(parsed_wordlist) # parse that sucker!
@@ -153,12 +149,8 @@ def parse_input(input, room):
         if parsed_sentence.verb == ('go'):
         
             # make the player go where they wanna go!
-            destination = parsed_sentence.object
-            
-            room = travelto(room, destination)
-            
-            print "travelto executed."
-            print "output is: " + output
+            destination = parsed_sentence.object # object of sentence will be a
+            room = travelto(room, destination)   # direction; go to it!
             output = room
         
         
@@ -189,9 +181,9 @@ def parse_input(input, room):
             inv_from = room.name + "_inv"
             print "taking " + obj_taking + " from " + inv_from
             
-            # make sure that is a thing they can take
-            if obj_taking not in items[inv_from]:
-                # if it's not takable, print an error
+            # make sure that is a thing they can take      # this bit of code
+            if obj_taking not in items[inv_from]:          # could be refactored
+                # if it's not takable, print an error      # too, into inventory
                 print "You can't take that."
                 
             else: # if it's all good, put that thing in their inventory!
@@ -211,7 +203,7 @@ def parse_input(input, room):
             inv_to = room.name + "_inv"
             print "dropping " + obj_dropping + " into " + inv_to
             
-            # make sure that is a thing they can drop
+            # make sure that is a thing they can drop      # could be refactored
             if obj_dropping not in items['player_inv']:
                 # if it's not droppable, print an error
                 print "You have to have something before you can drop it."
@@ -227,8 +219,8 @@ def parse_input(input, room):
         # if they're trying to use something,
         if parsed_sentence.verb == ('use'):
         
-            # figure out what they want to use!
-            obj_using = parsed_sentence.obj
+            # figure out what they want to use!    # this is the actual parsing
+            obj_using = parsed_sentence.obj        # the rest can be refactored
             
             # this is where I could move the details below inside another
             # funcion, something like use(obj_using) -- write it in inventory

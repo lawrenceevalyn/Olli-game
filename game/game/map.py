@@ -43,17 +43,13 @@ closet.add_paths({'south':lab})
 # let the player move between rooms
 
 def travelto(room, destination):
-        print "running travelto..."
-        next_room = room.go(destination)
-        
-        if next_room == "invalid path":
-            print "You can't go that way"
-            print "Room is still " + room.name
-            room = room
-            print "room in travelto is: " + room.name
-        else:
-            print "next_room is: " + next_room.name
-            room = next_room
-            print "room in travelto is: " + room.name
-        
-        return room
+    
+    next_room = room.go(destination) # "go" is defined in Room class above
+    
+    if next_room == "invalid path":
+        print "You can't go that way."
+        room = room
+    else:
+        room = next_room
+    
+    return room
