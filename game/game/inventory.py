@@ -47,3 +47,30 @@ def move(dict, item, inv_from, inv_to):
     # will move the item between the lists in the items dict
     dict[inv_from].remove(item)
     dict[inv_to].append(item)
+
+def useobj(object_using): # right now can only use paper towels, but this is
+                          # gonna be a complicated one!
+# use paper towels
+
+    # if they're not trying to use the towel, call the whole thing off
+    if obj_using != 'paper towels':
+        print "You don't have a use for " + obj_using
+    # later when there are more usable items, replace this with a list
+    # of usable items & check against the list
+            
+    # if they are using the towel, make sure there's water around to use on
+    else:
+        if room != bathroom: # make sure they're in the bathroom
+            print "There's no use for paper towels in this room."
+        
+        else: # then make sure the bathroom is wet
+            if 'water' not in items['bathroom_inv']:
+                print "The bathroom is already clean!"
+            
+            else: # if it's all good, do some cleaning!
+                print "Using paper towels in the bathroom..."
+                # move water and paper towels to the void
+                move(items, 'water', 'bathroom_inv', 'the_void')
+                print "The bathroom is clean!"
+                move(items, 'paper towels', 'player_inv', 'the_void')
+                print "You throw away the soggy paper towels."

@@ -219,33 +219,10 @@ def parse_input(input, room):
         # if they're trying to use something,
         if parsed_sentence.verb == ('use'):
         
-            # figure out what they want to use!    # this is the actual parsing
-            obj_using = parsed_sentence.obj        # the rest can be refactored
+            # figure out what they want to use! then use it!
+            obj_using = parsed_sentence.obj
             
-            # this is where I could move the details below inside another
-            # funcion, something like use(obj_using) -- write it in inventory
-            
-            # the only usable item is the paper towel, so this is simple;
-            # if they're not trying to use towel, call the whole thing off
-            if obj_using != 'paper towels':
-                print "You don't have a use for " + obj_using
-            
-            # if they are using towels, make sure there's water around to use on
-            else:
-                if room != bathroom: # make sure they're in the bathroom
-                    print "There's no use for paper towels in this room."
-                
-                else: # then make sure the bathroom is wet
-                    if 'water' not in items['bathroom_inv']:
-                        print "The bathroom is already clean!"
-                    
-                    else: # if it's all good, do some cleaning!
-                        print "Using paper towels in the bathroom..."
-                        # move water and paper towels to the void
-                        move(items, 'water', 'bathroom_inv', 'the_void')
-                        print "The bathroom is clean!"
-                        move(items, 'paper towels', 'player_inv', 'the_void')
-                        print "You throw away the soggy paper towels."
+            use(obj_using) # use is defined in inventory.py
             
             output = room
         

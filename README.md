@@ -4,7 +4,6 @@ shh, this game is a surprise!
 ## To Do
 
 * generally improve tests
-* refactor: use(object_using)
 * refactor take and drop too?
 * get "use" commands passing tests
 * implement "give" commands
