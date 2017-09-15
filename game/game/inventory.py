@@ -48,6 +48,23 @@ def move(dict, item, inv_from, inv_to):
     dict[inv_from].remove(item)
     dict[inv_to].append(item)
 
+def dropobj(object_dropping):
+    inv_to = room.name + "_inv"
+    print "dropping " + obj_dropping + " into " + inv_to
+            
+    # make sure that is a thing they can drop      # could be refactored
+    if obj_dropping not in items['player_inv']:
+        # if it's not droppable, print an error
+        print "You have to have something before you can drop it."
+        
+    else: # if it's all good, put that thing in their inventory!
+        move(items, obj_dropping, 'player_inv', inv_to)
+        print "Player inventory now contains: "
+        for i in items['player_inv']:
+            print descriptions[i]
+    
+    return room
+
 def useobj(object_using): # right now can only use paper towels, but this is
                           # gonna be a complicated one!
 # use paper towels

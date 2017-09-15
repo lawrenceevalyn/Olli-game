@@ -4,7 +4,7 @@ shh, this game is a surprise!
 ## To Do
 
 * generally improve tests
-* refactor take and drop too?
+* refactor take too
 * get "use" commands passing tests
 * implement "give" commands
 * implement untakable items (make a dict, add an if-check)
