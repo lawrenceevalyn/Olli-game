@@ -17,6 +17,10 @@ shh, this game is a surprise!
 
 ## Development Log
 
+### September 14, 2017
+
+I have been awake for something like 36 hours. Olli would want me to sleep instead of working on this game just to make Beeminder happy.
+
 ### September 11, 2017
 
 Refactoring is fun!! I can just FEEL the code being better. Also pleased that my previous instincts were right -- with the directions,  I wrote comments saying "there must be an easier way to do this???? this seems dumb??????" and indeed I am now accomplishing that same task with much fewer lines and no duplication!
