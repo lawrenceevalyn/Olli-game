@@ -3,8 +3,7 @@ shh, this game is a surprise!
 
 ## To Do
 
-* generally improve tests
-* refactor take too
+* generally improve tests: add ideas to to-do list
 * get "use" commands passing tests
 * implement "give" commands
 * implement untakable items (make a dict, add an if-check)
@@ -16,6 +15,10 @@ shh, this game is a surprise!
 * add lengthier room descriptions for the first time a room is entered
 
 ## Development Log
+
+### September 15, 2017
+
+Refactoring is so east and fun! :O!!
 
 ### September 14, 2017
 
