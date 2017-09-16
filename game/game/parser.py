@@ -178,19 +178,7 @@ def parse_input(input, room):
         
             # figure out what they want to take!
             obj_taking = parsed_sentence.object
-            inv_from = room.name + "_inv"
-            print "taking " + obj_taking + " from " + inv_from
-            
-            # make sure that is a thing they can take      # this bit of code
-            if obj_taking not in items[inv_from]:          # could be refactored
-                # if it's not takable, print an error      # too, into inventory
-                print "You can't take that."
-                
-            else: # if it's all good, put that thing in their inventory!
-                move(items, obj_taking, inv_from, 'player_inv')
-                print "Player inventory now contains: "
-                for i in items['player_inv']:
-                    print descriptions[i]
+            takeobj(obj_taking)
             
             output = room
         
@@ -200,19 +188,7 @@ def parse_input(input, room):
             
             # figure out what they want to drop!
             obj_dropping = parsed_sentence.object
-            inv_to = room.name + "_inv"
-            print "dropping " + obj_dropping + " into " + inv_to
-            
-            # make sure that is a thing they can drop      # could be refactored
-            if obj_dropping not in items['player_inv']:
-                # if it's not droppable, print an error
-                print "You have to have something before you can drop it."
-                
-            else: # if it's all good, put that thing in their inventory!
-                move(items, obj_dropping, 'player_inv', inv_to)
-                print "Player inventory now contains: "
-                for i in items['player_inv']:
-                    print descriptions[i]
+            dropobj(obj_dropping)
             
             output = room
         
@@ -221,8 +197,7 @@ def parse_input(input, room):
         
             # figure out what they want to use! then use it!
             obj_using = parsed_sentence.obj
-            
-            use(obj_using) # use is defined in inventory.py
+            useobj(obj_using) # useobj is defined in inventory.py
             
             output = room
         

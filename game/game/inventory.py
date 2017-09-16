@@ -48,11 +48,29 @@ def move(dict, item, inv_from, inv_to):
     dict[inv_from].remove(item)
     dict[inv_to].append(item)
 
+def takeobj(obj_taking):
+    inv_from = room.name + "_inv"
+    print "taking " + obj_taking + " from " + inv_from
+    
+    # make sure that is a thing they can take
+    if obj_taking not in items[inv_from]:
+        # if it's not takable, print an error
+        print "You can't take that."
+                
+    else: # if it's all good, put that thing in their inventory!
+        move(items, obj_taking, inv_from, 'player_inv')
+        print "Player inventory now contains: "
+        for i in items['player_inv']:
+             print descriptions[i]
+             
+    return room
+
+
 def dropobj(object_dropping):
     inv_to = room.name + "_inv"
     print "dropping " + obj_dropping + " into " + inv_to
             
-    # make sure that is a thing they can drop      # could be refactored
+    # make sure that is a thing they can drop
     if obj_dropping not in items['player_inv']:
         # if it's not droppable, print an error
         print "You have to have something before you can drop it."
@@ -68,7 +86,7 @@ def dropobj(object_dropping):
 def useobj(object_using): # right now can only use paper towels, but this is
                           # gonna be a complicated one!
 # use paper towels
-
+    
     # if they're not trying to use the towel, call the whole thing off
     if obj_using != 'paper towels':
         print "You don't have a use for " + obj_using
