@@ -48,7 +48,7 @@ def move(dict, item, inv_from, inv_to):
     dict[inv_from].remove(item)
     dict[inv_to].append(item)
 
-def takeobj(obj_taking):
+def takeobj(room, obj_taking):
     inv_from = room.name + "_inv"
     print "taking " + obj_taking + " from " + inv_from
     
@@ -66,7 +66,7 @@ def takeobj(obj_taking):
     return room
 
 
-def dropobj(object_dropping):
+def dropobj(room, obj_dropping):
     inv_to = room.name + "_inv"
     print "dropping " + obj_dropping + " into " + inv_to
             
@@ -83,7 +83,7 @@ def dropobj(object_dropping):
     
     return room
 
-def useobj(object_using): # right now can only use paper towels, but this is
+def useobj(room, object_using): # right now can only use paper towels, but this is
                           # gonna be a complicated one!
 # use paper towels
     

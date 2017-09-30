@@ -178,7 +178,7 @@ def parse_input(input, room):
         
             # figure out what they want to take!
             obj_taking = parsed_sentence.object
-            takeobj(obj_taking)
+            takeobj(room, obj_taking)
             
             output = room
         
@@ -188,7 +188,7 @@ def parse_input(input, room):
             
             # figure out what they want to drop!
             obj_dropping = parsed_sentence.object
-            dropobj(obj_dropping)
+            dropobj(room, obj_dropping)
             
             output = room
         
@@ -197,7 +197,7 @@ def parse_input(input, room):
         
             # figure out what they want to use! then use it!
             obj_using = parsed_sentence.obj
-            useobj(obj_using) # useobj is defined in inventory.py
+            useobj(room, obj_using) # useobj is defined in inventory.py
             
             output = room
         
