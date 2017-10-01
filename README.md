@@ -3,10 +3,10 @@ shh, this game is a surprise!
 
 ## To Do
 
-* generally improve tests: add ideas to to-do list
-* get "use" commands passing tests
 * implement "give" commands
 * implement untakable items (make a dict, add an if-check)
+* refactor tests to put inventory tests (take, drop) in inventory_tests?
+* write tests to make sure parser properly understands use commands (figure out how to use setup/teardown so they can apply to each line within a test?)
 * make it impossible to talk to the robot
 * implement a "good end" and a "bad end"
 * implement a "help" command to list available commands
