@@ -1,3 +1,5 @@
+from map import *
+
 # All the items in the game, and the game's name for them
 
 descriptions = {
@@ -83,7 +85,7 @@ def dropobj(room, obj_dropping):
     
     return room
 
-def useobj(room, object_using): # right now can only use paper towels, but this is
+def useobj(room, obj_using): # right now can only use paper towels, but this is
                           # gonna be a complicated one!
 # use paper towels
     

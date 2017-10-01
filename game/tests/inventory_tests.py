@@ -1,6 +1,8 @@
 from nose.tools import *
 from game import inventory
 from game.inventory import *
+from game.inventory import items
+from game import parser
 
 def test_items():
     # test that the pencils have the right description
@@ -23,7 +25,6 @@ def test_items():
     assert_equal(items['the_void'], [])
 
 def test_move():
-
     # set up an inventory to test moving around
     test_items = {
         'inv_from' : ['pencils', 'robot'],
@@ -39,3 +40,19 @@ def test_move():
     
     assert_equal(test_items['inv_from'], ['robot'])
     assert_equal(test_items['inv_to'], ['broom', 'pencils'])
+
+
+def test_clean_bathroom():
+    move(items, 'paper towels', 'closet_inv', 'player_inv')        # setup
+    
+    assert 'paper towels' in items['player_inv']
+    assert 'water' in items['bathroom_inv']
+    assert 'paper towels' not in items['bathroom_inv']
+    parser.parse_input("use towel", bathroom)
+    assert 'paper towels' in items['the_void']
+    assert 'paper towels' not in items['player_inv']
+    assert 'paper towels' in items['the_void']
+    assert 'paper towels' not in items['player_inv']
+    
+    move(items, 'paper towels', 'the_void', 'closet_inv')         # teardown
+    move(items, 'water', 'the_void', 'bathroom_inv')

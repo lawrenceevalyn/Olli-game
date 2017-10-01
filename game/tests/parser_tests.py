@@ -124,18 +124,10 @@ def test_drop():
 #    result = parser.parse_input("give robot bear", entrance)
 #    assert_equal(result, exit)
     
-    # test cleaning the bathroom
-    # (need to add tests so these only work if the player actually has towels)
-    
-#    parser.parse_input("take paper towels", closet)
-#    
-#    parser.parse_input("use paper towels", entrance)
-#    assert 'water' in items['bathroom_inv']
-    
-    
-#    parser.parse_input("use paper towels", bathroom)
-#    assert 'paper towels' not in items['player_inv']
-#    assert 'water' not in items['bathroom_inv']
+# test using objects
+
+# these tests should focus on the PARSER'S role in using objects -- ie, making sure the commands get interpreted correctly
+
 
 
 def test_parsererrors():

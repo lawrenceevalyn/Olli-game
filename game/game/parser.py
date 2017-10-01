@@ -9,8 +9,8 @@ class ParserError(Exception): # I guess this is here so that if there are errors
 # (Doesn't have to call the lexicon directly, because the lexicon was already
 # used to give each word its part-of-speech buddy)
 
-# Sentences have the attributes subject, verb, object    # do I need to add
-# (NOT subj, verb, obj!)                                 # indirect objects???
+# Sentences have the attributes verb, object, indirectobj 
+# (NOT verb, obj, ind!)
 class Sentence(object):
 
     def __init__(self, verb, obj, ind): #subj
@@ -64,9 +64,6 @@ def parse_object(word_list):
 def parse_indobject(word_list):
     skip(word_list, 'stop')
     next_word = peek(word_list)
-    
-    print "next word is "
-    print next_word
     
     if next_word == 'noun':
         return match(word_list, 'noun')
@@ -196,7 +193,8 @@ def parse_input(input, room):
         if parsed_sentence.verb == ('use'):
         
             # figure out what they want to use! then use it!
-            obj_using = parsed_sentence.obj
+            obj_using = parsed_sentence.object
+            print "using object: " + obj_using
             useobj(room, obj_using) # useobj is defined in inventory.py
             
             output = room
