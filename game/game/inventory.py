@@ -28,6 +28,10 @@ descriptions = {
     # Because I'm using dicts, these descriptions stick with the items no matter
     # that inventory they're in at the time!
 
+givetext = {
+    'pencils' : "The robot already has pencils."
+    }
+
     
 # Initial distribution of items in various inventories
 
@@ -38,7 +42,7 @@ items = { # inv names need to be room name + _inv (see map for room names)
     'bathroom_inv' : ['water', 'lipstick'],
     'player_inv' : ['lint', 'library card'],
     'closet_inv' : ['teddy bear', 'broom', 'paper towels'],
-    'the_void' : [] # this is so I can make the water go away when player cleans
+    'the_void' : ['love'] # this is so I can make the water go away when player cleans
     # also a place to store intangibles that the player can nonetheless give?
     }
 
@@ -85,6 +89,7 @@ def dropobj(room, obj_dropping):
     
     return room
 
+
 def useobj(room, obj_using): # right now can only use paper towels, but this is
                           # gonna be a complicated one!
 # use paper towels
@@ -111,3 +116,17 @@ def useobj(room, obj_using): # right now can only use paper towels, but this is
                 print "The bathroom is clean!"
                 move(items, 'paper towels', 'player_inv', 'the_void')
                 print "You throw away the soggy paper towels."
+
+
+def giveobj(room, obj_giving):
+    # check that they are in the same room as the robot
+        # if not, print "There's nobody here to give that to."
+    
+    # check that the item is givable
+        # if it's in their inventory,
+            # move it from their inventory to the robot inventory
+            # print the give text
+        
+        # if it's intangible,
+            # just print the give text
+            # (or will I need to use the void...?)
