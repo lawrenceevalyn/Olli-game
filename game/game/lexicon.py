@@ -89,6 +89,8 @@ def parse_word(word):
         return ('noun', 'teddy bear')
     elif word in ["testobject"]:
         return ('noun', 'testobject')
+    elif word in ["love", "friendship", "affection"]:
+        return ('noun', 'love')
     
 # parse the stopwords
     elif word in ["the", "The"]:
