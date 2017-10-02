@@ -3,6 +3,7 @@ shh, this game is a surprise!
 
 ## To Do
 
+* write tests for "give" commands
 * implement "give" commands
 * implement untakable items (make a dict, add an if-check)
 * refactor tests to put inventory tests (take, drop) in inventory_tests?
@@ -18,7 +19,7 @@ shh, this game is a surprise!
 
 ### September 15, 2017
 
-Refactoring is so east and fun! :O!!
+Refactoring is so easy and fun! :O!!
 
 ### September 14, 2017
 

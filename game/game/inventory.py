@@ -120,13 +120,20 @@ def useobj(room, obj_using): # right now can only use paper towels, but this is
 
 def giveobj(room, obj_giving):
     # check that they are in the same room as the robot
-        # if not, print "There's nobody here to give that to."
+    if room != entrance:
+        print "There's nobody here to give that to."
     
-    # check that the item is givable
-        # if it's in their inventory,
-            # move it from their inventory to the robot inventory
-            # print the give text
+    else:
+        # check that the item is givable
+            # if it's in their inventory,
+                # move it from their inventory to the robot inventory
+                # print the give text
+            
         
-        # if it's intangible,
-            # just print the give text
-            # (or will I need to use the void...?)
+            # if it's intangible,
+                # just print the give text
+                # (or will I need to use the void...?)
+    
+        # if the item is a winning item,
+            # print some more text re: good end / bad end
+            # set the current room to "exit"
