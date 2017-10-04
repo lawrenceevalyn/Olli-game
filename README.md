@@ -17,6 +17,10 @@ shh, this game is a surprise!
 
 ## Development Log
 
+### October 1 2017
+
+Need to remember to write tests first, then write pseudocode, THEN try to write actual code -- when I follow that process it makes things work much better and makes thinking much easier.
+
 ### September 15, 2017
 
 Refactoring is so easy and fun! :O!!
