@@ -25,8 +25,7 @@ def test_items():
     assert_equal(items['the_void'], [])
 
 def test_move():
-    # set up an inventory to test moving around
-    test_items = {
+    test_items = {               # set up an inventory to test moving around
         'inv_from' : ['pencils', 'robot'],
         'inv_to' : ['broom']
         }
@@ -38,8 +37,8 @@ def test_move():
     
     move(test_items, 'pencils', 'inv_from', 'inv_to')
     
-    assert_equal(test_items['inv_from'], ['robot'])
-    assert_equal(test_items['inv_to'], ['broom', 'pencils'])
+    assert_equal(test_items['inv_from'], ['robot'])          # no teardown bc
+    assert_equal(test_items['inv_to'], ['broom', 'pencils']) # it's a test inv
 
 
 def test_clean_bathroom():
@@ -56,3 +55,5 @@ def test_clean_bathroom():
     
     move(items, 'paper towels', 'the_void', 'closet_inv')         # teardown
     move(items, 'water', 'the_void', 'bathroom_inv')
+
+def test_give():
