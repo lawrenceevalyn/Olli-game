@@ -29,7 +29,8 @@ descriptions = {
     # that inventory they're in at the time!
 
 givetext = {
-    'pencils' : "The robot already has pencils."
+    'pencils' : "The robot already has pencils.",
+    'testobject' : "You have passed the test!"
     }
 
     
@@ -42,7 +43,8 @@ items = { # inv names need to be room name + _inv (see map for room names)
     'bathroom_inv' : ['water', 'lipstick'],
     'player_inv' : ['lint', 'library card'],
     'closet_inv' : ['teddy bear', 'broom', 'paper towels'],
-    'the_void' : ['love'] # this is so I can make the water go away when player cleans
+    'robot_inv' : [],
+    'the_void' : ['love'] # this is so I can make water go away
     # also a place to store intangibles that the player can nonetheless give?
     }
 
@@ -91,9 +93,9 @@ def dropobj(room, obj_dropping):
 
 
 def useobj(room, obj_using): # right now can only use paper towels, but this is
-                          # gonna be a complicated one!
+                             # gonna be a complicated one!
+
 # use paper towels
-    
     # if they're not trying to use the towel, call the whole thing off
     if obj_using != 'paper towels':
         print "You don't have a use for " + obj_using
@@ -116,6 +118,8 @@ def useobj(room, obj_using): # right now can only use paper towels, but this is
                 print "The bathroom is clean!"
                 move(items, 'paper towels', 'player_inv', 'the_void')
                 print "You throw away the soggy paper towels."
+    
+    return room                    # why do I always return this? do I have to?
 
 
 def giveobj(room, obj_giving):
@@ -125,15 +129,25 @@ def giveobj(room, obj_giving):
     
     else:
         # check that the item is givable
-            # if it's in their inventory,
-                # move it from their inventory to the robot inventory
+        # if it's in their inventory,
+        if obj_giving in items['player_inv']:
+            # move it from their inventory to the robot inventory
+            move(items, obj_giving, 'player_inv', 'robot_inv')
                 # print the give text
-            
         
-            # if it's intangible,
-                # just print the give text
-                # (or will I need to use the void...?)
+        # if it's intangible,
+            # will I need to use the void...?
+        
+        else:
+            print "You can't give what you don't have!"
+            
+#        print obj_giving.givetext
+        
+    return room
     
         # if the item is a winning item,
             # print some more text re: good end / bad end
             # set the current room to "exit"
+            
+
+                

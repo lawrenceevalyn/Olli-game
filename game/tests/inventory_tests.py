@@ -22,7 +22,7 @@ def test_items():
     
     assert_equal(items['closet_inv'], ['teddy bear', 'broom', 'paper towels'])
     
-    assert_equal(items['the_void'], [])
+    assert_equal(items['the_void'], ['love'])
 
 def test_move():
     test_items = {               # set up an inventory to test moving around
@@ -30,12 +30,10 @@ def test_move():
         'inv_to' : ['broom']
         }
     
-    assert_equal(test_items['inv_from'], ['pencils', 'robot'])
-    assert_equal(test_items['inv_to'], ['broom'])
+    assert_equal(test_items['inv_from'], ['pencils', 'robot']) # check that it's
+    assert_equal(test_items['inv_to'], ['broom'])              # all as planned
     
-    # move stuff around!
-    
-    move(test_items, 'pencils', 'inv_from', 'inv_to')
+    move(test_items, 'pencils', 'inv_from', 'inv_to') # move stuff around!
     
     assert_equal(test_items['inv_from'], ['robot'])          # no teardown bc
     assert_equal(test_items['inv_to'], ['broom', 'pencils']) # it's a test inv
@@ -47,7 +45,9 @@ def test_clean_bathroom():
     assert 'paper towels' in items['player_inv']
     assert 'water' in items['bathroom_inv']
     assert 'paper towels' not in items['bathroom_inv']
-    parser.parse_input("use towel", bathroom)
+    
+    useobj(bathroom, 'paper towels')
+    
     assert 'paper towels' in items['the_void']
     assert 'paper towels' not in items['player_inv']
     assert 'paper towels' in items['the_void']
@@ -55,5 +55,3 @@ def test_clean_bathroom():
     
     move(items, 'paper towels', 'the_void', 'closet_inv')         # teardown
     move(items, 'water', 'the_void', 'bathroom_inv')
-
-def test_give():

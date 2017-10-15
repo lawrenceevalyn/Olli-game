@@ -200,20 +200,27 @@ def parse_input(input, room):
             output = room
         
         # if they're trying to give something,
+        if parsed_sentence.verb == ('give'):
+        
             # make sure there is someone to give it to
-                # (even if parser thinks robot is indirect object, assume it's robot)
-                # (maybe just check that they're in the entrance?)
-            # take it out of their inventory and give it to the robot!
-                # should have a separate function for robot responses
-                # (most of the time the robot will ignore/reject items?)
-            # if it's not in their inventory,
-                # check if it's a cute easter egg; if so,
-                    # return the easter egg result
-                # else,
-                    # return the error: "You can't give what you don't have!"
+            if room != entrance:
+                print "There's no one here to give that to."
+                output = room
+            
+            else:
+                obj_giving = parsed_sentence.object
+                print "giving object: " + obj_giving
+                giveobj(room, obj_giving) # giveobj is defined in inventory.py
+                
+                output = room
         
         # if they're trying to check their inventory,
             # print their inventory
+            
+        # if none of the above happened, give up in confusion
+        else:
+            print "That doesn't make sense."
+            output = room
     
     print "output: " + output.name
     return output

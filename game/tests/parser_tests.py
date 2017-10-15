@@ -72,6 +72,7 @@ def test_looking():
     # basically these tests just confirm that the player doesn't move after
     # looking at the room. I probably need more distinct tests?
 
+
 # test taking
 
 def setup_take(): # these will run before and after the tests that call them,
@@ -113,18 +114,21 @@ def test_drop():
     assert 'testobject' in items['entrance_inv']
     assert 'testobject' not in items['player_inv']
 
-    
-    # test giving
-#    result = parser.parse_input("give teddy bear to robot", entrance)
-#    assert_equal(result, exit)
-    
-#    result = parser.parse_input("give the robot the teddy bear", entrance)
-#    assert_equal(result, exit)
-    
-#    result = parser.parse_input("give robot bear", entrance)
-#    assert_equal(result, exit)
-    
-# test using objects
+
+# test giving
+
+def setup_give():
+    items["player_inv"].append("testobject")
+def teardown_give():
+    items["robot_inv"].remove("testobject")
+
+@with_setup(setup_give, teardown_give)
+def test_give():
+    assert 'testobject' in items['player_inv']
+    assert 'testobject' not in items['robot_inv']
+    parser.parse_input("give testobject to robot", entrance)
+    assert 'testobject' in items['robot_inv']
+    assert 'testobject' not in items['player_inv']
 
 # these tests should focus on the PARSER'S role in using objects -- ie, making sure the commands get interpreted correctly
 
