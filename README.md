@@ -3,8 +3,9 @@ shh, this game is a surprise!
 
 ## To Do
 
-* write tests for "give" commands
-* implement "give" commands
+* move give / take / use tests to inventory_tests, save parser_tests for testing the actual parsing of the commands (change tests to call the functions directly)
+* write more tests for all features of "give" command
+* implement givetext with give
 * implement untakable items (make a dict, add an if-check)
 * refactor tests to put inventory tests (take, drop) in inventory_tests?
 * write tests to make sure parser properly understands use commands (figure out how to use setup/teardown so they can apply to each line within a test?)
