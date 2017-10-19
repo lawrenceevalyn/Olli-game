@@ -18,6 +18,10 @@ shh, this game is a surprise!
 
 ## Development Log
 
+### October 19, 2017
+
+CSECS conference consumes all!! Olli wouldn't want this project to stress me out.
+
 ### October 1 2017
 
 Need to remember to write tests first, then write pseudocode, THEN try to write actual code -- when I follow that process it makes things work much better and makes thinking much easier.
