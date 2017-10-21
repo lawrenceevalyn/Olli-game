@@ -142,12 +142,9 @@ def giveobj(room, obj_giving):
             print "You can't give what you don't have!"
             
 #        print obj_giving.givetext
-        
-    return room
-    
+         
         # if the item is a winning item,
             # print some more text re: good end / bad end
             # set the current room to "exit"
             
-
-                
+    return room
