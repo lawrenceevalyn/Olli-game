@@ -133,10 +133,11 @@ def giveobj(room, obj_giving):
         if obj_giving in items['player_inv']:
             # move it from their inventory to the robot inventory
             move(items, obj_giving, 'player_inv', 'robot_inv')
-                # print the give text
         
         # if it's intangible,
-            # will I need to use the void...?
+        elif obj_giving in items['the_void']:
+            # don't move it (?) but do let the player use it
+            pass
         
         else:
             print "You can't give what you don't have!"
