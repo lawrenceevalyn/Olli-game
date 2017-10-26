@@ -18,6 +18,10 @@ shh, this game is a surprise!
 
 ## Development Log
 
+### October 26, 2017
+
+It's time for me to learn Javascript, so it's definitely time for this to be wrapping up!
+
 ### October 19, 2017
 
 CSECS conference consumes all!! Olli wouldn't want this project to stress me out.
