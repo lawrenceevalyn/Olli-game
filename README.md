@@ -20,7 +20,7 @@ shh, this game is a surprise!
 
 ### October 26, 2017
 
-It's time for me to learn Javascript, so it's definitely time for this to be wrapping up!
+It's time for me to learn Javascript, so it's definitely time for this to be wrapping up!    
 
 ### October 19, 2017
 
