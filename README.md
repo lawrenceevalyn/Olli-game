@@ -18,9 +18,13 @@ shh, this game is a surprise!
 
 ## Development Log
 
+### October 18, 2017
+
+Hmm.. It's time for me to wrap this up and move on to other projects that will teach me more, but it's also time for me to make reading for special fields my top priority, which means I rarely have time/brainpower to work on this properly in the evenings when my beeminders are due. I'll backburner fields tomorrow and see how far I can put forward with this.
+
 ### October 26, 2017
 
-It's time for me to learn Javascript, so it's definitely time for this to be wrapping up!    
+It's time for me to learn Javascript, so it's definitely time for this to be wrapping up!
 
 ### October 19, 2017
 
