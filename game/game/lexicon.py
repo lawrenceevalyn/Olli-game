@@ -41,7 +41,7 @@ def parse_word(word):
         return ('verb', 'go')
     elif word in ["give", "Give"]:
         return ('verb', 'give')
-    elif word in ["take", "Take"]:
+    elif word in ["take", "Take", "pick", "Pick"]:
         return ('verb', 'take')
     elif word in ["drop", "Drop", "put", "Put"]:
         return ('verb', 'drop')

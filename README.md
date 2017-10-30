@@ -3,11 +3,10 @@ shh, this game is a surprise!
 
 ## To Do
 
-* move give / take / use tests to inventory_tests, save parser_tests for testing the actual parsing of the commands (change tests to call the functions directly)
 * write more tests for all features of "give" command
 * implement givetext with give
 * implement untakable items (make a dict, add an if-check)
-* write tests to make sure parser properly understands use commands (figure out how to use setup/teardown so they can apply to each line within a test?)
+* write parser tests that test the actual parsing of the commands, refactor look and move parser tests
 * make it impossible to talk to the robot
 * implement a "good end" and a "bad end"
 * implement a "help" command to list available commands

@@ -6,6 +6,9 @@ from game.inventory import items
 
 
 def test_sentence_parser():
+    
+    # parse movement
+    
     result = parser.parse_sentence([('verb','go'), ('direction','north')])
     assert_equal(result.verb, "go")
     assert_equal(result.object, "north")
@@ -14,10 +17,51 @@ def test_sentence_parser():
     assert_equal(result.verb, "go")
     assert_equal(result.object, "north")
     
+    # parse giving
+    
     result = parser.parse_sentence(scan("give book to robot"))
     assert_equal(result.verb, "give")
     assert_equal(result.object, "book")
     assert_equal(result.indirectobj, "robot")
+    
+    result = parser.parse_sentence(scan("give book"))
+    assert_equal(result.verb, "give")
+    assert_equal(result.object, "book")
+    assert_equal(result.indirectobj, "implied indirect object") # should I take
+                                                                # out indobj?
+    # parse taking
+    
+    result = parser.parse_sentence(scan("take broom"))
+    assert_equal(result.verb, "take")
+    assert_equal(result.object, "broom")
+    assert_equal(result.indirectobj, "implied indirect object")
+    
+    result = parser.parse_sentence(scan("pick up broom"))
+    assert_equal(result.verb, "take")
+    assert_equal(result.object, "broom")
+    assert_equal(result.indirectobj, "implied indirect object")
+    
+    result = parser.parse_sentence(scan("take the broom"))
+    assert_equal(result.verb, "take")
+    assert_equal(result.object, "broom")
+    assert_equal(result.indirectobj, "implied indirect object")
+    
+    # parse dropping
+    
+    result = parser.parse_sentence(scan("drop towels"))
+    assert_equal(result.verb, "drop")
+    assert_equal(result.object, "paper towels")
+    assert_equal(result.indirectobj, "implied indirect object")
+    
+    result = parser.parse_sentence(scan("drop the paper towels"))
+    assert_equal(result.verb, "drop")
+    assert_equal(result.object, "paper towels")
+    assert_equal(result.indirectobj, "implied indirect object")
+    
+    result = parser.parse_sentence(scan("put down the paper towels"))
+    assert_equal(result.verb, "drop")
+    assert_equal(result.object, "paper towels")
+    assert_equal(result.indirectobj, "implied indirect object")
 
 
 def test_directions_parser():
@@ -48,7 +92,8 @@ def test_directions_parser():
     
     result = parser.parse_input("go west", entrance)
     assert_equal(result, bathroom)
-    
+
+
 def test_looking():
     # test looking at the room
     
@@ -71,11 +116,6 @@ def test_looking():
     assert_equal(result, entrance)
     # basically these tests just confirm that the player doesn't move after
     # looking at the room. I probably need more distinct tests?
-
-
-
-# object tests should focus on the PARSER'S role in using objects -- ie, making sure the commands get interpreted correctly
-
 
 
 def test_parsererrors():
