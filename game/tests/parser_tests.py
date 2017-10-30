@@ -73,64 +73,8 @@ def test_looking():
     # looking at the room. I probably need more distinct tests?
 
 
-# test taking
 
-def setup_take(): # these will run before and after the tests that call them,
-    items["entrance_inv"].append("testobject") # because otherwise the changes
-def teardown_take():                           # made to invs will persist thru
-    items["player_inv"].remove("testobject")   # ALL the tests, which causes
-                                               # total crazy nonsense.
-@with_setup(setup_take, teardown_take)
-def test_take():
-    assert 'testobject' in items['entrance_inv']
-    assert 'testobject' not in items['player_inv']
-    parser.parse_input("take testobject", entrance)
-    assert 'testobject' in items['player_inv']
-    assert 'testobject' not in items['entrance_inv']
-
-@with_setup(setup_take, teardown_take) # re-running same test proves that tests
-def test_retake():                     # are actually running independently!
-    assert 'testobject' in items['entrance_inv']
-    assert 'testobject' not in items['player_inv']
-    parser.parse_input("take testobject", entrance)
-    assert 'testobject' in items['player_inv']
-    assert 'testobject' not in items['entrance_inv']
-
-# need a LOT more tests to make sure player can't take untakable things!!
-
-
-# test dropping
-
-def setup_drop():                              # don't have to test dropping in
-    items["player_inv"].append("testobject")   # conjunction with taking because
-def teardown_drop():                           # setup/teardown makes them
-    items["entrance_inv"].remove("testobject") # independent now!! :D
-
-@with_setup(setup_drop, teardown_drop)
-def test_drop():
-    assert 'testobject' in items['player_inv']
-    assert 'testobject' not in items['entrance_inv']
-    parser.parse_input("drop testobject", entrance)
-    assert 'testobject' in items['entrance_inv']
-    assert 'testobject' not in items['player_inv']
-
-
-# test giving
-
-def setup_give():
-    items["player_inv"].append("testobject")
-def teardown_give():
-    items["robot_inv"].remove("testobject")
-
-@with_setup(setup_give, teardown_give)
-def test_give():
-    assert 'testobject' in items['player_inv']
-    assert 'testobject' not in items['robot_inv']
-    parser.parse_input("give testobject to robot", entrance)
-    assert 'testobject' in items['robot_inv']
-    assert 'testobject' not in items['player_inv']
-
-# these tests should focus on the PARSER'S role in using objects -- ie, making sure the commands get interpreted correctly
+# object tests should focus on the PARSER'S role in using objects -- ie, making sure the commands get interpreted correctly
 
 
 

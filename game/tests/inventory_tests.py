@@ -2,7 +2,6 @@ from nose.tools import *
 from game import inventory
 from game.inventory import *
 from game.inventory import items
-from game import parser
 
 def test_items():
     # test that the pencils have the right description
@@ -55,3 +54,68 @@ def test_clean_bathroom():
     
     move(items, 'paper towels', 'the_void', 'closet_inv')         # teardown
     move(items, 'water', 'the_void', 'bathroom_inv')
+
+# test taking
+
+def setup_take(): # these will run before and after the tests that call them,
+    items["entrance_inv"].append("testobject") # because otherwise the changes
+def teardown_take():                           # made to invs will persist thru
+    items["player_inv"].remove("testobject")   # ALL the tests, which causes
+                                               # total crazy nonsense.
+@with_setup(setup_take, teardown_take)
+def test_take():
+    assert 'testobject' in items['entrance_inv']
+    assert 'testobject' not in items['player_inv']
+    
+    takeobj(entrance, 'testobject')
+    
+    assert 'testobject' in items['player_inv']
+    assert 'testobject' not in items['entrance_inv']
+
+@with_setup(setup_take, teardown_take) # re-running same test proves that tests
+def test_retake():                     # are actually running independently!
+    assert 'testobject' in items['entrance_inv']
+    assert 'testobject' not in items['player_inv']
+    
+    takeobj(entrance, 'testobject')
+    
+    assert 'testobject' in items['player_inv']
+    assert 'testobject' not in items['entrance_inv']
+
+# need a LOT more tests to make sure player can't take untakable things!!
+
+
+# test dropping
+
+def setup_drop():
+    items["player_inv"].append("testobject")   # conjunction with taking because
+def teardown_drop():                           # setup/teardown makes them
+    items["entrance_inv"].remove("testobject") # independent now!! :D
+
+@with_setup(setup_drop, teardown_drop)
+def test_drop():
+    assert 'testobject' in items['player_inv']
+    assert 'testobject' not in items['entrance_inv']
+    
+    dropobj(entrance, 'testobject')
+    
+    assert 'testobject' in items['entrance_inv']
+    assert 'testobject' not in items['player_inv']
+
+
+# test giving
+
+def setup_give():
+    items["player_inv"].append("testobject")
+def teardown_give():
+    items["robot_inv"].remove("testobject")
+
+@with_setup(setup_give, teardown_give)
+def test_give():
+    assert 'testobject' in items['player_inv']
+    assert 'testobject' not in items['robot_inv']
+    
+    giveobj(entrance, 'testobject')
+    
+    assert 'testobject' in items['robot_inv']
+    assert 'testobject' not in items['player_inv']

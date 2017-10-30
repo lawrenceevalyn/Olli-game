@@ -7,7 +7,6 @@ shh, this game is a surprise!
 * write more tests for all features of "give" command
 * implement givetext with give
 * implement untakable items (make a dict, add an if-check)
-* refactor tests to put inventory tests (take, drop) in inventory_tests?
 * write tests to make sure parser properly understands use commands (figure out how to use setup/teardown so they can apply to each line within a test?)
 * make it impossible to talk to the robot
 * implement a "good end" and a "bad end"
