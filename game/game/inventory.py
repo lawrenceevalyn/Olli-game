@@ -48,6 +48,7 @@ items = { # inv names need to be room name + _inv (see map for room names)
     # also a place to store intangibles that the player can nonetheless give?
     }
 
+winningitems = {'bedtime story', 'lint', 'love'}
 
 # Looking at items
 
@@ -102,6 +103,7 @@ def useobj(room, obj_using): # right now can only use paper towels, but this is
                              # gonna be a complicated one!
 
 # use paper towels
+
     # if they're not trying to use the towel, call the whole thing off
     if obj_using != 'paper towels':
         print "You don't have a use for " + obj_using
@@ -135,23 +137,22 @@ def giveobj(room, obj_giving):
     
     else:
         # check that the item is givable
-        # if it's in their inventory,
-        if obj_giving in items['player_inv']:
-            # move it from their inventory to the robot inventory
-            move(items, obj_giving, 'player_inv', 'robot_inv')
-        
-        # if it's intangible,
-        elif obj_giving in items['the_void']:
-            # don't move it (?) but do let the player use it
-            pass
+        if obj_giving in items['player_inv'] or items['the_void']:
+            print "This is a givable item."
+            
+            # check what happens next to the item
+            if obj_giving not in winningitems:
+                print "The robot rejects your gift."
+            
+            else:
+                print "This is a winning item!"
+            
+            if obj_giving in givetext:
+                print givetext[obj_giving]
+            else:
+                pass
         
         else:
             print "You can't give what you don't have!"
-            
-#        print obj_giving.givetext
-         
-        # if the item is a winning item,
-            # print some more text re: good end / bad end
-            # set the current room to "exit"
             
     return room

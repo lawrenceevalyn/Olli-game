@@ -135,7 +135,7 @@ def parse_input(input, room):
         # use lexicon.py's "scan" function to get a list of pairs
         # e.g. [('verb', 'go'), ('direction', 'north')]
         parsed_wordlist = scan(input)
-        print parsed_wordlist
+#        print parsed_wordlist
         
         parsed_sentence = parse_sentence(parsed_wordlist) # parse that sucker!
         # now the wordlist is a complicated Sentence object of some kind
@@ -156,7 +156,7 @@ def parse_input(input, room):
         # parse player look commands
         
         # if the player wants to look at or examine something,
-        if parsed_sentence.verb == ('look'):
+        elif parsed_sentence.verb == ('look'):
         
             # make them look at the room they're in!
             print room.longdesc
@@ -172,17 +172,17 @@ def parse_input(input, room):
         # parse player take commands
         
         # if the player wants to take something,
-        if parsed_sentence.verb == ('take'):
+        elif parsed_sentence.verb == ('take'):
         
             # figure out what they want to take!
             obj_taking = parsed_sentence.object
             takeobj(room, obj_taking)
-            
+
             output = room
         
         
         # if they're trying to drop something,
-        if parsed_sentence.verb == ('drop'):
+        elif parsed_sentence.verb == ('drop'):
             
             # figure out what they want to drop!
             obj_dropping = parsed_sentence.object
@@ -191,7 +191,7 @@ def parse_input(input, room):
             output = room
         
         # if they're trying to use something,
-        if parsed_sentence.verb == ('use'):
+        elif parsed_sentence.verb == ('use'):
         
             # figure out what they want to use! then use it!
             obj_using = parsed_sentence.object
@@ -201,10 +201,11 @@ def parse_input(input, room):
             output = room
         
         # if they're trying to give something,
-        if parsed_sentence.verb == ('give'):
+        elif parsed_sentence.verb == ('give'):
             obj_giving = parsed_sentence.object
             print "giving object: " + obj_giving
             giveobj(room, obj_giving) # giveobj is defined in inventory.py
+
             output = room             # it checks for someone to give to
         
         # if they're trying to check their inventory,
@@ -220,5 +221,5 @@ def parse_input(input, room):
         print "Robot status: " + config.robot_status
         checkending()
         
-#   print "output: " + output.name
+#    print "output: " + output.name
     return output
