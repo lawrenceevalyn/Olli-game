@@ -3,7 +3,6 @@ shh, this game is a surprise!
 
 ## To Do
 
-* add an "exits are" text to room desc
 * implement givetext with give
 * write parser tests that test the actual parsing of the commands, refactor look and move parser tests
 * write more tests for all features of "give" command
@@ -21,6 +20,7 @@ OK! U of T coders! Let's see how close to done I can get!
 - created a 'printinv' function (handy! versatile!)
 - created config.py to hold global variables, started tracking robot_status
 - implemented good and bad ends via robot.checkending()
+- added "exits are" info
 
 ### October 18, 2017
 

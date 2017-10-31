@@ -16,19 +16,24 @@ def play(first_room):
     
     while current_room != exit:
     # the basic premise is that the player is always in a room,
-    # always sees the shortdesc of that room,
+    # always sees some info about that room,
     # and always sees a prompt for their next action
-        print current_room.shortdesc                   # TODO: add list of exits
+    
+        # show some info:
+        print current_room.shortdesc
+        listpaths(current_room)
         print "Robot status: " + config.robot_status
+        
+        # prompt response:
         player_input = raw_input("> ")
             
         # need an easy out to end the game
         if player_input in ["Q", "q", "quit"]:
             print "Goodbye"
             current_room = exit
+        
         else:
             next_room = parse_input(player_input, current_room)
-#            robot_status = checkrobot()
             current_room = next_room
             # don't have to print anything, bc parser prints
             # "output" of parse_input needs to be a room
