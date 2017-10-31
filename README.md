@@ -3,18 +3,20 @@ shh, this game is a surprise!
 
 ## To Do
 
-* write more tests for all features of "give" command
 * implement givetext with give
-* implement untakable items (make a dict, add an if-check)
-* write parser tests that test the actual parsing of the commands, refactor look and move parser tests
-* make it impossible to talk to the robot
 * implement a "good end" and a "bad end"
+* write parser tests that test the actual parsing of the commands, refactor look and move parser tests
+* write more tests for all features of "give" command
 * implement a "help" command to list available commands
-* make parser handle shortcuts gracefully?
 * write fun responses for extra things I think Olli will try
 * add lengthier room descriptions for the first time a room is entered
+* implement untakable items? (make a dict, add an if-check) -- I can do this, but is it more fun not to?
 
 ## Development Log
+
+### October 31, 2017
+
+OK! U of T coders! Let's see how close to done I can get!
 
 ### October 18, 2017
 

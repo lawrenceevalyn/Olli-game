@@ -49,6 +49,13 @@ items = { # inv names need to be room name + _inv (see map for room names)
     }
 
 
+# Looking at items
+
+def printinv(inv):
+    for i in items[inv]:
+        print descriptions[i]
+
+
 # Functions to do stuff with the items
 
 def move(dict, item, inv_from, inv_to):
@@ -67,9 +74,8 @@ def takeobj(room, obj_taking):
                 
     else: # if it's all good, put that thing in their inventory!
         move(items, obj_taking, inv_from, 'player_inv')
-        print "Player inventory now contains: "
-        for i in items['player_inv']:
-             print descriptions[i]
+        print "You now have:"
+        printinv('player_inv')
              
     return room
 

@@ -97,8 +97,15 @@ def parse_shortcuts(shortcut, room):
     # parse looking shortcuts
     if shortcut in ["l", "L", "x", "X"]:
         print room.longdesc
+        print "The room contains:"
+        printinv(room.name+'_inv')
         output = room
-
+        
+    elif shortcut in ["i", "I"]:
+        print "You have:"
+        printinv('player_inv') # defined in inventory.py
+        output = room
+    
     # parse direction shortcuts
     else:
         if shortcut in ["N", "n"]:   # instead of trying to parse implied "go"
@@ -201,18 +208,10 @@ def parse_input(input, room):
         
         # if they're trying to give something,
         if parsed_sentence.verb == ('give'):
-        
-            # make sure there is someone to give it to
-            if room != entrance:
-                print "There's no one here to give that to."
-                output = room
-            
-            else:
-                obj_giving = parsed_sentence.object
-                print "giving object: " + obj_giving
-                giveobj(room, obj_giving) # giveobj is defined in inventory.py
-                
-                output = room
+            obj_giving = parsed_sentence.object
+            print "giving object: " + obj_giving
+            giveobj(room, obj_giving) # giveobj is defined in inventory.py
+            output = room             # it checks for someone to give to
         
         # if they're trying to check their inventory,
             # print their inventory
@@ -222,40 +221,5 @@ def parse_input(input, room):
             print "That doesn't make sense."
             output = room
     
-    print "output: " + output.name
+#    print "output: " + output.name
     return output
-    
-# code from inventory.py that belongs here:
-
-# This is how I "ran" the inventory within each room before
-# How can I 'centralize' this code here?
-#
-#        elif action == "inv":
-#            print "You look at your inventory. "
-#            for i in items['player_inv']:
-#                print "You see" + descriptions[i] # prints the description of
-#            return 'front_desk'                   # the item named 'i'
-#        elif action == "take":
-#            print "What do you want to take?"
-#            item_to_take = raw_input("> ")
-#            if item_to_take in items['front_desk_inv']:
-#                move(item_to_take,'front_desk_inv','player_inv')
-#                return 'front_desk'
-#            else:
-#                print "You can't take that."
-#                return 'front_desk'
-#        elif action == "give":
-#            print "What do you want to give to the robot?"
-#            item_to_give = raw_input("> ")
-#            if item_to_give == 'bedtime story':
-#                print "The robot reads the bedtime story and falls peacefully asleep."
-#                return 'exit'
-#            elif item_to_give == 'love':
-#                print "The power of love saves the day! You and the robot live happily ever after."
-#                return 'exit'
-#            if item_to_give in items['player_inv']:
-#                move(item_to_give,'player_inv', 'front_desk_inv')
-#                return 'front_desk'
-#            else:
-#                print "You can't give that."
-#                return 'front_desk'
