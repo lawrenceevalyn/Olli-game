@@ -26,7 +26,7 @@ descriptions = {
     'testobject' : "This is a drill. Please remain calm. In a real emergency, you will be notified."
     }
     # Because I'm using dicts, these descriptions stick with the items no matter
-    # that inventory they're in at the time!
+    # what inventory they're in at the time!
 
 givetext = {
     'pencils' : "The robot already has pencils.",

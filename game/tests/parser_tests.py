@@ -5,7 +5,7 @@ from game.lexicon import scan
 from game.inventory import items
 
 
-def test_sentence_parser():
+def test_parser():
     
     # parse movement
     
@@ -80,18 +80,6 @@ def test_directions_parser():
     
     result = parser.parse_input("run south", entrance)
     assert_equal(result, stacks)
-    
-    
-    # test parsing the other directions
-    
-    result = parser.parse_input("go north", entrance)
-    assert_equal(result, exit) # this one might be weird?
-    
-    result = parser.parse_input("go east", entrance)
-    assert_equal(result, lab)
-    
-    result = parser.parse_input("go west", entrance)
-    assert_equal(result, bathroom)
 
 
 def test_looking():

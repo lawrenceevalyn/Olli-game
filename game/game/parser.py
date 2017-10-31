@@ -1,6 +1,8 @@
 from lexicon import *
 from map import *
 from inventory import *
+from robot import *
+import config
 
 class ParserError(Exception): # I guess this is here so that if there are errors
     pass                      # later, they display the error messages I wrote?
@@ -70,27 +72,16 @@ def parse_indobject(word_list):
     else:
         return ('noun', 'implied indirect object')
 
-#def parse_subject(word_list):          # why would the subject ever be anything
-#    skip(word_list, 'stop')            # but the player?
-#    next_word = peek(word_list)        # why did I implement this???
-#    
-#    if next_word == 'noun':
-#        return match(word_list, 'noun')
-#    elif next_word == 'verb':
-#        return ('noun', 'player')
-#    else:
-#        return ParserError("Expected a verb next.")
 
 def parse_sentence(word_list):
-#    subj = parse_subject(word_list)
     verb = parse_verb(word_list)
     obj = parse_object(word_list)
     ind = parse_indobject(word_list)
     
-    return Sentence(verb, obj, ind) #subj
+    return Sentence(verb, obj, ind)
 
 # this list defines the "shortcut" commands that can skip the parsing process
-shortcuts_list = ('n', 'e', 's', 'w', 'l', 'x', 'i', 'N', 'E', 'S', 'W', 'L', 'X', 'I')
+shortcuts_list = ('n', 'e', 's', 'w', 'l', 'x', 'i', 'N', 'E', 'S', 'W', 'L', 'X', 'I', 'win')
 
 def parse_shortcuts(shortcut, room):
 
@@ -104,6 +95,10 @@ def parse_shortcuts(shortcut, room):
     elif shortcut in ["i", "I"]:
         print "You have:"
         printinv('player_inv') # defined in inventory.py
+        output = room
+    
+    elif shortcut == 'win':
+        updaterobot("win")
         output = room
     
     # parse direction shortcuts
@@ -167,8 +162,7 @@ def parse_input(input, room):
             print room.longdesc
             room_inventory = room.name + "_inv"
             print "In the room you see: "
-            for i in items[room_inventory]:
-                    print descriptions[i]
+            printinv(room.name+'_inv')
             output = room
             
             # (later I need to add functionality so they can also look at items,
@@ -221,5 +215,10 @@ def parse_input(input, room):
             print "That doesn't make sense."
             output = room
     
-#    print "output: " + output.name
+    if output == exit:
+        print "You're about to leave the library!"
+        print "Robot status: " + config.robot_status
+        checkending()
+        
+#   print "output: " + output.name
     return output
