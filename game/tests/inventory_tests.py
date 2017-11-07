@@ -119,3 +119,20 @@ def test_give():
     
     assert 'testobject' in items['robot_inv']
     assert 'testobject' not in items['player_inv']
+
+def setup_give_bear():
+    items["player_inv"].append("teddy bear")
+def teardown_give():
+    items["robot_inv"].remove("teddy bear")
+
+@with_setup(setup_give_bear, teardown_give_bear)
+def test_give_bear():
+    assert 'teddy bear' in items['player_inv']
+    assert 'teddy bear' not in items['robot_inv']
+    assert config.robot_status == "sad"
+    
+    giveobj(entrance, 'testobject')
+    
+    assert 'teddy bear' in items['robot_inv']
+    assert 'teddy bear' not in items['player_inv']
+    config.robot_status == "wantsstory"

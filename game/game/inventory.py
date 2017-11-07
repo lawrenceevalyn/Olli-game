@@ -105,7 +105,7 @@ def useobj(room, obj_using): # right now can only use paper towels, but this is
 # use paper towels
 
     # if they're not trying to use the towel, call the whole thing off
-    if obj_using != 'paper towels':
+    if obj_using not in ('paper towels', 'bedtime story'):
         print "You don't have a use for " + obj_using
     # later when there are more usable items, replace this with a list
     # of usable items & check against the list
@@ -146,6 +146,10 @@ def giveobj(room, obj_giving):
             
             else:
                 print "This is a winning item!"
+                # move the item to the robot's inventory
+                    # if it was the bear, tell the player that now the robot
+                    # is ready for a bedtime story
+                    # and change robot status to "wantsstory"
             
             if obj_giving in givetext:
                 print givetext[obj_giving]
@@ -154,5 +158,6 @@ def giveobj(room, obj_giving):
         
         else:
             print "You can't give what you don't have!"
+        
             
     return room

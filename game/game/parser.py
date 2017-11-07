@@ -159,10 +159,9 @@ def parse_input(input, room):
         elif parsed_sentence.verb == ('look'):
         
             # make them look at the room they're in!
-            print room.longdesc
-            room_inventory = room.name + "_inv"
-            print "In the room you see: "
-            printinv(room.name+'_inv')
+            print room.longdesc             # refactor this into map.py
+            print "In the room you see: "   # add something to looking at the
+            printinv(room.name+'_inv')      # entrance that shows robot's inv
             output = room
             
             # (later I need to add functionality so they can also look at items,

@@ -3,7 +3,6 @@ shh, this game is a surprise!
 
 ## To Do
 
-* write more tests for all features of "give" command
 * get "give" command passing tests
 * implement a "help" command to list available commands
 * implement talking to robot
@@ -12,6 +11,12 @@ shh, this game is a surprise!
 * implement untakable items? (make a dict, add an if-check) -- I can do this, but is it more fun not to?
 
 ## Development Log
+
+### November 6, 2017
+
+Refactored parser tests -- I begin to feel like I could spend the rest of my life writing this game; as I get better at coding, I am able to percieve all the things I did stupidly the first time around, and by the time I've finished fixing those, I've learned enough new things to be better enough at coding that I see new errors... it's serving its purpose but it does feel a little endless.
+
+The goal is for the player to use "give" once (for the bear) and "use" once (with the book).. make sure to hint that, if they read the book before they give the bear, reading the book was still the right idea and they just have to do something else first
 
 ### October 31, 2017
 
