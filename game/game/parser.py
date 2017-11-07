@@ -78,7 +78,7 @@ def parse_sentence(word_list):
     obj = parse_object(word_list)
 #    ind = parse_indobject(word_list)
     
-    return Sentence(verb, obj, ind)
+    return Sentence(verb, obj) #ind
 
 # this list defines the "shortcut" commands that can skip the parsing process
 shortcuts_list = ('n', 'e', 's', 'w', 'l', 'x', 'i', 'N', 'E', 'S', 'W', 'L', 'X', 'I', 'win')
@@ -139,7 +139,7 @@ def parse_input(input, room):
         
         parsed_sentence = parse_sentence(parsed_wordlist) # parse that sucker!
         # now the wordlist is a complicated Sentence object of some kind
-        # but it has subject, verb, and object properties which are useful
+        # but it has verb and object properties which are useful
         
         
         # parse player movement commands

@@ -140,13 +140,28 @@ def giveobj(room, obj_giving):
         if obj_giving in items['player_inv'] or items['the_void']:
             print "This is a givable item."
             
+            # figure out where it is cuz we'll need to know later
+            if obj_giving in items['player_inv']:
+                print "You have this item."
+                gift_inv = 'player_inv'
+            
+            elif obj_giving in items['the_void']:
+                print "This item is intangible."
+                gift_inv = 'the_void'
+            
+            else:
+                print "This should never happen."
+            
             # check what happens next to the item
             if obj_giving not in winningitems:
                 print "The robot rejects your gift."
             
             else:
                 print "This is a winning item!"
-                # move the item to the robot's inventory
+                
+                # give the item to the robot
+                move(items, obj_giving, gift_inv, 'robot_inv')
+                
                     # if it was the bear, tell the player that now the robot
                     # is ready for a bedtime story
                     # and change robot status to "wantsstory"

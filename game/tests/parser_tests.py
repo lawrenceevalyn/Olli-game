@@ -71,41 +71,41 @@ def test_directions_parser():
     
     result = parser.parse_sentence(scan("go south"))
     assert_equal(result.verb, "go")
-    assert_equal(result.direction, "south")
+    assert_equal(result.object, "south")
     
     result = parser.parse_sentence(scan("Go South"))
     assert_equal(result.verb, "go")
-    assert_equal(result.direction, "south")
+    assert_equal(result.object, "south")
     
     result = parser.parse_sentence(scan("run south"))
     assert_equal(result.verb, "go")
-    assert_equal(result.direction, "south")
+    assert_equal(result.object, "south")
     
     result = parser.parse_sentence(scan("walk south"))
     assert_equal(result.verb, "go")
-    assert_equal(result.direction, "south")
+    assert_equal(result.object, "south")
 
 
 def test_looking():
     # test looking at the room
     
-    result = parser.parse_input("look at room", entrance)
+    result = parser.parse_sentence(scan("look at room"))
     assert_equal(result.verb, "look")
     assert_equal(result.object, "room")
     
-    result = parser.parse_input("look", entrance)
+    result = parser.parse_sentence(scan("look"))
     assert_equal(result.verb, "look")
     assert_equal(result.object, "implied object")
     
-    result = parser.parse_input("look around", entrance)
+    result = parser.parse_sentence(scan("look around"))
     assert_equal(result.verb, "look")
     assert_equal(result.object, "implied object")
     
-    result = parser.parse_input("look at stacks", entrance)
+    result = parser.parse_sentence(scan("look at stacks"))
     assert_equal(result.verb, "look")
     assert_equal(result.object, "room")
     
-    result = parser.parse_input("examine room", entrance)
+    result = parser.parse_sentence(scan("examine room"))
     assert_equal(result.verb, "look")
     assert_equal(result.object, "room")
 
