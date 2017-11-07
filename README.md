@@ -3,12 +3,15 @@ shh, this game is a surprise!
 
 ## To Do
 
-* get "give" command passing tests
-* implement a "help" command to list available commands
+* implement a "help" shortcut command to list available commands
+* put teddy bear with childrens' books, add nightlight to supply closet
 * implement talking to robot
 * write fun responses for extra things I think Olli will try
 * add lengthier room descriptions for the first time a room is entered
-* implement untakable items? (make a dict, add an if-check) -- I can do this, but is it more fun not to?
+* write a LOT of givetext
+* add more items to find/give to robot?
+* add another set of things that can be used together??
+* write game-opening text
 
 ## Development Log
 
@@ -17,6 +20,10 @@ shh, this game is a surprise!
 Refactored parser tests -- I begin to feel like I could spend the rest of my life writing this game; as I get better at coding, I am able to percieve all the things I did stupidly the first time around, and by the time I've finished fixing those, I've learned enough new things to be better enough at coding that I see new errors... it's serving its purpose but it does feel a little endless.
 
 The goal is for the player to use "give" once (for the bear) and "use" once (with the book).. make sure to hint that, if they read the book before they give the bear, reading the book was still the right idea and they just have to do something else first
+
+OR: Just have to give the robot one thing, and then it is ready for its bedtime story..?
+
+As the robot falls asleep, all the library lights turn off too, and through the glow the player see the "exit" sign. -- a "soft" signal that the game is over while still letting the player mess around afterward.
 
 ### October 31, 2017
 

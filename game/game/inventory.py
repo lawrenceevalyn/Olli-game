@@ -160,7 +160,7 @@ def giveobj(room, obj_giving):
             
             else:
                 print "This is a winning item!"
-                print "Moving " + obj_giving + " from " + gift_inv + "to robot_inv."
+                print "Moving " + obj_giving + " from " + gift_inv
                 
                 # give the item to the robot
                 move(items, obj_giving, gift_inv, 'robot_inv')
