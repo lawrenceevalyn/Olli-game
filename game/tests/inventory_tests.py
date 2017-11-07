@@ -2,6 +2,8 @@ from nose.tools import *
 from game import inventory
 from game.inventory import *
 from game.inventory import items
+from game import config
+from game import robot
 
 def test_items():
     # test that the pencils have the right description
@@ -107,8 +109,10 @@ def test_drop():
 
 def setup_give():
     items["player_inv"].append("testobject")
+    updaterobot("sad")
 def teardown_give():
     items["robot_inv"].remove("testobject")
+    updaterobot("sad")
 
 @with_setup(setup_give, teardown_give)
 def test_give():
@@ -122,8 +126,10 @@ def test_give():
 
 def setup_give_bear():
     items["player_inv"].append("teddy bear")
-def teardown_give():
+    updaterobot("sad")
+def teardown_give_bear():
     items["robot_inv"].remove("teddy bear")
+    updaterobot("sad")
 
 @with_setup(setup_give_bear, teardown_give_bear)
 def test_give_bear():
@@ -131,8 +137,8 @@ def test_give_bear():
     assert 'teddy bear' not in items['robot_inv']
     assert config.robot_status == "sad"
     
-    giveobj(entrance, 'testobject')
+    giveobj(entrance, 'teddy bear')
     
     assert 'teddy bear' in items['robot_inv']
     assert 'teddy bear' not in items['player_inv']
-    config.robot_status == "wantsstory"
+    assert config.robot_status == "wantsstory"

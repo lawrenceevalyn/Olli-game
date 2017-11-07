@@ -1,4 +1,6 @@
 from map import *
+import config
+from robot import *
 
 # All the items in the game, and the game's name for them
 
@@ -48,7 +50,7 @@ items = { # inv names need to be room name + _inv (see map for room names)
     # also a place to store intangibles that the player can nonetheless give?
     }
 
-winningitems = {'bedtime story', 'lint', 'love'}
+winningitems = {'teddy bear', 'love', 'testobject'}
 
 # Looking at items
 
@@ -158,13 +160,13 @@ def giveobj(room, obj_giving):
             
             else:
                 print "This is a winning item!"
+                print "Moving " + obj_giving + " from " + gift_inv + "to robot_inv."
                 
                 # give the item to the robot
                 move(items, obj_giving, gift_inv, 'robot_inv')
                 
-                    # if it was the bear, tell the player that now the robot
-                    # is ready for a bedtime story
-                    # and change robot status to "wantsstory"
+                # once the robot has gotten one comfort item, it is ready
+                updaterobot("wantsstory")         # for its bedtime story
             
             if obj_giving in givetext:
                 print givetext[obj_giving]
