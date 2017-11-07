@@ -51,7 +51,7 @@ def parse_word(word):
         return ('verb', 'use')
 
 # parse the nouns
-    elif word in ["room", "Room"]:
+    elif word in ["room", "Room", "stacks", "lab", "bathroom"]:
         return ('noun', 'room')
     elif word in ["pencils", "Pencils", "pencil", "Pencil"]:
         return ('noun', 'pencils')
@@ -93,26 +93,14 @@ def parse_word(word):
         return ('noun', 'love')
     
 # parse the stopwords
-    elif word in ["the", "The"]:
-        return ('stop', 'the')
-    elif word in ["in", "In"]:
-        return ('stop', 'in')
-    elif word in ["of", "Of"]:
-        return ('stop', 'of')
-    elif word in ["at", "At"]:
-        return ('stop', 'at')
-    elif word in ['around', 'Around']:
-        return ('stop', 'around')
+    elif word in ["the", "The", "a", "A", "an", "An"]:
+        return ('stop', 'article')
+    elif word in ["in", "In","of", "Of","at", "At",'around', 'Around',"to", "To","down", "Down","back", "Back","up", "Up"]:
+        return ('stop', 'preposition')
     elif word in ["barcode", "Barcode",]: # "stop" adjectives too
         return ('stop', 'barcode')        # since I won't parse them
     elif word in ["library", "Library"]:
         return ('stop', 'library')
-    elif word in ["to", "To"]:
-        return ('stop', 'to')
-    elif word in ["down", "Down"]:
-        return ('stop', 'down')
-    elif word in ["back", "Back"]:
-        return ('stop', 'back')
 
 # check if it's a number, and if not, give up
     else:

@@ -3,9 +3,10 @@ shh, this game is a surprise!
 
 ## To Do
 
-* write parser tests that test the actual parsing of the commands, refactor look and move parser tests
 * write more tests for all features of "give" command
+* get "give" command passing tests
 * implement a "help" command to list available commands
+* implement talking to robot
 * write fun responses for extra things I think Olli will try
 * add lengthier room descriptions for the first time a room is entered
 * implement untakable items? (make a dict, add an if-check) -- I can do this, but is it more fun not to?
@@ -21,6 +22,7 @@ OK! U of T coders! Let's see how close to done I can get!
 - implemented good and bad ends via robot.checkending()
 - added "exits are" info
 - refactored giveobj, added givetext!
+- fixed an extremely stupid problem where I was using a bunch of "if"s instead of "elseifs" and thus making my parser go subtly wacky
 
 
 ### October 18, 2017

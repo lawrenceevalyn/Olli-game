@@ -35,12 +35,12 @@ def test_verbs():
                           ('verb', 'give')])
 
 def test_stops():
-    assert_equal(lexicon.scan("the"), [('stop', 'the')])
+    assert_equal(lexicon.scan("the"), [('stop', 'article')])
     
     result = lexicon.scan("the in of")
-    assert_equal(result, [('stop', 'the'),
-                          ('stop', 'in'),
-                          ('stop', 'of')])
+    assert_equal(result, [('stop', 'article'),
+                          ('stop', 'preposition'),
+                          ('stop', 'preposition')])
 
 #def test_nouns():
 #    assert_equal(lexicon.scan("robot"), [('noun', 'robot')])
