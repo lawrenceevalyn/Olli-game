@@ -43,5 +43,7 @@ def play(first_room):
 
 # hey! let's run the game now!
 
-print "Welcome to the game!"
+print "Welcome to Lawrence's 'I want to know how to use python' game!"
+print ""
+print "You have been working late at the library, and suddenly realise you're the last one there."
 play(entrance)
