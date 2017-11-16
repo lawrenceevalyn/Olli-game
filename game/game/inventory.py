@@ -32,7 +32,9 @@ descriptions = {
 
 givetext = {
     'pencils' : "The robot already has pencils.",
-    'testobject' : "You have passed the test!"
+    'testobject' : "You have passed the test!",
+    'hug' : "You embrace the robot, and it makes a happy noise."
+    'love' : "The power of love saves the day."
     }
 
     
