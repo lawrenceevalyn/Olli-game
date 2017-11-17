@@ -15,6 +15,10 @@ shh, this game is a surprise!
 
 ## Development Log
 
+### November 16, 2017
+
+Olli would want me to sleep.
+
 ### November 6, 2017
 
 Refactored parser tests -- I begin to feel like I could spend the rest of my life writing this game; as I get better at coding, I am able to percieve all the things I did stupidly the first time around, and by the time I've finished fixing those, I've learned enough new things to be better enough at coding that I see new errors... it's serving its purpose but it does feel a little endless.
