@@ -31,10 +31,12 @@ descriptions = {
     # what inventory they're in at the time!
 
 givetext = {
-    'pencils' : "The robot already has pencils.",
+    'pencils' : "You hold out the pencils you just took from the robot's own desk.",
     'testobject' : "You have passed the test!",
-    'hug' : "You embrace the robot, and it makes a happy noise."
-    'love' : "The power of love saves the day."
+    'hug' : "You embrace the robot, and it makes a happy noise.",
+    'love' : "The power of love saves the day.",
+    'lint' : "You reach deep into your pocket and offer the robot the bit of lint you find there.",
+    'teddy bear' : "You hold out the teddy bear."
     }
 
     
