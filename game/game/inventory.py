@@ -35,6 +35,7 @@ givetext = {
     'testobject' : "You have passed the test!",
     'hug' : "You embrace the robot, and it makes a happy noise.",
     'love' : "The power of love saves the day.",
+    'friendship' : "The power of friendship saves the day.",
     'lint' : "You reach deep into your pocket and offer the robot the bit of lint you find there.",
     'teddy bear' : "You hold out the teddy bear."
     }
@@ -50,8 +51,8 @@ items = { # inv names need to be room name + _inv (see map for room names)
     'player_inv' : ['lint', 'library card'],
     'closet_inv' : ['teddy bear', 'broom', 'paper towels'],
     'robot_inv' : [],
-    'the_void' : ['love'] # this is so I can make water go away
-    # also a place to store intangibles that the player can nonetheless give?
+    'the_void' : ['love', 'friendship'] # this is so I can make water go away
+    # also a place to store intangibles that the player can nonetheless give
     }
 
 winningitems = {'teddy bear', 'love', 'testobject'}
