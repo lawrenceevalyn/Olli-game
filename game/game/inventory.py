@@ -38,6 +38,7 @@ givetext = {
     'friendship' : "The power of friendship saves the day.",
     'lint' : "You reach deep into your pocket and offer the robot the bit of lint you find there.",
     'teddy bear' : "You hold out the teddy bear. The robot chimes happily in recognition, and reaches out for it."
+    'bedtime story' : "You hold out the book with the bedtime story, but the robot just looks at it sadly. Maybe you should read it to them?"
     }
 
     
@@ -55,7 +56,7 @@ items = { # inv names need to be room name + _inv (see map for room names)
     # also a place to store intangibles that the player can nonetheless give
     }
 
-winningitems = {'teddy bear', 'love', 'testobject'}
+winningitems = {'teddy bear', 'love', 'friendship', 'testobject'}
 
 # Looking at items
 
@@ -119,20 +120,36 @@ def useobj(room, obj_using): # right now can only use paper towels, but this is
             
     # if they are using the towel, make sure there's water around to use on
     else:
-        if room != bathroom: # make sure they're in the bathroom
-            print "There's no use for paper towels in this room."
+        # time to proceed with using the items!
         
-        else: # then make sure the bathroom is wet
-            if 'water' not in items['bathroom_inv']:
-                print "The bathroom is already clean!"
+        # paper towel track
+        if obj_using == 'paper towels':
+            if room != bathroom: # make sure they're in the bathroom
+                print "There's no use for paper towels in this room."
+        
+            else: # then make sure the bathroom is wet
+                if 'water' not in items['bathroom_inv']:
+                    print "The bathroom is already clean!"
             
-            else: # if it's all good, do some cleaning!
-                print "Using paper towels in the bathroom..."
-                # move water and paper towels to the void
-                move(items, 'water', 'bathroom_inv', 'the_void')
-                print "The bathroom is clean!"
-                move(items, 'paper towels', 'player_inv', 'the_void')
-                print "You throw away the soggy paper towels."
+                else: # if it's all good, do some cleaning!
+                    print "Using paper towels in the bathroom..."
+                    # move water and paper towels to the void
+                    move(items, 'water', 'bathroom_inv', 'the_void')
+                    print "The bathroom is clean!"
+                    move(items, 'paper towels', 'player_inv', 'the_void')
+                    print "You throw away the soggy paper towels."
+        
+        elif obj_using == 'bedtime story':
+            pass
+            # check that the story is usable
+            # check whether the robot is ready for a story
+                # if it's still stressed out,
+                # indicate that it needs a comfort object
+            # read to the robot
+            # you win!
+            
+        else:
+            print "This should never happen."
     
     return room                    # why do I always return this? do I have to?
 
@@ -169,12 +186,14 @@ def giveobj(room, obj_giving):
                 print "The robot rejects your gift."
             
             else:
-                print "This is a winning item!"
+                print "This is a comforting item!"
                 print "Moving " + obj_giving + " from " + gift_inv
                 
                 # give the item to the robot
                 move(items, obj_giving, gift_inv, 'robot_inv')
                 
+                print "The robot seems much calmer now."
+                print "Maybe it is ready to shut down?"
                 # once the robot has gotten one comfort item, it is ready
                 updaterobot("wantsstory")         # for its bedtime story
             
