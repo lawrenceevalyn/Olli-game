@@ -37,7 +37,7 @@ givetext = {
     'love' : "The power of love saves the day.",
     'friendship' : "The power of friendship saves the day.",
     'lint' : "You reach deep into your pocket and offer the robot the bit of lint you find there.",
-    'teddy bear' : "You hold out the teddy bear."
+    'teddy bear' : "You hold out the teddy bear. The robot chimes happily in recognition, and reaches out for it."
     }
 
     
@@ -45,11 +45,11 @@ givetext = {
 
 items = { # inv names need to be room name + _inv (see map for room names)
     'entrance_inv' : ['robot', 'door', 'pencils', 'scanner'],
-    'stacks_inv' : ['bedtime story', 'fairytales', 'rhymes', 'encyclopedia'],
+    'stacks_inv' : ['bedtime story', 'fairytales', 'rhymes', 'encyclopedia', 'teddy bear'],
     'lab_inv' : ['USB stick', 'cable', 'mousepads (36)', 'trash can'],
     'bathroom_inv' : ['water', 'lipstick'],
     'player_inv' : ['lint', 'library card'],
-    'closet_inv' : ['teddy bear', 'broom', 'paper towels'],
+    'closet_inv' : ['closet item', 'broom', 'paper towels'],
     'robot_inv' : [],
     'the_void' : ['love', 'friendship'] # this is so I can make water go away
     # also a place to store intangibles that the player can nonetheless give
@@ -158,6 +158,11 @@ def giveobj(room, obj_giving):
             
             else:
                 print "This should never happen."
+            
+            if obj_giving in givetext:
+                print givetext[obj_giving]
+            else:
+                pass
             
             # check what happens next to the item
             if obj_giving not in winningitems:
