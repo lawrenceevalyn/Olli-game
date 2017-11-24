@@ -140,8 +140,11 @@ def useobj(room, obj_using): # right now can only use paper towels, but this is
                     print "You throw away the soggy paper towels."
         
         elif obj_using == 'bedtime story':
-            pass
             # check that the story is usable
+            if robot_status != 'wantsstory':
+                print "The robot doesn't seem able to focus on the story."
+                print "Maybe it needs something to calm down first?"
+            
             # check whether the robot is ready for a story
                 # if it's still stressed out,
                 # indicate that it needs a comfort object
