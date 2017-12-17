@@ -17,7 +17,7 @@ shh, this game is a surprise!
 
 ### December 17, 2017
 
-Whoooops I forgot about this and forgot that beeminder was gonna make me start working on it again........ but Olli would want me to enjoy my Actual Vacation.
+Whoooops I forgot about this and forgot that beeminder was gonna make me start working on it again........ but Olli would want me to enjoy my Actual Vacation. Even if that means faking two commits (whoops indeed!)
 
 ### November 16, 2017
 
