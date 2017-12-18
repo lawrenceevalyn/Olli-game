@@ -150,8 +150,11 @@ def useobj(room, obj_using): # right now can only use paper towels, but this is
                 print "You read the bedtime story to the robot."
                 print "Its lights slowly dim as it relaxes into the story."
                 print "Finally, the robot goes to sleep."
+                
+                updaterobot("sleep") # set the robot status to sleep
             
-            # you win!
+                # you win!
+                print "If you want to leave the library now, you can."
             
         else:
             print "This should never happen."

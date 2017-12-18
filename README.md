@@ -5,7 +5,7 @@ shh, this game is a surprise!
 
 * implement a "help" shortcut command to list available commands
 * put teddy bear with childrens' books, add nightlight to supply closet
-* implement talking to robot
+* add text to make robot non-interactable
 * write fun responses for extra things I think Olli will try
 * add lengthier room descriptions for the first time a room is entered
 * write a LOT of givetext
@@ -14,6 +14,10 @@ shh, this game is a surprise!
 * write game-opening text
 
 ## Development Log
+
+### December 18, 2017
+
+Do I want to add hints about cleaning the bathroom? Other "unfinished business"?
 
 ### December 17, 2017
 
