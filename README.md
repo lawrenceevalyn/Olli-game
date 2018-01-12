@@ -15,6 +15,10 @@ shh, this game is a surprise!
 
 ## Development Log
 
+### January 12, 2018
+
+I've definitely hit the stage where I've stopped getting useful coding practice out of this project-- I should see what it looks like in a browser and see whether it is "done enough" to give to Olli as-is.
+
 ### December 18, 2017
 
 Do I want to add hints about cleaning the bathroom? Other "unfinished business"?
