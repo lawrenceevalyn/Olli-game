@@ -1,5 +1,3 @@
-from sys import exit
-
 # define how rooms work
 
 class Room(object):

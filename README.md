@@ -15,6 +15,12 @@ shh, this game is a surprise!
 
 ## Development Log
 
+### January 13, 2018
+
+I moved the code to https://trinket.io/python/d2db979527 but I am getting a slightly impenetrable error... it doesn't seem able to import properly between my various bits of code.
+
+Do I need to shove them all together in one monstrous, hideous document??
+
 ### January 12, 2018
 
 I've definitely hit the stage where I've stopped getting useful coding practice out of this project-- I should see what it looks like in a browser and see whether it is "done enough" to give to Olli as-is.
