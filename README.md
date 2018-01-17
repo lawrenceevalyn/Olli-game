@@ -15,6 +15,10 @@ shh, this game is a surprise!
 
 ## Development Log
 
+### January 16, 2018
+
+Do I even need to give this game to Olli, or otherwise "finish" it? Gifting it was never *really* the reason I was working on it...
+
 ### January 13, 2018
 
 I moved the code to https://trinket.io/python/d2db979527 but I am getting a slightly impenetrable error... it doesn't seem able to import properly between my various bits of code.
