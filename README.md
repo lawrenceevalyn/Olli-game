@@ -6,11 +6,7 @@ shh, this game is a surprise!
 * implement a "help" shortcut command to list available commands
 * put teddy bear with childrens' books, add nightlight to supply closet
 * add text to make robot non-interactable
-* write fun responses for extra things I think Olli will try
-* add lengthier room descriptions for the first time a room is entered
-* write a LOT of givetext
-* add more items to find/give to robot?
-* add another set of things that can be used together??
+* write enough of givetext
 * write game-opening text
 
 ## Development Log
