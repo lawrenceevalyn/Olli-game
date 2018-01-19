@@ -15,6 +15,10 @@ shh, this game is a surprise!
 
 ## Development Log
 
+### January 18, 2018
+
+I do think Olli would get a real kick out of seeing what I have (though I'd probably want to take out some of these entries from after the project is dead). But it's hard to prioritize it when I feel overwhelmed by everything else.
+
 ### January 16, 2018
 
 Do I even need to give this game to Olli, or otherwise "finish" it? Gifting it was never *really* the reason I was working on it...
