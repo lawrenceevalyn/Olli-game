@@ -11,6 +11,10 @@ shh, this game is a surprise!
 
 ## Development Log
 
+### January 26, 2018
+
+Could I set up the game in a jupyter notebook? It would be handy to know how to use jupyter...
+
 ### January 18, 2018
 
 I do think Olli would get a real kick out of seeing what I have (though I'd probably want to take out some of these entries from after the project is dead). But it's hard to prioritize it when I feel overwhelmed by everything else.
